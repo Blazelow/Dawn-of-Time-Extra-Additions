@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:spruce_fence"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:spruce_baluster",
+    "count": 3
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:acacia_planks"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:acacia_foundation",
+    "count": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:cherry_planks"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cherry_tall_shutters",
+    "count": 6
+  }
+}

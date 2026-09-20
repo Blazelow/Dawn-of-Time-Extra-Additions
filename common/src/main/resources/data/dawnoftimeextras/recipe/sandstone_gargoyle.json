@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "Iio"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:sandstone_bricks_masonry"
+    },
+    "i": {
+      "item": "dawnoftimeextras:sandstone_bricks_masonry_slab"
+    },
+    "o": {
+      "item": "dawnoftimeextras:sandstone_bricks_masonry_edge"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:sandstone_gargoyle",
+    "count": 1
+  }
+}

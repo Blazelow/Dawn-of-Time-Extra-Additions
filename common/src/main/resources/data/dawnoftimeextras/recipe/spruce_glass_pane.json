@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:spruce_planks"
+    },
+    "I": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:spruce_glass_pane",
+    "count": 16
+  }
+}

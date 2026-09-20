@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:birch_planks"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:birch_boards",
+    "count": 6
+  }
+}

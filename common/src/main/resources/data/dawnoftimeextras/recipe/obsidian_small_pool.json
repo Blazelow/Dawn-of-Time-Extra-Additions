@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:obsidian_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:obsidian_small_pool",
+    "count": 6
+  }
+}

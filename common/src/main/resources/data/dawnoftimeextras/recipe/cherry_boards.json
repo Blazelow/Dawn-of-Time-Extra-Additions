@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:cherry_planks"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cherry_boards",
+    "count": 6
+  }
+}

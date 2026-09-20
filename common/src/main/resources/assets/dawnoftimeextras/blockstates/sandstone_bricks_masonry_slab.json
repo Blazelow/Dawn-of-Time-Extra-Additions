@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "dawnoftimeextras:block/sandstone_bricks_masonry_slab_bottom" },
+        "type=top": { "model": "dawnoftimeextras:block/sandstone_bricks_masonry_slab_top" },
+        "type=double": { "model": "dawnoftimeextras:block/sandstone_bricks_masonry" }
+    }
+}

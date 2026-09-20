@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "Iio"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:tuff_bricks_masonry"
+    },
+    "i": {
+      "item": "dawnoftimeextras:tuff_bricks_masonry_slab"
+    },
+    "o": {
+      "item": "dawnoftimeextras:tuff_bricks_masonry_edge"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:tuff_gargoyle",
+    "count": 1
+  }
+}

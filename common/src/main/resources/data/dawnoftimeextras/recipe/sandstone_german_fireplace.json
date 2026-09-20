@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    "IoI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:sandstone_bricks"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:sandstone_german_fireplace",
+    "count": 1
+  }
+}

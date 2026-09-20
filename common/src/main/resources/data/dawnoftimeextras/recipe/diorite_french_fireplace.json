@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    " o ",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:polished_diorite"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:diorite_french_fireplace",
+    "count": 1
+  }
+}

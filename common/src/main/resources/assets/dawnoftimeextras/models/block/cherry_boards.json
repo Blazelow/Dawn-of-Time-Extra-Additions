@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "dawnoftimeextras:block/cherry_boards",
+        "side": "dawnoftimeextras:block/cherry_boards"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:end_stone_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:end_stone_small_pool",
+    "count": 6
+  }
+}

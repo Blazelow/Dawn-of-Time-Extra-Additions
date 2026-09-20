@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:acacia_fence"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:acacia_baluster",
+    "count": 3
+  }
+}

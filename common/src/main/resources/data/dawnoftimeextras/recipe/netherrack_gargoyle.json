@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "Iio"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:netherrack_bricks_masonry"
+    },
+    "i": {
+      "item": "dawnoftimeextras:netherrack_bricks_masonry_slab"
+    },
+    "o": {
+      "item": "dawnoftimeextras:netherrack_bricks_masonry_edge"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherrack_gargoyle",
+    "count": 1
+  }
+}

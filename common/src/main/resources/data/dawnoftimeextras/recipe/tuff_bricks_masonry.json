@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:tuff_bricks"
+    },
+    "i": {
+      "item": "minecraft:tuff"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:tuff_bricks_masonry",
+    "count": 9
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:warped_fence"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:warped_baluster",
+    "count": 3
+  }
+}

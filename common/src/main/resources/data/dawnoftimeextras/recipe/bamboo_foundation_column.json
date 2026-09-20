@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "i": {
+      "item": "minecraft:bamboo_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:bamboo_foundation_column",
+    "count": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:purpur_block"
+    },
+    "i": {
+      "item": "minecraft:purpur_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purpur_crenelation",
+    "count": 4
+  }
+}

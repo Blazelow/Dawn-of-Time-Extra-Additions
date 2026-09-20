@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I  ",
+    "II ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:charred_spruce_boards"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:charred_spruce_boards_stairs",
+    "count": 6
+  }
+}

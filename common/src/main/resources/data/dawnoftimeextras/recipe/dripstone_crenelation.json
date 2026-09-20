@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:dripstone_block"
+    },
+    "i": {
+      "item": "dotbv:dripstone_block_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dripstone_crenelation",
+    "count": 4
+  }
+}

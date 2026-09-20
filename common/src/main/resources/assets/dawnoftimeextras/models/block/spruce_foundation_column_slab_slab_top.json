@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab_top",
+  "textures": {
+    "bottom": "dawnoftimeextras:block/spruce_foundation_column_top",
+    "top": "dawnoftimeextras:block/spruce_foundation_column_top",
+    "side": "dawnoftimeextras:block/spruce_foundation_column"
+  }
+}

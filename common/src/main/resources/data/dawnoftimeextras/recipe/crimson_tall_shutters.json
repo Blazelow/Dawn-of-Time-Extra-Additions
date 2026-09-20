@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:crimson_planks"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:crimson_tall_shutters",
+    "count": 6
+  }
+}

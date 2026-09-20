@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:obsidian"
+    },
+    "i": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:obsidian_bricks_masonry",
+    "count": 9
+  }
+}

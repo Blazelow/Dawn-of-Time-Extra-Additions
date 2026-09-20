@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dawnoftimeextras:block/cherry_foundation_column_slab_slab_bottom"
+    },
+    "type=top": {
+      "model": "dawnoftimeextras:block/cherry_foundation_column_slab_slab_top"
+    },
+    "type=double": {
+      "model": "dawnoftimeextras:block/cherry_foundation_column"
+    }
+  }
+}

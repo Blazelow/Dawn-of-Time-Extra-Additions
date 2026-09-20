@@ -1,0 +1,8 @@
+{
+	"parent": "dawnoftimebuilder:block/general/plate_inner",
+	"textures": {
+		"side": "dawnoftimeextras:block/bamboo_boards",
+		"top": "dawnoftimeextras:block/bamboo_boards",
+		"frieze": "dawnoftimeextras:block/bamboo_boards"
+	}
+}

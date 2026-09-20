@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    "IoI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:calcite"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:calcite_german_fireplace",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "i": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:warped_foundation_column",
+    "count": 6
+  }
+}

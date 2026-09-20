@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:end_stone_bricks"
+    },
+    "i": {
+      "item": "minecraft:end_stone_brick_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:end_stone_crenelation",
+    "count": 4
+  }
+}

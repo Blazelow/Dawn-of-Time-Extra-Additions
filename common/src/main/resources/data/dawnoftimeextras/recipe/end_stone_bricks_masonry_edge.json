@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:end_stone_bricks_masonry_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:end_stone_bricks_masonry_edge",
+    "count": 6
+  }
+}

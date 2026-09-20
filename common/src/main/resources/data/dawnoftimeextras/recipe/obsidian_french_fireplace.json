@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    " o ",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:obsidian"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:obsidian_french_fireplace",
+    "count": 1
+  }
+}

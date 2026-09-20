@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "dawnoftimeextras:block/warped_foundation_column_top",
+    "top": "dawnoftimeextras:block/warped_foundation_column_top",
+    "side": "dawnoftimeextras:block/warped_foundation_column"
+  }
+}

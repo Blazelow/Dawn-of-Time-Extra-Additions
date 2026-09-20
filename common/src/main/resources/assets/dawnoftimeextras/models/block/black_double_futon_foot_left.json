@@ -1,0 +1,59 @@
+{
+  "textures": {
+    "0": "dawnoftimeextras:block/black_double_futon_left",
+    "particle": "dawnoftimeextras:block/black_double_futon_left"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        4,
+        16
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            8,
+            0,
+            16,
+            2
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            16,
+            2
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            16,
+            16
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "rotation": 180,
+          "texture": "#0"
+        }
+      }
+    }
+  ]
+}

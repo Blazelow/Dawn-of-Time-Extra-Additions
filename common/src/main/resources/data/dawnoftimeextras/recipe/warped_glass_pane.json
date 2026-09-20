@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:warped_planks"
+    },
+    "I": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:warped_glass_pane",
+    "count": 16
+  }
+}

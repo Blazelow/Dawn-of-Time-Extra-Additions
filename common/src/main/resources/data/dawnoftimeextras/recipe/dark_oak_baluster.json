@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:dark_oak_fence"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_oak_baluster",
+    "count": 3
+  }
+}

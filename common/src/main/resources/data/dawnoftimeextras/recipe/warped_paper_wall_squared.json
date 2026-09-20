@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "IiI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:paper"
+    },
+    "i": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:warped_paper_wall_squared",
+    "count": 4
+  }
+}

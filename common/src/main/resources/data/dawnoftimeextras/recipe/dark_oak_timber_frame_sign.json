@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ppp",
+    "ppp",
+    " s "
+  ],
+  "key": {
+    "p": {
+      "item": "dawnoftimeextras:dark_oak_timber_frame"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_oak_timber_frame_sign",
+    "count": 3
+  }
+}

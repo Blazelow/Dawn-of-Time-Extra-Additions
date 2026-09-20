@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:prismarine_bricks"
+    },
+    "i": {
+      "item": "minecraft:dark_prismarine"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:prismarine_bricks_masonry",
+    "count": 9
+  }
+}

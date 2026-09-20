@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:purpur_block"
+    },
+    "i": {
+      "item": "minecraft:purpur_pillar"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purpur_bricks_masonry",
+    "count": 9
+  }
+}

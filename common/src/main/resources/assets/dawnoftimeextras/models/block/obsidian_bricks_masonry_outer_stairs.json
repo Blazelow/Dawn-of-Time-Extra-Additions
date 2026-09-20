@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "dawnoftimeextras:block/obsidian_bricks_masonry",
+    "top": "dawnoftimeextras:block/obsidian_bricks_masonry",
+    "side": "dawnoftimeextras:block/obsidian_bricks_masonry"
+  }
+}

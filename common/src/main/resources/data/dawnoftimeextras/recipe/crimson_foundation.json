@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:crimson_planks"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:crimson_foundation",
+    "count": 6
+  }
+}

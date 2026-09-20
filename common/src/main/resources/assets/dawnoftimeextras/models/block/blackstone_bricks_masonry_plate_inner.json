@@ -1,0 +1,8 @@
+{
+  "parent": "dawnoftimeextras:block/general/plate_inner",
+  "textures": {
+    "side": "dawnoftimeextras:block/blackstone_bricks_masonry",
+    "top": "dawnoftimeextras:block/blackstone_bricks_masonry",
+    "frieze": "dawnoftimeextras:block/blackstone_bricks_masonry"
+  }
+}

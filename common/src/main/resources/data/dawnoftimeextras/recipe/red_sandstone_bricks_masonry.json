@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:red_sandstone"
+    },
+    "i": {
+      "item": "minecraft:smooth_red_sandstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_sandstone_bricks_masonry",
+    "count": 9
+  }
+}

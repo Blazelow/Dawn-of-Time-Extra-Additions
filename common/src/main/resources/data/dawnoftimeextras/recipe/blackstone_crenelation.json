@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:blackstone"
+    },
+    "i": {
+      "item": "minecraft:blackstone_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blackstone_crenelation",
+    "count": 4
+  }
+}

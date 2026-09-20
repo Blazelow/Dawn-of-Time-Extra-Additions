@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "iIi",
+    "IIi"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimeextras:orange_painted_stone"
+    },
+    "I": {
+      "item": "dawnoftimeextras:brown_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:brown_painted_orange_wave",
+    "count": 6
+  }
+}

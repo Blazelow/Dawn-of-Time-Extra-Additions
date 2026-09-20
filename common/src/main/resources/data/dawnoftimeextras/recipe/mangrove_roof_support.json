@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:mangrove_roof_support",
+    "count": 1
+  }
+}

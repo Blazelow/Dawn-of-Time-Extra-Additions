@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    "IoI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:purpur_block"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purpur_german_fireplace",
+    "count": 1
+  }
+}

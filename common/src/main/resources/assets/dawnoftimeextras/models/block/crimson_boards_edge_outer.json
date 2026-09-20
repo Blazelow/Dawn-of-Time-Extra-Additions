@@ -1,0 +1,7 @@
+{
+	"parent": "dawnoftimebuilder:block/general/small_plate_outer",
+	"textures": {
+		"top": "dawnoftimeextras:block/crimson_boards",
+		"frieze": "dawnoftimeextras:block/crimson_boards"
+	}
+}

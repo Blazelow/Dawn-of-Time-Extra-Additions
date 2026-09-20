@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:blackstone"
+    },
+    "i": {
+      "item": "minecraft:polished_blackstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blackstone_bricks_masonry",
+    "count": 9
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "dawnoftimeextras:block/warped_boards",
+        "top": "dawnoftimeextras:block/warped_boards",
+        "side": "dawnoftimeextras:block/warped_boards"
+    }
+}

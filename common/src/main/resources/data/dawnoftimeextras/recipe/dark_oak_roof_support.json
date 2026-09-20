@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:dark_oak_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_oak_roof_support",
+    "count": 1
+  }
+}

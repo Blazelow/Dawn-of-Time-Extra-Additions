@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stripped_mangrove_log"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:mangrove_fancy_railing",
+    "count": 6
+  }
+}

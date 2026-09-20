@@ -1,0 +1,17 @@
+{
+  "ctm": {
+    "ctm_version": 1,
+    "type": "ctm",
+    "layer": "SOLID",
+    "textures": [
+      "dawnoftimeextras:block/birch_paper_wall_flat_bottom-ctm"
+    ],
+    "extra": {
+      "connect_to": [
+        {
+          "block": "dawnoftimeextras:birch_paper_wall_flat"
+        }
+      ]
+    }
+  }
+}

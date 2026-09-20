@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XX",
+    "X ",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:sandstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:sandstone_sided_column",
+    "count": 5
+  }
+}

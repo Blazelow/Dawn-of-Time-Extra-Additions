@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:cherry_fence"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cherry_baluster",
+    "count": 3
+  }
+}

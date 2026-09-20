@@ -1,0 +1,74 @@
+plugins {
+    id 'fabric-loom'
+}
+
+base {
+    archivesName = "dawn-of-time-extra-additions-fabric-${minecraft_version}"
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+    mavenCentral()
+    exclusiveContent {
+        forRepository { maven { url = 'https://api.modrinth.com/maven' } }
+        filter { includeGroup 'maven.modrinth' }
+    }
+}
+
+// The shared code and resources live in ../common and are compiled straight into this jar.
+sourceSets {
+    main {
+        java.srcDir '../common/src/main/java'
+        resources.srcDir '../common/src/main/resources'
+    }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/dawnoftimeextras.accesswidener")
+
+    runs {
+        client {
+            client()
+            ideConfigGenerated true
+            runDir 'run'
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+
+    // Dawn Of Time itself, to compile against rather than transcribe. Loom remaps it from
+    // intermediary into our mappings, so their blocks can simply be extended. Fetched from
+    // Modrinth's maven by version id. compileOnly: it is a hard dependency at runtime and must not be bundled.
+    modCompileOnly "maven.modrinth:dawn-of-time:${dot_fabric_version}"
+}
+
+processResources {
+    def props = [
+            version              : project.version,
+            mod_id               : mod_id,
+            mod_name             : mod_name,
+            mod_author           : mod_author,
+            mod_license          : mod_license,
+            mod_description      : mod_description,
+            minecraft_version    : minecraft_version,
+            fabric_loader_version: fabric_loader_version
+    ]
+    inputs.properties props
+    filesMatching('fabric.mod.json') {
+        expand props
+    }
+}

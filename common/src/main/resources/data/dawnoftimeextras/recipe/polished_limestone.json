@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ii",
+    "ii"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimebuilder:cobbled_limestone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:polished_limestone",
+    "count": 4
+  }
+}

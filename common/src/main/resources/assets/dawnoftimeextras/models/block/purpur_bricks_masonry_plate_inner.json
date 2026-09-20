@@ -1,0 +1,8 @@
+{
+  "parent": "dawnoftimeextras:block/general/plate_inner",
+  "textures": {
+    "side": "dawnoftimeextras:block/purpur_bricks_masonry",
+    "top": "dawnoftimeextras:block/purpur_bricks_masonry",
+    "frieze": "dawnoftimeextras:block/purpur_bricks_masonry"
+  }
+}

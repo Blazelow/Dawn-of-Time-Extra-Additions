@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "UU",
+    "II"
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:red_sandstone_slab"
+    },
+    "I": {
+      "item": "minecraft:red_sandstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_sandstone_chimney",
+    "count": 1
+  }
+}

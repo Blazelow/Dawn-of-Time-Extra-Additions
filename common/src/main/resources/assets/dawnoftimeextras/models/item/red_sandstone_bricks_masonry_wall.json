@@ -1,0 +1,6 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "dawnoftimeextras:block/red_sandstone_bricks_masonry"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XX",
+    "X ",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:blackstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blackstone_sided_column",
+    "count": 5
+  }
+}

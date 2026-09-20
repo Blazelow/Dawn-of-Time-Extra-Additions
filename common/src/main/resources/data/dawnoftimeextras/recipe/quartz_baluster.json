@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:quartz_bricks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:quartz_baluster",
+    "count": 6
+  }
+}

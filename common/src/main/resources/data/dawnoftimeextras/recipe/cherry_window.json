@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iI",
+    "Ii"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:glass"
+    },
+    "i": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cherry_window",
+    "count": 4
+  }
+}

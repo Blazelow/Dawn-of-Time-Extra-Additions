@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    " o ",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:polished_granite"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:granite_french_fireplace",
+    "count": 1
+  }
+}

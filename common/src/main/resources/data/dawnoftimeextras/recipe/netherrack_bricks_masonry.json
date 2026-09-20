@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:netherrack"
+    },
+    "i": {
+      "item": "minecraft:nether_bricks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherrack_bricks_masonry",
+    "count": 9
+  }
+}

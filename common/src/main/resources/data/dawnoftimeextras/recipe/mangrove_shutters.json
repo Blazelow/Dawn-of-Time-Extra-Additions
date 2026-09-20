@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ii",
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:mangrove_planks"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:mangrove_shutters",
+    "count": 6
+  }
+}

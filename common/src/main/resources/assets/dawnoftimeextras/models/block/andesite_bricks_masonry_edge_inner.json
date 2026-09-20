@@ -1,0 +1,8 @@
+{
+  "parent": "dawnoftimeextras:block/general/small_plate_inner",
+  "textures": {
+    "side": "dawnoftimeextras:block/andesite_bricks_masonry",
+    "top": "dawnoftimeextras:block/andesite_bricks_masonry",
+    "frieze": "dawnoftimeextras:block/andesite_bricks_masonry"
+  }
+}

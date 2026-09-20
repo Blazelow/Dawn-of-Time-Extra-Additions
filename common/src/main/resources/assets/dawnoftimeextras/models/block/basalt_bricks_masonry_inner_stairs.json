@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "dawnoftimeextras:block/basalt_bricks_masonry",
+    "top": "dawnoftimeextras:block/basalt_bricks_masonry",
+    "side": "dawnoftimeextras:block/basalt_bricks_masonry"
+  }
+}

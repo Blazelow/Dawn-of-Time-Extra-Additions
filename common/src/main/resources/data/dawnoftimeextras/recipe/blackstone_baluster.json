@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:blackstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blackstone_baluster",
+    "count": 6
+  }
+}

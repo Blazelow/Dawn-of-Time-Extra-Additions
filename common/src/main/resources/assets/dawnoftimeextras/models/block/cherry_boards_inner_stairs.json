@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "dawnoftimeextras:block/cherry_boards",
+        "top": "dawnoftimeextras:block/cherry_boards",
+        "side": "dawnoftimeextras:block/cherry_boards"
+    }
+}

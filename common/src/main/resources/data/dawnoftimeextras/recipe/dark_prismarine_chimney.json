@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "UU",
+    "II"
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:dark_prismarine_slab"
+    },
+    "I": {
+      "item": "minecraft:dark_prismarine"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_prismarine_chimney",
+    "count": 1
+  }
+}

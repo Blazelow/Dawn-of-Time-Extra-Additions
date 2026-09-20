@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:dripstone_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dripstone_small_pool",
+    "count": 6
+  }
+}

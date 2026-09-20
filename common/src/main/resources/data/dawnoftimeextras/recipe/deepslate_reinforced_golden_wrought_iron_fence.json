@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_nugget"
+    },
+    {
+      "item": "dawnoftimeextras:deepslate_reinforced_black_wrought_iron_fence"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:deepslate_reinforced_golden_wrought_iron_fence",
+    "count": 1
+  }
+}

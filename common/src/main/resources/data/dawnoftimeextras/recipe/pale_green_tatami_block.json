@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " G ",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "dawnoftimebuilder:small_tatami_mat"
+    },
+    "G": {
+      "item": "minecraft:green_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:pale_green_tatami_block",
+    "count": 1
+  }
+}

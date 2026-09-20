@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "i",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:lime_carpet"
+    },
+    "i": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lime_cushion",
+    "count": 1
+  }
+}

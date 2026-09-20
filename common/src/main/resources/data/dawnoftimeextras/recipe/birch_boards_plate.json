@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:birch_boards"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:birch_boards_plate",
+    "count": 6
+  }
+}

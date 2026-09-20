@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:obsidian_wall",
+    "count": 6
+  }
+}

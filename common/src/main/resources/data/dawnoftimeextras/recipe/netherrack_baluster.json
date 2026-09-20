@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherrack_baluster",
+    "count": 6
+  }
+}

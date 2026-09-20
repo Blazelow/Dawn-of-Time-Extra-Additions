@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "i",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:orange_carpet"
+    },
+    "i": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:orange_cushion",
+    "count": 1
+  }
+}

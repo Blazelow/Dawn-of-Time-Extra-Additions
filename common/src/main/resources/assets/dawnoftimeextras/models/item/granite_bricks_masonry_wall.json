@@ -1,0 +1,6 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "dawnoftimeextras:block/granite_bricks_masonry"
+  }
+}

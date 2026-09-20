@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    "IoI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:polished_blackstone_bricks"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blackstone_german_fireplace",
+    "count": 1
+  }
+}

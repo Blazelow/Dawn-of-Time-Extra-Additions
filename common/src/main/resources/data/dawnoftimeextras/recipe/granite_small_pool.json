@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:granite_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:granite_small_pool",
+    "count": 6
+  }
+}

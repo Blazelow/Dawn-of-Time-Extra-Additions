@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "dawnoftimeextras:block/deepslate_gargoyle"
+    },
+    "facing=west": {
+      "model": "dawnoftimeextras:block/deepslate_gargoyle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dawnoftimeextras:block/deepslate_gargoyle",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "dawnoftimeextras:block/deepslate_gargoyle",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "UU",
+    "II"
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:diorite_slab"
+    },
+    "I": {
+      "item": "minecraft:diorite"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:diorite_chimney",
+    "count": 1
+  }
+}

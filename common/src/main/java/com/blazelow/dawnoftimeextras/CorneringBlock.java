@@ -1,0 +1,121 @@
+package com.blazelow.dawnoftimeextras;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.function.Predicate;
+
+/**
+ * A block that runs along one side of its block and turns corners like stairs.
+ *
+ * <p>Dawn Of Time builds several pieces this way - balusters, crenelations - all sharing the
+ * same {@code facing} + {@code shape} pair and the same 20-variant blockstate. The corner rules
+ * live in {@link StairShapes}; this holds the properties, the placement and the collision.
+ *
+ * <p>Subclasses say what counts as their own kind, so a run of balusters does not try to turn a
+ * corner into a crenelation, and give the shape for a south-facing block plus its rotations.
+ */
+public abstract class CorneringBlock extends Block {
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
+
+    protected CorneringBlock(BlockBehaviour.Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(SHAPE, StairsShape.STRAIGHT));
+    }
+
+    /**
+      * The block's mass on one side. Takes the state as well as the side because some of these
+      * change shape with a second property - the edge sits in an upper or a lower course.
+      */
+    protected abstract VoxelShape sideShape(BlockState state, Direction side);
+
+    /** What this block corners with - normally its own type. */
+    protected abstract Predicate<BlockState> kin();
+
+    @Override
+    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING, SHAPE);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Direction facing = state.getValue(FACING);
+        VoxelShape shape = sideShape(state, facing);
+        // an inner corner runs along two sides, so collision has to cover both
+        return switch (state.getValue(SHAPE)) {
+            case INNER_LEFT -> Shapes.or(shape, sideShape(state, facing.getCounterClockWise()));
+            case INNER_RIGHT -> Shapes.or(shape, sideShape(state, facing.getClockWise()));
+            default -> shape;
+        };
+    }
+
+    /**
+     * Which way a freshly placed block faces: stairs' own convention, the mass on the far side
+     * of the block from the player. Dawn Of Time's balusters and crenelations both place this
+     * way too - placing with the near side inverted, as this used to, put the rail on the
+     * wrong side of the block compared to theirs.
+     */
+    protected Direction facingFor(BlockPlaceContext context) {
+        return context.getHorizontalDirection();
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        BlockState state = this.defaultBlockState().setValue(FACING, facingFor(context));
+        return state.setValue(SHAPE,
+                StairShapes.of(state, context.getLevel(), context.getClickedPos(), FACING, kin()));
+    }
+
+    @Override
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighbourState,
+                                  LevelAccessor level, BlockPos pos, BlockPos neighbourPos) {
+        if (direction.getAxis().isHorizontal()) {
+            return state.setValue(SHAPE, StairShapes.of(state, level, pos, FACING, kin()));
+        }
+        return super.updateShape(state, direction, neighbourState, level, pos, neighbourPos);
+    }
+
+    @Override
+    public BlockState rotate(BlockState state, Rotation rotation) {
+        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
+    }
+
+    @Override
+    public BlockState mirror(BlockState state, Mirror mirror) {
+        Direction facing = state.getValue(FACING);
+        StairsShape shape = state.getValue(SHAPE);
+        boolean crosswise = mirror == Mirror.LEFT_RIGHT
+                ? facing.getAxis() == Direction.Axis.Z
+                : facing.getAxis() == Direction.Axis.X;
+        if (!crosswise) {
+            return super.mirror(state, mirror);
+        }
+        BlockState flipped = state.rotate(Rotation.CLOCKWISE_180);
+        return switch (shape) {
+            case INNER_LEFT -> flipped.setValue(SHAPE, StairsShape.INNER_RIGHT);
+            case INNER_RIGHT -> flipped.setValue(SHAPE, StairsShape.INNER_LEFT);
+            case OUTER_LEFT -> flipped.setValue(SHAPE, StairsShape.OUTER_RIGHT);
+            case OUTER_RIGHT -> flipped.setValue(SHAPE, StairsShape.OUTER_LEFT);
+            default -> flipped.setValue(SHAPE, StairsShape.STRAIGHT);
+        };
+    }
+}

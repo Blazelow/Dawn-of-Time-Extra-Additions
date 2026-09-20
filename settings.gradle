@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        maven {
+            name = 'NeoForged'
+            url = 'https://maven.neoforged.net/releases'
+        }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'DawnOfTimeExtrasEdition'
+
+// Multi-loader without Architectury: `common/` holds the shared sources and resources (compiled
+// into each loader's own jar, against that loader's own copy of Dawn Of Time), and each loader
+// module only adds its entry points and metadata.
+include 'fabric'
+include 'neoforge'

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=true": {
+      "model": "dawnoftimeextras:block/cherry_irori_fireplace_on"
+    },
+    "lit=false": {
+      "model": "dawnoftimeextras:block/cherry_irori_fireplace_off"
+    }
+  }
+}

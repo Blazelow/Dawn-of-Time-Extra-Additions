@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XX",
+    "X ",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:spruce_sided_column",
+    "count": 5
+  }
+}

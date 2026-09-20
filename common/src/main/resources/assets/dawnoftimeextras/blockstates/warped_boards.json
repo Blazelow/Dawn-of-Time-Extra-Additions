@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "dawnoftimeextras:block/warped_boards" },
+        "axis=z":   { "model": "dawnoftimeextras:block/warped_boards", "x": 90 },
+        "axis=x":   { "model": "dawnoftimeextras:block/warped_boards", "x": 90, "y": 90 }
+    }
+}

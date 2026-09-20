@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " i ",
+    "iIi",
+    " i "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stone"
+    },
+    "i": {
+      "item": "minecraft:light_blue_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:light_blue_painted_stone",
+    "count": 8
+  }
+}

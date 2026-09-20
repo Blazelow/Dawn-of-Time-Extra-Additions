@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "dawnoftimeextras:block/warped_boards_slab_bottom" },
+        "type=top": { "model": "dawnoftimeextras:block/warped_boards_slab_top" },
+        "type=double": { "model": "dawnoftimeextras:block/warped_boards" }
+    }
+}

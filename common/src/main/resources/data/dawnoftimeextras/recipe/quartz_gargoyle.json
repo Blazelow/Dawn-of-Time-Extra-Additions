@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "Iio"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:quartz_bricks_masonry"
+    },
+    "i": {
+      "item": "dawnoftimeextras:quartz_bricks_masonry_slab"
+    },
+    "o": {
+      "item": "dawnoftimeextras:quartz_bricks_masonry_edge"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:quartz_gargoyle",
+    "count": 1
+  }
+}

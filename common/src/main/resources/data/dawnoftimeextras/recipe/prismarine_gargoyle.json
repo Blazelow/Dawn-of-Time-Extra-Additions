@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "Iio"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:prismarine_bricks_masonry"
+    },
+    "i": {
+      "item": "dawnoftimeextras:prismarine_bricks_masonry_slab"
+    },
+    "o": {
+      "item": "dawnoftimeextras:prismarine_bricks_masonry_edge"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:prismarine_gargoyle",
+    "count": 1
+  }
+}

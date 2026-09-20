@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "UU",
+    "II"
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:purpur_slab"
+    },
+    "I": {
+      "item": "minecraft:purpur_block"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purpur_chimney",
+    "count": 1
+  }
+}

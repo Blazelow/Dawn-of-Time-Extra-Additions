@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    " I ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:purpur_block"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purpur_column",
+    "count": 8
+  }
+}

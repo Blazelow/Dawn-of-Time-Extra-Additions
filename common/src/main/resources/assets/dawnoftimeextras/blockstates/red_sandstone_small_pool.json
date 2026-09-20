@@ -1,0 +1,55 @@
+{
+	"multipart": [
+		{
+			"apply": { "model": "dawnoftimeextras:block/red_sandstone_small_pool_floor"}
+		},
+		{
+			"when": { "north": "false" },
+			"apply": { "model": "dawnoftimeextras:block/red_sandstone_small_pool_side", "y": 180 }
+		},
+		{
+			"when": { "east": "false" },
+			"apply": { "model": "dawnoftimeextras:block/red_sandstone_small_pool_side", "y": 270 }
+		},
+		{
+			"when": { "south": "false" },
+			"apply": { "model": "dawnoftimeextras:block/red_sandstone_small_pool_side"}
+		},
+		{
+			"when": { "west": "false" },
+			"apply": { "model": "dawnoftimeextras:block/red_sandstone_small_pool_side", "y": 90 }
+		},
+		{
+			"when": { "has_pillar": "true" },
+			"apply": { "model": "dawnoftimeextras:block/red_sandstone_small_pool_pillar" }
+		},
+		{
+			"when": { "bottom": "true" },
+			"apply": { "model": "dawnoftimeextras:block/red_sandstone_small_pool_bottom" }
+		},
+		{
+			"when": { "level": "1" },
+			"apply": { "model": "dawnoftimeextras:block/water/pool_11px" }
+		},
+		{
+			"when": { "level": "2" },
+			"apply": { "model": "dawnoftimeextras:block/water/pool_12px" }
+		},
+		{
+			"when": { "level": "3" },
+			"apply": { "model": "dawnoftimeextras:block/water/pool_13px" }
+		},
+		{
+			"when": { "level": "4" },
+			"apply": { "model": "dawnoftimeextras:block/water/pool_14px" }
+		},
+		{
+			"when": { "level": "5" },
+			"apply": { "model": "dawnoftimeextras:block/water/pool_15px" }
+		},
+		{
+			"when": { "level": "6" },
+			"apply": { "model": "dawnoftimeextras:block/water/pool_16px" }
+		}
+	]
+}

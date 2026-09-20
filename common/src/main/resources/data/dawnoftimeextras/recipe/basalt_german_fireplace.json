@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    "IoI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:smooth_basalt"
+    },
+    "o": {
+      "item": "dawnoftimebuilder:fireplace"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:basalt_german_fireplace",
+    "count": 1
+  }
+}

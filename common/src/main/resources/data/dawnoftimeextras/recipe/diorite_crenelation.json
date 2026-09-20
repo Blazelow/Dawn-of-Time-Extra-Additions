@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diorite"
+    },
+    "i": {
+      "item": "minecraft:diorite_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:diorite_crenelation",
+    "count": 4
+  }
+}

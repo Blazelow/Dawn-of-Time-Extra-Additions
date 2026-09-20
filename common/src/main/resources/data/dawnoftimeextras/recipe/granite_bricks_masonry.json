@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:granite"
+    },
+    "i": {
+      "item": "minecraft:polished_granite"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:granite_bricks_masonry",
+    "count": 9
+  }
+}

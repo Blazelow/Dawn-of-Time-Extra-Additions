@@ -1,0 +1,8 @@
+{
+  "parent": "dawnoftimeextras:block/general/small_plate_outer",
+  "textures": {
+    "side": "dawnoftimeextras:block/granite_bricks_masonry",
+    "top": "dawnoftimeextras:block/granite_bricks_masonry",
+    "frieze": "dawnoftimeextras:block/granite_bricks_masonry"
+  }
+}

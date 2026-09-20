@@ -1,0 +1,5 @@
+accessWidener	v2	named
+
+# Registering a wood type is what makes vanilla build a sign model layer and texture material
+# for it. NeoForge opens this up by default; on Fabric it has to be widened.
+accessible	method	net/minecraft/world/level/block/state/properties/WoodType	register	(Lnet/minecraft/world/level/block/state/properties/WoodType;)Lnet/minecraft/world/level/block/state/properties/WoodType;

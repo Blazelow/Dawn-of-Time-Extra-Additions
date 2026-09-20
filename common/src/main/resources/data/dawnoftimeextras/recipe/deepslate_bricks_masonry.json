@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:deepslate_bricks"
+    },
+    "i": {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:deepslate_bricks_masonry",
+    "count": 9
+  }
+}

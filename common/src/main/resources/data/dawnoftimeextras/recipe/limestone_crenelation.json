@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:limestone_bricks"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:limestone_bricks_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:limestone_crenelation",
+    "count": 4
+  }
+}

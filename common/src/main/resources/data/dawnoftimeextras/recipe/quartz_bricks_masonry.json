@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:quartz_bricks"
+    },
+    "i": {
+      "item": "minecraft:quartz_block"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:quartz_bricks_masonry",
+    "count": 9
+  }
+}

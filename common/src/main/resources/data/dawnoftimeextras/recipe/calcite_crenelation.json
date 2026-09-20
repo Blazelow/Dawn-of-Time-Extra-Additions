@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:calcite"
+    },
+    "i": {
+      "item": "dotbv:calcite_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:calcite_crenelation",
+    "count": 4
+  }
+}

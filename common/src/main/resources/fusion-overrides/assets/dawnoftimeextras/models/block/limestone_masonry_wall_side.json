@@ -1,0 +1,33 @@
+{
+  "parent": "block/template_wall_side",
+  "textures": {
+    "wall": "dawnoftimeextras:block/limestone_masonry"
+  },
+  "loader": "fusion:model",
+  "type": "connecting",
+  "connections": [
+    {
+      "type": "is_same_block"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:limestone_masonry"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:limestone_masonry_stairs"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:limestone_masonry_slab"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:limestone_masonry_plate"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:limestone_masonry_edge"
+    }
+  ]
+}

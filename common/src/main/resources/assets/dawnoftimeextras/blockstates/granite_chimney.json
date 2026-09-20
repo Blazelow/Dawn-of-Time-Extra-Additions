@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "vertical_connection=above": {
+      "model": "dawnoftimeextras:block/granite_chimney_bottom"
+    },
+    "vertical_connection=under": {
+      "model": "dawnoftimeextras:block/granite_chimney_top"
+    },
+    "vertical_connection=both": {
+      "model": "dawnoftimeextras:block/granite_chimney_middle"
+    },
+    "vertical_connection=none": {
+      "model": "dawnoftimeextras:block/granite_chimney_top"
+    }
+  }
+}

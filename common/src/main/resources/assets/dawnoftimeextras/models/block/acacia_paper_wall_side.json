@@ -1,0 +1,7 @@
+{
+    "parent": "dawnoftimebuilder:block/general/template_dot_pane_side",
+    "textures": {
+        "edge": "dawnoftimeextras:block/acacia_paper_wall",
+        "pane": "dawnoftimeextras:block/acacia_paper_wall"
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:bamboo_planks"
+    },
+    "i": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:bamboo_paper_wall_window",
+    "count": 4
+  }
+}

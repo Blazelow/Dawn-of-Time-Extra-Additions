@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II",
+    "II",
+    "ii"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:paper"
+    },
+    "i": {
+      "item": "minecraft:dark_oak_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_oak_paper_door",
+    "count": 4
+  }
+}

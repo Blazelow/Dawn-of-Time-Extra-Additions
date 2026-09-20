@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:dripstone_block"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dripstone_baluster",
+    "count": 6
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:birch_boards_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:birch_boards_edge",
+    "count": 6
+  }
+}

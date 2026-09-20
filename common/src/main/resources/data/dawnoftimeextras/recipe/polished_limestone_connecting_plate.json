@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:polished_limestone_plate"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:polished_limestone_connecting_plate",
+    "count": 1
+  }
+}

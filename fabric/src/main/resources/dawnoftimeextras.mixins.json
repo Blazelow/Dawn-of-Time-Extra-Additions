@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.blazelow.dawnoftimeextras.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ExtraAdditionsCreativeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

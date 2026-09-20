@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:birch_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:birch_roof_support",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "dawnoftimeextras:block/charred_spruce_boards_slab_bottom" },
+        "type=top": { "model": "dawnoftimeextras:block/charred_spruce_boards_slab_top" },
+        "type=double": { "model": "dawnoftimebuilder:block/japanese/charred_spruce_boards" }
+    }
+}

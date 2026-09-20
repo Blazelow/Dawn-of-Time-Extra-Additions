@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "dawnoftimeextras:block/dark_oak_foundation_column"
+      },
+      {
+        "model": "dawnoftimeextras:block/dark_oak_foundation_column",
+        "y": 90
+      },
+      {
+        "model": "dawnoftimeextras:block/dark_oak_foundation_column",
+        "y": 180
+      },
+      {
+        "model": "dawnoftimeextras:block/dark_oak_foundation_column",
+        "y": 270
+      }
+    ]
+  }
+}

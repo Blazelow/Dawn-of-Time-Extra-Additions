@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "iii",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:birch_planks"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:white_wattle_and_daub"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:birch_timber_frame",
+    "count": 6
+  }
+}

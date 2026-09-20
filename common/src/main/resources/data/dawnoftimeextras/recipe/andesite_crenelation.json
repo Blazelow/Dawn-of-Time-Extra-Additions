@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:andesite"
+    },
+    "i": {
+      "item": "minecraft:andesite_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:andesite_crenelation",
+    "count": 4
+  }
+}

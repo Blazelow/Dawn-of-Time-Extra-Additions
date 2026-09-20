@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "www",
+    "www",
+    "iii"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:orange_wool"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:thatch_bamboo"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:orange_double_futon",
+    "count": 1
+  }
+}

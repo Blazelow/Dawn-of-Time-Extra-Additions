@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "OxO",
+    "IuI"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:red_sandstone_slab"
+    },
+    "x": {
+      "item": "minecraft:water_bucket"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "u": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_sandstone_water_jet",
+    "count": 2
+  }
+}

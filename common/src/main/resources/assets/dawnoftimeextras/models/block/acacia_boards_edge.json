@@ -1,0 +1,7 @@
+{
+	"parent": "dawnoftimebuilder:block/general/small_plate",
+	"textures": {
+		"side": "dawnoftimeextras:block/acacia_boards",
+		"frieze": "dawnoftimeextras:block/acacia_boards"
+	}
+}

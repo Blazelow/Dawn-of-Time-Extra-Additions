@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:bamboo_boards_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:bamboo_boards_edge",
+    "count": 6
+  }
+}

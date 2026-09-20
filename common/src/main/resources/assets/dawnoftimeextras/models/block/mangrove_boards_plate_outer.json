@@ -1,0 +1,7 @@
+{
+	"parent": "dawnoftimebuilder:block/general/plate_outer",
+	"textures": {
+		"top": "dawnoftimeextras:block/mangrove_boards",
+		"frieze": "dawnoftimeextras:block/mangrove_boards"
+	}
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:dark_oak_boards"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_oak_boards_plate",
+    "count": 6
+  }
+}

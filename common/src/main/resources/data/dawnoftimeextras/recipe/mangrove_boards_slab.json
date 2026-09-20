@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:mangrove_boards"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:mangrove_boards_slab",
+    "count": 6
+  }
+}

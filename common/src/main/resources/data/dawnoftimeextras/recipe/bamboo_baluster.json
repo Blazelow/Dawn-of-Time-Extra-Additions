@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:bamboo_fence"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:bamboo_baluster",
+    "count": 3
+  }
+}

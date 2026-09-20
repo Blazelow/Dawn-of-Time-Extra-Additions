@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "dawnoftimeextras:block/spruce_timber_frame_pillar_top",
+    "side": "dawnoftimeextras:block/spruce_timber_frame_pillar_side"
+  }
+}

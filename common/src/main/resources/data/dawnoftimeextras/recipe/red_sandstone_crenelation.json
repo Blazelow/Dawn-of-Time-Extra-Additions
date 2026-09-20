@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:red_sandstone"
+    },
+    "i": {
+      "item": "minecraft:red_sandstone_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_sandstone_crenelation",
+    "count": 4
+  }
+}

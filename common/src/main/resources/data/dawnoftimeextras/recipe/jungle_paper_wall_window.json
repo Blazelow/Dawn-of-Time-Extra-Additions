@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:jungle_planks"
+    },
+    "i": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:jungle_paper_wall_window",
+    "count": 4
+  }
+}

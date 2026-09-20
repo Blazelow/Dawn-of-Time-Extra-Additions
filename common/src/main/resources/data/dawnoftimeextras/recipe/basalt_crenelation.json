@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:basalt"
+    },
+    "i": {
+      "item": "minecraft:smooth_basalt"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:basalt_crenelation",
+    "count": 4
+  }
+}

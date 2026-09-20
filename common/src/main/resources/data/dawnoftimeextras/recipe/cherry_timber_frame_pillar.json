@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:cherry_planks"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:white_wattle_and_daub"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cherry_timber_frame_pillar",
+    "count": 6
+  }
+}

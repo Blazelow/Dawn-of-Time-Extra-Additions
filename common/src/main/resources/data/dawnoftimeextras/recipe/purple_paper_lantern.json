@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " i ",
+    "IOI",
+    "oIo"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "item": "minecraft:torch"
+    },
+    "I": {
+      "item": "minecraft:paper"
+    },
+    "o": {
+      "item": "minecraft:purple_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purple_paper_lantern",
+    "count": 6
+  }
+}

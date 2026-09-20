@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "xxx"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:black_wrought_iron_fence"
+    },
+    "x": {
+      "item": "minecraft:stone_bricks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:stone_reinforced_black_wrought_iron_fence",
+    "count": 6
+  }
+}

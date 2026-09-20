@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "dawnoftimeextras:block/orange_cushion" },
+        "facing=west": { "model": "dawnoftimeextras:block/orange_cushion", "y": 270 },
+        "facing=south": { "model": "dawnoftimeextras:block/orange_cushion", "y": 180 },
+        "facing=east": { "model": "dawnoftimeextras:block/orange_cushion", "y": 90 }
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I  ",
+    "II ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:acacia_boards"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:acacia_boards_stairs",
+    "count": 6
+  }
+}

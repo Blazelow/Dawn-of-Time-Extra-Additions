@@ -1,0 +1,84 @@
+{
+	"multipart": [
+		{
+			"when": { "up": "true" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_up" }
+		},
+		{
+			"when": { "up": "true", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_up"}
+		},
+		{
+			"when": { "down": "true" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_down" }
+		},
+		{
+			"when": { "down": "true", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_down"}
+		},
+		{
+			"when": { "north_state": "bottom" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_bottom" }
+		},
+		{
+			"when": { "north_state": "bottom", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_bottom"}
+		},
+		{
+			"when": { "north_state": "top" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_top" }
+		},
+		{
+			"when": { "north_state": "top", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_top"}
+		},
+		{
+			"when": { "east_state": "bottom" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_bottom", "y": 90 }
+		},
+		{
+			"when": { "east_state": "bottom", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_bottom", "y": 90}
+		},
+		{
+			"when": { "east_state": "top" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_top", "y": 90 }
+		},
+		{
+			"when": { "east_state": "top", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_top", "y": 90}
+		},
+		{
+			"when": { "south_state": "bottom" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_bottom", "y": 180 }
+		},
+		{
+			"when": { "south_state": "bottom", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_bottom", "y": 180}
+		},
+		{
+			"when": { "south_state": "top" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_top", "y": 180 }
+		},
+		{
+			"when": { "south_state": "top", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_top", "y": 180}
+		},
+		{
+			"when": { "west_state": "bottom" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_bottom", "y": 270 }
+		},
+		{
+			"when": { "west_state": "bottom", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_bottom", "y": 270}
+		},
+		{
+			"when": { "west_state": "top" },
+			"apply": { "model": "dawnoftimeextras:block/andesite_water_jet_north_top", "y": 270 }
+		},
+		{
+			"when": { "west_state": "top", "activated": "true" },
+			"apply": { "model": "dawnoftimeextras:block/water/jet_north_top", "y": 270}
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:diorite_bricks_masonry"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:diorite_bricks_masonry_wall",
+    "count": 9
+  }
+}

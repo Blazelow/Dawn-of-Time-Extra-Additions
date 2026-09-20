@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "i": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:jungle_foundation_column",
+    "count": 6
+  }
+}

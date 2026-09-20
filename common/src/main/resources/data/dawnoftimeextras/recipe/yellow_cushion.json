@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "i",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:yellow_carpet"
+    },
+    "i": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:yellow_cushion",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "dawnoftimeextras:block/acacia_boards" },
+        "axis=z":   { "model": "dawnoftimeextras:block/acacia_boards", "x": 90 },
+        "axis=x":   { "model": "dawnoftimeextras:block/acacia_boards", "x": 90, "y": 90 }
+    }
+}

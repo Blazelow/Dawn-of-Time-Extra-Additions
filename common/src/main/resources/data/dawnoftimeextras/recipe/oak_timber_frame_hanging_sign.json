@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "c c",
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "dawnoftimeextras:oak_timber_frame"
+    },
+    "c": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:oak_timber_frame_hanging_sign",
+    "count": 6
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:birch_boards"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:birch_boards_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "dawnoftimeextras:block/bamboo_timber_frame_pillar"
+    },
+    "axis=z": {
+      "model": "dawnoftimeextras:block/bamboo_timber_frame_pillar",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "dawnoftimeextras:block/bamboo_timber_frame_pillar",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

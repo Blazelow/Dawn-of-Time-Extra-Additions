@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:tatami_block"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:tatami_block_extendable",
+    "count": 1
+  }
+}

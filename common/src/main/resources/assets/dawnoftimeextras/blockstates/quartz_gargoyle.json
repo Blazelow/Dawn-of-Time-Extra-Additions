@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "dawnoftimeextras:block/quartz_gargoyle"
+    },
+    "facing=west": {
+      "model": "dawnoftimeextras:block/quartz_gargoyle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dawnoftimeextras:block/quartz_gargoyle",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "dawnoftimeextras:block/quartz_gargoyle",
+      "y": 270
+    }
+  }
+}

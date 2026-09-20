@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "dawnoftimeextras:block/pale_green_tatami_block_extendable_n0_s0_w0_e0",
+    "bottom": "dawnoftimeextras:block/pale_green_tatami_block_extendable_n0_s0_w0_e0",
+    "side": "dawnoftimeextras:block/pale_green_tatami_block_extendable_side_north_l0_r0",
+    "particle": "dawnoftimeextras:block/pale_green_tatami_block_extendable_side_north_l0_r0"
+  }
+}

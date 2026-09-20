@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XX",
+    "X ",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:bamboo_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:bamboo_sided_column",
+    "count": 5
+  }
+}

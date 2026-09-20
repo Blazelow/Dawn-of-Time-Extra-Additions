@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "dawnoftimeextras:block/acacia_boards",
+        "top": "dawnoftimeextras:block/acacia_boards",
+        "side": "dawnoftimeextras:block/acacia_boards"
+    }
+}

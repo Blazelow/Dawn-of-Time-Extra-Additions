@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iii",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "i": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:mangrove_foundation_column",
+    "count": 6
+  }
+}

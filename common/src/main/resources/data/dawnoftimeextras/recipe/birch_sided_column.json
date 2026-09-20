@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XX",
+    "X ",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:birch_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:birch_sided_column",
+    "count": 5
+  }
+}

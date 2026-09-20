@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:purpur_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purpur_small_pool",
+    "count": 6
+  }
+}

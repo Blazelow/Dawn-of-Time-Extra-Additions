@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "fff"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:crimson_fence"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:crimson_baluster",
+    "count": 3
+  }
+}

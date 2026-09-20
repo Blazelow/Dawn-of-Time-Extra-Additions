@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "UU",
+    "II"
+  ],
+  "key": {
+    "U": {
+      "item": "dotbv:dripstone_block_slab"
+    },
+    "I": {
+      "item": "minecraft:dripstone_block"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dripstone_chimney",
+    "count": 1
+  }
+}

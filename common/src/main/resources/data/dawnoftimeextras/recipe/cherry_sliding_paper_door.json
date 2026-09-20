@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ii",
+    "II",
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:paper"
+    },
+    "i": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cherry_sliding_paper_door",
+    "count": 4
+  }
+}

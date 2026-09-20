@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "iIi",
+    "IIi"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimebuilder:green_painted_stone"
+    },
+    "I": {
+      "item": "dawnoftimebuilder:white_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:white_painted_green_wave",
+    "count": 6
+  }
+}

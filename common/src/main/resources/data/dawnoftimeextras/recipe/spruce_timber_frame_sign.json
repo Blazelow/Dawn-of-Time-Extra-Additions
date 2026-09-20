@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ppp",
+    "ppp",
+    " s "
+  ],
+  "key": {
+    "p": {
+      "item": "dawnoftimeextras:spruce_timber_frame"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:spruce_timber_frame_sign",
+    "count": 3
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ppp",
+    "ppp",
+    " s "
+  ],
+  "key": {
+    "p": {
+      "item": "dawnoftimebuilder:charred_spruce_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:charred_spruce_sign",
+    "count": 3
+  }
+}

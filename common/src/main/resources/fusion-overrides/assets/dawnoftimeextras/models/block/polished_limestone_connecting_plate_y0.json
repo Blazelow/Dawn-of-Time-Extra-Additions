@@ -1,0 +1,285 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "side": "dawnoftimeextras:block/polished_limestone_connecting",
+    "top": "dawnoftimeextras:block/polished_limestone_connecting",
+    "frieze": "dawnoftimeextras:block/polished_limestone_connecting",
+    "particle": "#frieze"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#top",
+          "cullface": "down",
+          "connections": "flat"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#top",
+          "cullface": "up",
+          "connections": "flat"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#frieze",
+          "connections": "wall_south"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side",
+          "cullface": "south",
+          "connections": "wall_south"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ],
+          "texture": "#frieze",
+          "cullface": "west",
+          "connections": "flat"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            16,
+            16
+          ],
+          "texture": "#frieze",
+          "cullface": "east",
+          "connections": "flat"
+        }
+      }
+    }
+  ],
+  "loader": "fusion:model",
+  "type": "connecting",
+  "connections": {
+    "wall_north": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "east"
+            ],
+            "shape": [
+              "inner_left",
+              "outer_left"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "north"
+            ],
+            "shape": [
+              "inner_left",
+              "inner_right",
+              "outer_left",
+              "outer_right",
+              "straight"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "west"
+            ],
+            "shape": [
+              "inner_right",
+              "outer_right"
+            ]
+          }
+        }
+      ]
+    },
+    "wall_east": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "east"
+            ],
+            "shape": [
+              "inner_left",
+              "inner_right",
+              "outer_left",
+              "outer_right",
+              "straight"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "north"
+            ],
+            "shape": [
+              "inner_right",
+              "outer_right"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "south"
+            ],
+            "shape": [
+              "inner_left",
+              "outer_left"
+            ]
+          }
+        }
+      ]
+    },
+    "wall_south": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "east"
+            ],
+            "shape": [
+              "inner_right",
+              "outer_right"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "south"
+            ],
+            "shape": [
+              "inner_left",
+              "inner_right",
+              "outer_left",
+              "outer_right",
+              "straight"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "west"
+            ],
+            "shape": [
+              "inner_left",
+              "outer_left"
+            ]
+          }
+        }
+      ]
+    },
+    "wall_west": {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "north"
+            ],
+            "shape": [
+              "inner_left",
+              "outer_left"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "south"
+            ],
+            "shape": [
+              "inner_right",
+              "outer_right"
+            ]
+          }
+        },
+        {
+          "type": "fusion:match_state",
+          "block": "dawnoftimeextras:polished_limestone_connecting_plate",
+          "properties": {
+            "facing": [
+              "west"
+            ],
+            "shape": [
+              "inner_left",
+              "inner_right",
+              "outer_left",
+              "outer_right",
+              "straight"
+            ]
+          }
+        }
+      ]
+    },
+    "flat": {
+      "type": "fusion:true"
+    }
+  }
+}

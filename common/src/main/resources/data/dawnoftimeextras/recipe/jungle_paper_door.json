@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II",
+    "II",
+    "ii"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:paper"
+    },
+    "i": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:jungle_paper_door",
+    "count": 4
+  }
+}

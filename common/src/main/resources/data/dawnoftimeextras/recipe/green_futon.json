@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "www",
+    "iii"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:green_wool"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:thatch_bamboo"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:green_futon",
+    "count": 1
+  }
+}

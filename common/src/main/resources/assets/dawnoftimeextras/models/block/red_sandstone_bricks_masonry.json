@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "dawnoftimeextras:block/red_sandstone_bricks_masonry"
+  }
+}

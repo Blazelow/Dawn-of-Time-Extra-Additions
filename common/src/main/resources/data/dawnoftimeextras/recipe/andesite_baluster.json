@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:andesite"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:andesite_baluster",
+    "count": 6
+  }
+}

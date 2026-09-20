@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:granite"
+    },
+    "i": {
+      "item": "minecraft:granite_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:granite_crenelation",
+    "count": 4
+  }
+}

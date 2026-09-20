@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "iPi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:paper"
+    },
+    "i": {
+      "item": "minecraft:ink_sac"
+    },
+    "P": {
+      "item": "minecraft:bamboo_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:bamboo_paper_wall_flowery",
+    "count": 4
+  }
+}

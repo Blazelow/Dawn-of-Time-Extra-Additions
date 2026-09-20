@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:calcite_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:calcite_small_pool",
+    "count": 6
+  }
+}

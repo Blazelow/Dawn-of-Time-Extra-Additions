@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:purpur_block"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purpur_baluster",
+    "count": 6
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "dawnoftimeextras:block/limestone_bricks_masonry_slab_bottom" },
+        "type=top": { "model": "dawnoftimeextras:block/limestone_bricks_masonry_slab_top" },
+        "type=double": { "model": "dawnoftimeextras:block/limestone_bricks_masonry" }
+    }
+}

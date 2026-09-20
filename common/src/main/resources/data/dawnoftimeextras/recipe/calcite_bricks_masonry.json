@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:calcite"
+    },
+    "i": {
+      "item": "minecraft:tuff"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:calcite_bricks_masonry",
+    "count": 9
+  }
+}

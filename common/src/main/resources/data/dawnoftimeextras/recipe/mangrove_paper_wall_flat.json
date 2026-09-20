@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "IiI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:mangrove_planks"
+    },
+    "i": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:mangrove_paper_wall_flat",
+    "count": 4
+  }
+}

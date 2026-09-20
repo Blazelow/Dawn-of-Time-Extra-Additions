@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " I ",
+    "iIi"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:prismarine_bricks"
+    },
+    "i": {
+      "item": "minecraft:prismarine_brick_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:prismarine_crenelation",
+    "count": 4
+  }
+}

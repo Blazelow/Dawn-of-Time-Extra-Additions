@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:dark_prismarine"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_prismarine_baluster",
+    "count": 6
+  }
+}

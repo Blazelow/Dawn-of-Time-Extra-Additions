@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    " I ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:basalt"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:basalt_column",
+    "count": 8
+  }
+}

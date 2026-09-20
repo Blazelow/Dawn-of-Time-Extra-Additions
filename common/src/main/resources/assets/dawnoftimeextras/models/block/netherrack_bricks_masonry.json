@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "dawnoftimeextras:block/netherrack_bricks_masonry"
+  }
+}

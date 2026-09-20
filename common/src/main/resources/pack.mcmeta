@@ -1,0 +1,9 @@
+{
+  "pack": {
+    "description": "Dawn of Time: Extra Additions",
+    "pack_format": 34
+  },
+  "fusion": {
+    "overrides_folder": "fusion-overrides"
+  }
+}

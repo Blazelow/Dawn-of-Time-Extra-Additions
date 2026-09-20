@@ -1,0 +1,31 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "dawnoftimeextras:block/polished_limestone_connecting",
+    "top": "dawnoftimeextras:block/polished_limestone_connecting",
+    "side": "dawnoftimeextras:block/polished_limestone_connecting"
+  },
+  "loader": "fusion:model",
+  "type": "connecting",
+  "connections": [
+    {
+      "type": "is_same_block"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:polished_limestone_connecting"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:polished_limestone_connecting_slab"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:polished_limestone_connecting_plate"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:polished_limestone_connecting_edge"
+    }
+  ]
+}

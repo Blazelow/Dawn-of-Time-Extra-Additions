@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XX",
+    "X ",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:warped_sided_column",
+    "count": 5
+  }
+}

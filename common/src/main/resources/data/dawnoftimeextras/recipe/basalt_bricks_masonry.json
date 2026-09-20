@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:basalt"
+    },
+    "i": {
+      "item": "minecraft:polished_basalt"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:basalt_bricks_masonry",
+    "count": 9
+  }
+}

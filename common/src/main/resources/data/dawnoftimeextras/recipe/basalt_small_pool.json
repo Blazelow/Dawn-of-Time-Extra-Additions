@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:basalt_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:basalt_small_pool",
+    "count": 6
+  }
+}

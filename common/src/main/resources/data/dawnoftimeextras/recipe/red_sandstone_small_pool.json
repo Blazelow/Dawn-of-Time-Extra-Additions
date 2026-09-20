@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:red_sandstone_pool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_sandstone_small_pool",
+    "count": 6
+  }
+}
