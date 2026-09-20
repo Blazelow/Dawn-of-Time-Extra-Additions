@@ -1,11 +1,13 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 license = "${mod_license}"
+issueTrackerURL = "https://github.com/Blazelow/Dawn-of-Time-Extra-Additions/issues"
 
 [[mods]]
 modId = "${mod_id}"
 version = "${version}"
 displayName = "${mod_name}"
+displayURL = "https://github.com/Blazelow/Dawn-of-Time-Extra-Additions"
 authors = "${mod_author}"
 description = '''${mod_description}'''
 logoFile = "icon.png"

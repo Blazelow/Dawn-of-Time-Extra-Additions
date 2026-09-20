@@ -8,6 +8,11 @@
     "${mod_author}"
   ],
   "license": "${mod_license}",
+  "contact": {
+    "homepage": "https://github.com/Blazelow/Dawn-of-Time-Extra-Additions",
+    "sources": "https://github.com/Blazelow/Dawn-of-Time-Extra-Additions",
+    "issues": "https://github.com/Blazelow/Dawn-of-Time-Extra-Additions/issues"
+  },
   "environment": "*",
   "icon": "icon.png",
   "accessWidener": "dawnoftimeextras.accesswidener",
