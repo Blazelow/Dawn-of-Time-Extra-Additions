@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ii",
+    "II"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "minecraft:orange_wool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:orange_little_flag",
+    "count": 4
+  }
+}

@@ -19,6 +19,9 @@ import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import org.dawnoftime.dawnoftime.block.french.StoneBricksArrowslitBlock;
+import org.dawnoftime.dawnoftime.block.japanese.CharredSpruceRailingBlock;
+import org.dawnoftime.dawnoftime.block.japanese.LittleFlagBlock;
+import net.minecraft.world.item.DyeColor;
 import org.dawnoftime.dawnoftime.block.french.StoneBricksMachicolationBlock;
 import org.dawnoftime.dawnoftime.util.VoxelShapes;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -95,7 +98,7 @@ public class DawnOfTimeExtras {
     /** Exact names, or a suffix when every material or wood of a piece belongs. */
     private static final String[] CUTOUT_NAMES = {
             "tatami_block", "pale_green_tatami_block", "_fireplace",
-            "_crenelation", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
+            "_crenelation", "_little_flag", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
             // The wood batch's genuinely glass-holed pieces - copied Dawn Of Time's own
             // "render_type": "cutout" into their model JSON same as everything else here, but
             // that field is a NeoForge extension Fabric never reads (see the comment in
@@ -375,6 +378,13 @@ public class DawnOfTimeExtras {
         }
         // Dawn Of Time's own stone brick arrowslit and machicolation, with their own collision
         // shapes. Plain stone's are theirs already, so it is left out.
+        // Dawn Of Time's noren flag comes in white only; these are the other fifteen dyes.
+        for (String colour : new String[]{"orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
+                "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}) {
+            register(ExtraAdditionsCategory.JAPANESE, colour + "_little_flag", new LittleFlagBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                            .mapColor(DyeColor.byName(colour, DyeColor.WHITE)).noOcclusion()));
+        }
         for (String stone : stones("quartz")) {
             register(ExtraAdditionsCategory.FRENCH, stone + "_bricks_arrowslit", new StoneBricksArrowslitBlock(
                     stone(STONE_COLOURS.get(stone)), VoxelShapes.STONE_BRICKS_ARROWSLIT_SHAPES));
@@ -489,6 +499,11 @@ public class DawnOfTimeExtras {
             // `Properties.ofFullCopy(Blocks.OAK_WOOD).mapColor(MapColor.COLOR_BLACK)
             // .strength(2.0F, 6.0F).noOcclusion()` the legless chair uses.
             register(ExtraAdditionsCategory.JAPANESE, wood + "_fancy_railing", new FancyRailingBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                            .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
+            // Railing, every wood - Dawn Of Time's own CharredSpruceRailingBlock, used as it is,
+            // with the same properties as their fancy railing.
+            register(ExtraAdditionsCategory.JAPANESE, wood + "_railing", new CharredSpruceRailingBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
             // Window, every wood - Dawn Of Time's own is a bare vanilla TransparentBlock (the
