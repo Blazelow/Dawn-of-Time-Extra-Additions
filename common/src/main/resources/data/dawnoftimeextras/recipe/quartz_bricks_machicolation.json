@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "I I"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:quartz_stairs"
+    },
+    "I": {
+      "item": "minecraft:quartz_bricks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:quartz_bricks_machicolation",
+    "count": 4
+  }
+}

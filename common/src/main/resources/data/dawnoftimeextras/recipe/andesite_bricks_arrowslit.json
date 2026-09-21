@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:andesite_stairs"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:andesite_bricks_arrowslit",
+    "count": 16
+  }
+}

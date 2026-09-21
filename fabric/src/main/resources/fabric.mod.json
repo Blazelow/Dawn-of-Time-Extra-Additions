@@ -7,6 +7,9 @@
   "authors": [
     "${mod_author}"
   ],
+  "contributors": [
+    "${mod_credits}"
+  ],
   "license": "${mod_license}",
   "contact": {
     "homepage": "https://github.com/Blazelow/Dawn-of-Time-Extra-Additions",

@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import org.dawnoftime.dawnoftime.block.french.StoneBricksArrowslitBlock;
+import org.dawnoftime.dawnoftime.block.french.StoneBricksMachicolationBlock;
 import org.dawnoftime.dawnoftime.util.VoxelShapes;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
@@ -93,7 +95,7 @@ public class DawnOfTimeExtras {
     /** Exact names, or a suffix when every material or wood of a piece belongs. */
     private static final String[] CUTOUT_NAMES = {
             "tatami_block", "pale_green_tatami_block", "_fireplace",
-            "_crenelation", "_wrought_iron_fence", "_irori_fireplace",
+            "_crenelation", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
             // The wood batch's genuinely glass-holed pieces - copied Dawn Of Time's own
             // "render_type": "cutout" into their model JSON same as everything else here, but
             // that field is a NeoForge extension Fabric never reads (see the comment in
@@ -370,6 +372,14 @@ public class DawnOfTimeExtras {
             }
             register(ExtraAdditionsCategory.PERSIAN, stone + "_crenelation",
                     new CrenelationBlock(stone(STONE_COLOURS.get(stone))));
+        }
+        // Dawn Of Time's own stone brick arrowslit and machicolation, with their own collision
+        // shapes. Plain stone's are theirs already, so it is left out.
+        for (String stone : stones("quartz")) {
+            register(ExtraAdditionsCategory.FRENCH, stone + "_bricks_arrowslit", new StoneBricksArrowslitBlock(
+                    stone(STONE_COLOURS.get(stone)), VoxelShapes.STONE_BRICKS_ARROWSLIT_SHAPES));
+            register(ExtraAdditionsCategory.FRENCH, stone + "_bricks_machicolation", new StoneBricksMachicolationBlock(
+                    stone(STONE_COLOURS.get(stone)), VoxelShapes.STONE_BRICKS_MACHICOLATION_SHAPES));
         }
         for (String stone : stones("quartz", "stone", "limestone")) {
             Block column = register(ExtraAdditionsCategory.PRE_COLOMBIAN, stone + "_column",

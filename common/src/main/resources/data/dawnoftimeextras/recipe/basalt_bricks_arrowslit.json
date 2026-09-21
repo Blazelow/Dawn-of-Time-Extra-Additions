@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "dotbv:smooth_basalt_stairs"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:basalt_bricks_arrowslit",
+    "count": 16
+  }
+}

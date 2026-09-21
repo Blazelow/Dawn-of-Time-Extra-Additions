@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "I I"
+  ],
+  "key": {
+    "i": {
+      "item": "dotbv:dripstone_block_stairs"
+    },
+    "I": {
+      "item": "minecraft:dripstone_block"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dripstone_bricks_machicolation",
+    "count": 4
+  }
+}

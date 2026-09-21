@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "I I"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:red_sandstone_stairs"
+    },
+    "I": {
+      "item": "minecraft:red_sandstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_sandstone_bricks_machicolation",
+    "count": 4
+  }
+}

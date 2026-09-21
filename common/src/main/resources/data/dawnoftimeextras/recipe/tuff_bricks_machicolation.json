@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "I I"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:tuff_brick_stairs"
+    },
+    "I": {
+      "item": "minecraft:tuff_bricks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:tuff_bricks_machicolation",
+    "count": 4
+  }
+}

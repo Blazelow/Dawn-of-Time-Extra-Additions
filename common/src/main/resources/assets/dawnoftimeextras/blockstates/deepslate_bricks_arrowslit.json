@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": { "model": "dawnoftimeextras:block/deepslate_bricks_arrowslit"},
+		"facing=east": { "model": "dawnoftimeextras:block/deepslate_bricks_arrowslit", "y" : 90},
+		"facing=south": { "model": "dawnoftimeextras:block/deepslate_bricks_arrowslit", "y" : 180},
+		"facing=west": { "model": "dawnoftimeextras:block/deepslate_bricks_arrowslit", "y" : 270}
+	}
+}

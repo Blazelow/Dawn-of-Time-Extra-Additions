@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "I I"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:andesite_stairs"
+    },
+    "I": {
+      "item": "minecraft:andesite"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:andesite_bricks_machicolation",
+    "count": 4
+  }
+}
