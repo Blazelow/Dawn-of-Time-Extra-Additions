@@ -1,7 +1,7 @@
 {
 	"textures": {
 		"1": "minecraft:block/stripped_oak_log_top",
-		"2": "dawnoftimeextras:block/oak_railing_cap",
+		"2": "dawnoftimebuilder:block/charred_spruce_railing_cap",
 		"slab": "minecraft:block/stripped_oak_log",
 		"particle": "minecraft:block/stripped_oak_log"
 	},

@@ -1,7 +1,7 @@
 {
 	"textures": {
 		"1": "minecraft:block/stripped_mangrove_log_top",
-		"2": "dawnoftimeextras:block/mangrove_railing_cap",
+		"2": "dawnoftimebuilder:block/charred_spruce_railing_cap",
 		"3_slab": "minecraft:block/stripped_mangrove_log",
 		"particle": "minecraft:block/stripped_mangrove_log"
 	},

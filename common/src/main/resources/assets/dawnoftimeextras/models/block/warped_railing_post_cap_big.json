@@ -1,7 +1,7 @@
 {
 	"textures": {
 		"1": "minecraft:block/stripped_warped_stem_top",
-		"2": "dawnoftimeextras:block/warped_railing_cap",
+		"2": "dawnoftimebuilder:block/charred_spruce_railing_cap",
 		"slab": "minecraft:block/stripped_warped_stem",
 		"particle": "minecraft:block/stripped_warped_stem"
 	},
