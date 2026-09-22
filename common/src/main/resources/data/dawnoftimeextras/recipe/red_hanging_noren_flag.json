@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "III",
+    "III"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "minecraft:red_wool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_hanging_noren_flag",
+    "count": 3
+  }
+}

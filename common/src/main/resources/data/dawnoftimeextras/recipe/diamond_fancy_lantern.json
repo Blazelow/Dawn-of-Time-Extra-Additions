@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "oIo",
+    "oxo",
+    "ooo"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "x": {
+      "item": "minecraft:torch"
+    },
+    "o": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:diamond_fancy_lantern"
+  }
+}

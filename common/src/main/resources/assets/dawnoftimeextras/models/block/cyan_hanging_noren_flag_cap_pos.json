@@ -1,0 +1,32 @@
+{
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "pole": "dawnoftimebuilder:block/charred_spruce_planks",
+    "particle": "dawnoftimebuilder:block/charred_spruce_planks"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        13,
+        6.5
+      ],
+      "to": [
+        16,
+        16,
+        9.5
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            3,
+            3
+          ],
+          "texture": "#pole"
+        }
+      }
+    }
+  ]
+}

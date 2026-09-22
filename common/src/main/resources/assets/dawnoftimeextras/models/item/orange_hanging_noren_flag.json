@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "dawnoftimeextras:item/orange_hanging_noren_flag"
+  }
+}

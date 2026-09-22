@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "III",
+    "III"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "minecraft:blue_wool"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blue_hanging_noren_flag",
+    "count": 3
+  }
+}

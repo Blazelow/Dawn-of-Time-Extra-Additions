@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:lattice_glass_pane"
+    },
+    "i": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lattice_mangrove_window",
+    "count": 16
+  }
+}

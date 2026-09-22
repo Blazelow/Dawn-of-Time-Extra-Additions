@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:lattice_glass_pane"
+    },
+    "i": {
+      "item": "minecraft:dark_prismarine"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lattice_dark_prismarine_bricks_window",
+    "count": 16
+  }
+}

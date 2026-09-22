@@ -1,0 +1,130 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "axis": "z",
+        "above": "false",
+        "below": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_single"
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "above": "false",
+        "below": "true"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_top"
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "above": "true",
+        "below": "true"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_middle"
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "above": "true",
+        "below": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_bottom"
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "above": "false",
+        "pos": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_cap_pos"
+      }
+    },
+    {
+      "when": {
+        "axis": "z",
+        "above": "false",
+        "neg": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_cap_neg"
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "above": "false",
+        "below": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_single",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "above": "false",
+        "below": "true"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_top",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "above": "true",
+        "below": "true"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_middle",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "above": "true",
+        "below": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_bottom",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "above": "false",
+        "pos": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_cap_pos",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "axis": "x",
+        "above": "false",
+        "neg": "false"
+      },
+      "apply": {
+        "model": "dawnoftimeextras:block/lime_hanging_noren_flag_cap_neg",
+        "y": 90
+      }
+    }
+  ]
+}

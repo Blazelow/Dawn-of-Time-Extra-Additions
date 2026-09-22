@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:lattice_glass_pane"
+    },
+    "i": {
+      "item": "minecraft:end_stone_bricks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lattice_end_stone_bricks_window",
+    "count": 16
+  }
+}

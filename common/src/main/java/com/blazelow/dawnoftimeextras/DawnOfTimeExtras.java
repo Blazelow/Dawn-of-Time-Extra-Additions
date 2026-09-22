@@ -21,6 +21,10 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import org.dawnoftime.dawnoftime.block.french.StoneBricksArrowslitBlock;
 import org.dawnoftime.dawnoftime.block.japanese.CharredSpruceRailingBlock;
 import org.dawnoftime.dawnoftime.block.japanese.LittleFlagBlock;
+import org.dawnoftime.dawnoftime.block.templates.SidedWindowBlock;
+import org.dawnoftime.dawnoftime.block.templates.LanternBlock;
+import org.dawnoftime.dawnoftime.block.templates.PortcullisBlock;
+import org.dawnoftime.dawnoftime.block.general.IronColumnBlock;
 import net.minecraft.world.item.DyeColor;
 import org.dawnoftime.dawnoftime.block.french.StoneBricksMachicolationBlock;
 import org.dawnoftime.dawnoftime.util.VoxelShapes;
@@ -98,7 +102,7 @@ public class DawnOfTimeExtras {
     /** Exact names, or a suffix when every material or wood of a piece belongs. */
     private static final String[] CUTOUT_NAMES = {
             "tatami_block", "pale_green_tatami_block", "_fireplace",
-            "_crenelation", "_little_flag", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
+            "_crenelation", "_little_flag", "_hanging_noren_flag", "_fancy_lantern", "_portcullis", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
             // The wood batch's genuinely glass-holed pieces - copied Dawn Of Time's own
             // "render_type": "cutout" into their model JSON same as everything else here, but
             // that field is a NeoForge extension Fabric never reads (see the comment in
@@ -378,6 +382,38 @@ public class DawnOfTimeExtras {
         }
         // Dawn Of Time's own stone brick arrowslit and machicolation, with their own collision
         // shapes. Plain stone's are theirs already, so it is left out.
+        // Dawn Of Time's lattice windows: their own SidedWindowBlock with their own shapes and the
+        // properties they give it (a copy of glass). Stone brick ones for quartz and every extra
+        // stone, waxed oak ones for every vanilla wood and charred spruce.
+        for (String stone : stones("quartz")) {
+            register(ExtraAdditionsCategory.GERMAN, "lattice_" + stone + "_bricks_window", new SidedWindowBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
+        }
+        for (String wood : WOODS) {
+            register(ExtraAdditionsCategory.GERMAN, "lattice_" + wood + "_window", new SidedWindowBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
+        }
+        register(ExtraAdditionsCategory.GERMAN, "lattice_charred_spruce_window", new SidedWindowBlock(
+                BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
+        // Dawn Of Time's iron fancy lantern, column and portcullis, recoloured to other metals: their
+        // own classes, shapes and properties (read from their registry, a copy of iron bars/door).
+        // All three metals get all three pieces.
+        for (String material : new String[]{"gold", "diamond", "netherite"}) {
+            register(ExtraAdditionsCategory.GERMAN, material + "_fancy_lantern", new LanternBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).noOcclusion().lightLevel(state -> 15),
+                    VoxelShapes.IRON_FANCY_LANTERN_SHAPES));
+            register(ExtraAdditionsCategory.GERMAN, material + "_column", new IronColumnBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)));
+            register(ExtraAdditionsCategory.GERMAN, material + "_portcullis", new PortcullisBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_DOOR)));
+        }
+        // A noren flag that hangs and extends downwards (this mod's own, see HangingNorenFlagBlock).
+        for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
+                "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}) {
+            register(ExtraAdditionsCategory.JAPANESE, colour + "_hanging_noren_flag", new HangingNorenFlagBlock(
+                    BlockBehaviour.Properties.of().mapColor(DyeColor.byName(colour, DyeColor.WHITE))
+                            .strength(0.3F).sound(SoundType.WOOL).noOcclusion().noCollission()));
+        }
         // Dawn Of Time's noren flag comes in white only; these are the other fifteen dyes.
         for (String colour : new String[]{"orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
                 "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}) {

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "o",
+    "o",
+    "o"
+  ],
+  "key": {
+    "o": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherite_column",
+    "count": 3
+  }
+}

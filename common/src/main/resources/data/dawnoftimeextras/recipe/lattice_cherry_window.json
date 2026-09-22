@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:lattice_glass_pane"
+    },
+    "i": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lattice_cherry_window",
+    "count": 16
+  }
+}

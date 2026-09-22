@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "oIo",
+    "oxo",
+    "ooo"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "x": {
+      "item": "minecraft:torch"
+    },
+    "o": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherite_fancy_lantern"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "oIo",
+    "oxo",
+    "ooo"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "x": {
+      "item": "minecraft:torch"
+    },
+    "o": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:gold_fancy_lantern"
+  }
+}

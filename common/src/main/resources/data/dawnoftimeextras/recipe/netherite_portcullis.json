@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II",
+    "I",
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherite_portcullis",
+    "count": 8
+  }
+}

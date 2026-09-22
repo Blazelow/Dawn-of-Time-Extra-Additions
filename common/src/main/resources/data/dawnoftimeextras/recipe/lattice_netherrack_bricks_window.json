@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:lattice_glass_pane"
+    },
+    "i": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lattice_netherrack_bricks_window",
+    "count": 16
+  }
+}

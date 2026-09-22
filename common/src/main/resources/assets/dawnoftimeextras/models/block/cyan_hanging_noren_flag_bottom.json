@@ -1,0 +1,41 @@
+{
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cloth": "dawnoftimeextras:block/cyan_hanging_noren_flag_hem",
+    "particle": "dawnoftimeextras:block/cyan_hanging_noren_flag_hem"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        7.5
+      ],
+      "to": [
+        16,
+        16,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#cloth"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#cloth"
+        }
+      }
+    }
+  ]
+}
