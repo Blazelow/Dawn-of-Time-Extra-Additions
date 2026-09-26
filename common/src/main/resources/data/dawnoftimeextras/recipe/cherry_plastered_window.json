@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    " I ",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cherry_plastered_window",
+    "count": 6
+  }
+}

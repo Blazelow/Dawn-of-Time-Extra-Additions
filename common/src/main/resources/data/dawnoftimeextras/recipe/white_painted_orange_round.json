@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "iIi",
+    "IiI"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimeextras:orange_painted_stone"
+    },
+    "I": {
+      "item": "dawnoftimebuilder:white_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:white_painted_orange_round",
+    "count": 6
+  }
+}

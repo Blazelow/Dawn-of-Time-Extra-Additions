@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:blue_painted_puuc_limestone_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blue_painted_puuc_limestone_edge",
+    "count": 6
+  }
+}

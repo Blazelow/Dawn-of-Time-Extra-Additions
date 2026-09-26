@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I  ",
+    "II ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:cyan_plastered_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cyan_plastered_stone_stairs",
+    "count": 6
+  }
+}

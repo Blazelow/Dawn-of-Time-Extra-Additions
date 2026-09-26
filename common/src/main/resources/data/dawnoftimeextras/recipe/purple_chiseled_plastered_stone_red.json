@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "III",
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:purple_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purple_chiseled_plastered_stone_red",
+    "count": 6
+  }
+}

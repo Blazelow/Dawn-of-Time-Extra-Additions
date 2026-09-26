@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "i i",
+    " i ",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimeextras:brown_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:brown_painted_lattice",
+    "count": 6
+  }
+}

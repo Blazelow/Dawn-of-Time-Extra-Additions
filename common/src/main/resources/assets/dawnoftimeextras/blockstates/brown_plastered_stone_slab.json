@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "dawnoftimeextras:block/brown_plastered_stone_slab_bottom" },
+        "type=top": { "model": "dawnoftimeextras:block/brown_plastered_stone_slab_top" },
+        "type=double": { "model": "dawnoftimeextras:block/brown_plastered_stone_slab_double" }
+    }
+}

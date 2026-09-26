@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "axis=x": { "model": "dawnoftimeextras:block/cyan_plastered_stone_window" },
+        "axis=z": { "model": "dawnoftimeextras:block/cyan_plastered_stone_window", "y": 90 }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "vertical_connection=under": { "model": "dawnoftimeextras:block/white_plastered_stone_column_top" },
+        "vertical_connection=both": { "model": "dawnoftimeextras:block/white_plastered_stone_column_middle" },
+        "vertical_connection=above": { "model": "dawnoftimeextras:block/white_plastered_stone_column_bottom" },
+        "vertical_connection=none": { "model": "dawnoftimeextras:block/white_plastered_stone_column_lone" }
+    }
+}

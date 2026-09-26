@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:puuc_limestone"
+    },
+    "i": {
+      "item": "minecraft:cyan_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cyan_painted_puuc_limestone",
+    "count": 6
+  }
+}

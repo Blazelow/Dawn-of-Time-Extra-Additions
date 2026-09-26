@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:blue_plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:cyan_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blue_painted_cyan_frieze_edge",
+    "count": 6
+  }
+}

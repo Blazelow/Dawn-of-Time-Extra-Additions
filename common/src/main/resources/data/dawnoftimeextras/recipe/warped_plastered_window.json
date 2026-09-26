@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    " I ",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:warped_plastered_window",
+    "count": 6
+  }
+}

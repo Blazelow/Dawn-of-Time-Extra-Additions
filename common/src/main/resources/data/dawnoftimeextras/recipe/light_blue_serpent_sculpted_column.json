@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I  ",
+    "Ii ",
+    "Ioo"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stone"
+    },
+    "i": {
+      "item": "minecraft:light_blue_dye"
+    },
+    "o": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:light_blue_serpent_sculpted_column",
+    "count": 1
+  }
+}

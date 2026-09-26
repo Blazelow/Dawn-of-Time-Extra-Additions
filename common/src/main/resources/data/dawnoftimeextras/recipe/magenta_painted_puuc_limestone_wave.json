@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "I I",
+    "  I"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:magenta_painted_puuc_limestone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:magenta_painted_puuc_limestone_wave",
+    "count": 6
+  }
+}

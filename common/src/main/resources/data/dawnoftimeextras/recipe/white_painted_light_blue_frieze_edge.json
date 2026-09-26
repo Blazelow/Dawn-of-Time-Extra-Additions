@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:white_plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:light_blue_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:white_painted_light_blue_frieze_edge",
+    "count": 6
+  }
+}

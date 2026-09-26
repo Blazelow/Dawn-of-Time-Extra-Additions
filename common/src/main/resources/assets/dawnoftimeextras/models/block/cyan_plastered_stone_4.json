@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "dawnoftimeextras:block/cyan_plastered_stone_4"
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    "I I",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:pink_painted_puuc_limestone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:pink_painted_puuc_limestone_crossed",
+    "count": 6
+  }
+}

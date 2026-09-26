@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east": { "model": "dawnoftimeextras:block/light_gray_feathered_serpent_sculpture", "y" : 270},
+        "facing=south": { "model": "dawnoftimeextras:block/light_gray_feathered_serpent_sculpture" },
+        "facing=west": { "model": "dawnoftimeextras:block/light_gray_feathered_serpent_sculpture", "y": 90 },
+        "facing=north": { "model": "dawnoftimeextras:block/light_gray_feathered_serpent_sculpture", "y": 180 }
+    }
+}

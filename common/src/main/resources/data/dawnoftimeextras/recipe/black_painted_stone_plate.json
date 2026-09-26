@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:black_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:black_painted_stone_plate",
+    "count": 6
+  }
+}

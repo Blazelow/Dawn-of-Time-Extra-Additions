@@ -1,0 +1,7 @@
+{
+	"parent": "dawnoftimebuilder:block/general/small_plate",
+	"textures": {
+		"side": "dawnoftimeextras:block/magenta_painted_puuc_limestone",
+		"frieze": "dawnoftimeextras:block/magenta_painted_puuc_limestone"
+	}
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " i ",
+    "i i",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimeextras:cyan_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cyan_round_template",
+    "count": 6
+  }
+}

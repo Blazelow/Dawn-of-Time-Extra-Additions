@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " i ",
+    " o ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:yellow_dye"
+    },
+    "o": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:yellow_sculpted_plastered_stone_frieze_red",
+    "count": 6
+  }
+}

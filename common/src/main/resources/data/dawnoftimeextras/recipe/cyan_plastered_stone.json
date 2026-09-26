@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iI",
+    "Ii"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stone"
+    },
+    "i": {
+      "item": "minecraft:cyan_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cyan_plastered_stone",
+    "count": 6
+  }
+}

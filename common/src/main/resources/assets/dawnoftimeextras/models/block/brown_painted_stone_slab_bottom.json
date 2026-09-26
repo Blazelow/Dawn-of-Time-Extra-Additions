@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "dawnoftimeextras:block/brown_painted_stone",
+        "top": "dawnoftimeextras:block/brown_painted_stone",
+        "side": "dawnoftimeextras:block/brown_painted_stone"
+    }
+}

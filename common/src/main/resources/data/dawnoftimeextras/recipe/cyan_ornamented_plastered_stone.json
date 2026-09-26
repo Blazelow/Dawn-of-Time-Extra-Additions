@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI",
+    "IoI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:cyan_dye"
+    },
+    "o": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:cyan_ornamented_plastered_stone",
+    "count": 4
+  }
+}

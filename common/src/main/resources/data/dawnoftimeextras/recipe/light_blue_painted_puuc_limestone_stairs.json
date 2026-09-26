@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I  ",
+    "II ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:light_blue_painted_puuc_limestone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:light_blue_painted_puuc_limestone_stairs",
+    "count": 6
+  }
+}

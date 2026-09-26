@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "iii",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:white_chiseled_plastered_stone_green",
+    "count": 6
+  }
+}

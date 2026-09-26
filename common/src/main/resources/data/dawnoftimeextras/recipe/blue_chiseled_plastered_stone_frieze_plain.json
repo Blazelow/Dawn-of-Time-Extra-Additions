@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " I ",
+    " i ",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:plastered_stone"
+    },
+    "i": {
+      "item": "dawnoftimeextras:blue_chiseled_plastered_stone_plain"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:blue_chiseled_plastered_stone_frieze_plain",
+    "count": 6
+  }
+}

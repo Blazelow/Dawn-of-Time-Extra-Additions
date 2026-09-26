@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "type=bottom": {
+            "model": "dawnoftimeextras:block/cyan_painted_stone_slab_bottom"
+        },
+        "type=top": {
+            "model": "dawnoftimeextras:block/cyan_painted_stone_slab_top"
+        },
+        "type=double": {
+            "model": "dawnoftimeextras:block/cyan_painted_stone"
+        }
+    }
+}

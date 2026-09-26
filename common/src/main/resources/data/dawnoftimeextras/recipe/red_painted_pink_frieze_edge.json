@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:red_plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:pink_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_painted_pink_frieze_edge",
+    "count": 6
+  }
+}

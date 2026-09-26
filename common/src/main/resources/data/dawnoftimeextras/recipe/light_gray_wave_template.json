@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "i i",
+    "  i"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimeextras:light_gray_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:light_gray_wave_template",
+    "count": 6
+  }
+}

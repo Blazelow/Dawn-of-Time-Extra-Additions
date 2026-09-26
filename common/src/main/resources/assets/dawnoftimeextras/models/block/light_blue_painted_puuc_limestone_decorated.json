@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "dawnoftimeextras:block/light_blue_painted_puuc_limestone_decorated"
+    }
+}

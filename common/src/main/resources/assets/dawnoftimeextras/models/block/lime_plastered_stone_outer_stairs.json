@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "dawnoftimeextras:block/lime_plastered_stone",
+        "top": "dawnoftimeextras:block/lime_plastered_stone",
+        "side": "dawnoftimeextras:block/lime_plastered_stone"
+    }
+}

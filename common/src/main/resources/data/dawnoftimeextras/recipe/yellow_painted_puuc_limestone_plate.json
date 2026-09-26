@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:yellow_painted_puuc_limestone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:yellow_painted_puuc_limestone_plate",
+    "count": 6
+  }
+}

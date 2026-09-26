@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "": [
+            { "model": "dawnoftimeextras:block/cyan_plastered_stone_1" },
+			{ "model": "dawnoftimeextras:block/cyan_plastered_stone_2" },
+			{ "model": "dawnoftimeextras:block/cyan_plastered_stone_3" },
+			{ "model": "dawnoftimeextras:block/cyan_plastered_stone_4" },
+			{ "model": "dawnoftimeextras:block/cyan_plastered_stone_5" }
+        ]
+    }
+}

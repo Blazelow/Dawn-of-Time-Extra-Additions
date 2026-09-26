@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "dawnoftimeextras:block/pink_plastered_stone",
+        "side": "dawnoftimeextras:block/pink_plastered_stone_slab"
+    }
+}

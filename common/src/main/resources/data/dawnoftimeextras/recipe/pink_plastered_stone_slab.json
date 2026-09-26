@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:pink_plastered_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:pink_plastered_stone_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:lime_plastered_stone_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lime_plastered_stone_edge",
+    "count": 6
+  }
+}

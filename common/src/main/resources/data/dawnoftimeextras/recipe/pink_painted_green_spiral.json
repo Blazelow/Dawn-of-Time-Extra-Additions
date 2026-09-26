@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "ixi",
+    "ixi"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimebuilder:green_painted_stone"
+    },
+    "x": {
+      "item": "dawnoftimeextras:pink_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:pink_painted_green_spiral",
+    "count": 6
+  }
+}

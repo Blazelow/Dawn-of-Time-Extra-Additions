@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iii",
+    "i i",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimebuilder:red_painted_stone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:red_spiral_template",
+    "count": 6
+  }
+}

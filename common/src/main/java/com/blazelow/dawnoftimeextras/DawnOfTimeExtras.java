@@ -25,6 +25,13 @@ import org.dawnoftime.dawnoftime.block.templates.SidedWindowBlock;
 import org.dawnoftime.dawnoftime.block.templates.LanternBlock;
 import org.dawnoftime.dawnoftime.block.templates.PortcullisBlock;
 import org.dawnoftime.dawnoftime.block.general.IronColumnBlock;
+import org.dawnoftime.dawnoftime.block.templates.LatticeBlock;
+import org.dawnoftime.dawnoftime.block.templates.BlockDoT;
+import org.dawnoftime.dawnoftime.block.templates.ConnectedVerticalBlock;
+import org.dawnoftime.dawnoftime.block.templates.SlabBlockDoT;
+import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalAxisBlock;
+import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalBlock;
+import org.dawnoftime.dawnoftime.block.templates.ConnectedVerticalSidedBlock;
 import net.minecraft.world.item.DyeColor;
 import org.dawnoftime.dawnoftime.block.french.StoneBricksMachicolationBlock;
 import org.dawnoftime.dawnoftime.util.VoxelShapes;
@@ -103,6 +110,7 @@ public class DawnOfTimeExtras {
     private static final String[] CUTOUT_NAMES = {
             "tatami_block", "pale_green_tatami_block", "_fireplace",
             "_crenelation", "_little_flag", "_hanging_noren_flag", "_fancy_lantern", "_portcullis", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
+            "_wave_template", "_round_template", "_spiral_template", "_painted_lattice", "_serpent_sculpted_column",
             // The wood batch's genuinely glass-holed pieces - copied Dawn Of Time's own
             // "render_type": "cutout" into their model JSON same as everything else here, but
             // that field is a NeoForge extension Fabric never reads (see the comment in
@@ -421,6 +429,306 @@ public class DawnOfTimeExtras {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
                             .mapColor(DyeColor.byName(colour, DyeColor.WHITE)).noOcclusion()));
         }
+        // Dawn Of Time's wave and round template come in blue only - theirs, so blue is skipped
+        // here. Their own class and properties (a burnable stone lattice, read from their registry).
+        for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
+                "gray", "light_gray", "cyan", "purple", "brown", "green", "red", "black"}) {
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_wave_template",
+                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_round_template",
+                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+        }
+        // Dawn Of Time's painted round: theirs is red + blue only; every other background/round pairing here.
+        for (String base : PAINTED_DYES) {
+            for (String round : PAINTED_DYES) {
+                if (base.equals("red") && round.equals("blue")) {
+                    continue;
+                }
+                register(ExtraAdditionsCategory.PRE_COLOMBIAN, base + "_painted_" + round + "_round",
+                        new Block(solidStone(DYE_MAP_COLOURS.get(base))));
+            }
+        }
+        // Dawn Of Time's painted spiral: theirs is red + white only; every other background/spiral pairing here.
+        for (String base : PAINTED_DYES) {
+            for (String spiral : PAINTED_DYES) {
+                if (base.equals("red") && spiral.equals("white")) {
+                    continue;
+                }
+                register(ExtraAdditionsCategory.PRE_COLOMBIAN, base + "_painted_" + spiral + "_spiral",
+                        new Block(solidStone(DYE_MAP_COLOURS.get(base))));
+            }
+        }
+        // Dawn Of Time's white_spiral_template in every other colour - same class as the wave/round templates.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("white")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_spiral_template",
+                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+        }
+        // Dawn Of Time's red_painted_stone_frieze_edge is theirs in red + blue only; every other background/diamond
+        // pairing here, on {@link EdgeBlock} like the painted stone edge.
+        for (String base : PAINTED_DYES) {
+            for (String glyph : PAINTED_DYES) {
+                if (base.equals("red") && glyph.equals("blue")) {
+                    continue;
+                }
+                register(ExtraAdditionsCategory.PRE_COLOMBIAN, base + "_painted_" + glyph + "_frieze_edge",
+                        new EdgeBlock(solidStone(DYE_MAP_COLOURS.get(base))));
+            }
+        }
+        // Dawn Of Time's painted puuc limestone (base, stairs, slab, plate, edge) is theirs in white and red only.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("white")) {
+                continue;
+            }
+            if (colour.equals("red")) {
+                continue;
+            }
+            Block puucBase = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone",
+                    new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_stairs",
+                    new StairBlock(puucBase.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_slab",
+                    new SlabBlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_plate",
+                    new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_edge",
+                    new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+        // Painted versions of Dawn Of Time's decorated, tight lattice, crossed and wave puuc limestone, in all sixteen
+        // colours (theirs are tan only) - plain cubes, like the painted puuc limestone base.
+        for (String colour : PAINTED_DYES) {
+            for (String piece : new String[]{"decorated", "tight_lattice", "crossed", "wave"}) {
+                register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_" + piece,
+                        new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
+            }
+        }
+        // Dawn Of Time's painted lattice is theirs in white and red only (blue has assets but is never
+        // registered) - same class and properties as the wave/round templates registered above.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("white")) {
+                continue;
+            }
+            if (colour.equals("red")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_lattice",
+                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+        }
+        // Dawn Of Time's ornamented plastered stone comes in red only - theirs, so red is skipped
+        // here. Their own class and properties (a plain stone-brick block, read from their registry).
+        for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
+                "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "black"}) {
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_ornamented_plastered_stone",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+        // Dawn Of Time's ornamented and sculpted plastered stone friezes each come in green and
+        // red only - and, unlike every other two-colour piece here, those two are not the same
+        // shape recoloured: decompiled directly, green's own model is a plain 3-box slab while
+        // red's is a 13-element carved pilaster relief (same story for sculpted - green a
+        // totem-like double box, red a flat box with a diamond accent). Real, different
+        // hand-modelled art, not a palette swap - Blazelow's own call was to keep both shapes,
+        // each carried into all sixteen colours independently, rather than picking one as
+        // canonical (see gen_assets.py's plastered_stone_friezes()). That means a same-coloured
+        // block can exist built on either shape, so the shape is named too (`_<shape>`) - the
+        // same fix the red_painted_blue_wave duplicate needed, just for a shape clash instead of
+        // a straight duplicate. {@link #stone}, not {@link #solidStone}: like the crenelations,
+        // this model does not fill the block and must not cull the faces around it.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("green")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_ornamented_plastered_stone_frieze_green",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_sculpted_plastered_stone_frieze_green",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
+        }
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("red")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_ornamented_plastered_stone_frieze_red",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_sculpted_plastered_stone_frieze_red",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
+        }
+        // The small frieze's own shape IS shared between green and red (both use the exact box
+        // {@link EdgeBlock} already places - checked directly, no custom elements in either
+        // model, just a repointed texture), unlike its ornamented/sculpted siblings above - but
+        // the motif painted onto it is not: green's own is a thin zigzag line, red's a blocky
+        // Greek-key meander, two different patterns rather than a palette swap. Same call as
+        // above, kept both and carried each into all sixteen colours, so the same `_<shape>`
+        // naming applies here too even though the block shape itself never changes. solidStone,
+        // matching every other EdgeBlock registration in this file (plastered_stone_edge,
+        // the masonry/limestone edges) - EdgeBlock keeps full occlusion here, not noOcclusion.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("green")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_small_plastered_stone_frieze_green",
+                    new EdgeBlock(solidStone(DYE_MAP_COLOURS.get(colour))));
+        }
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("red")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_small_plastered_stone_frieze_red",
+                    new EdgeBlock(solidStone(DYE_MAP_COLOURS.get(colour))));
+        }
+        // The plain frieze (no "ornamented"/"sculpted"/"small") shares the friezes' usual
+        // facing + shape blockstate (straight/outer/inner, {@link CrenelationBlock} again,
+        // {@link #stone} for the same non-filling-model reason) - but green's motif (a circular
+        // medallion) and red's (an interlocking key pattern) are still two different pieces of
+        // art, same as every frieze above.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("green")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_frieze_green",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
+        }
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("red")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_frieze_red",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
+        }
+        // Dawn Of Time's ornamented chiseled plastered stone comes in green and red only - and,
+        // like the friezes, those two are genuinely different motifs on the same plain shape (a
+        // cube_column with no custom elements in either model, checked directly), not one
+        // recoloured onto the other: green's is a thin band of small alternating glyphs, red's
+        // a thick vertical Greek-key column. Single blockstate variant (no facing/shape), so a
+        // plain {@link BlockDoT} - the same class ornamented_plastered_stone above uses.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("green")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN,
+                    colour + "_ornamented_chiseled_plastered_stone_green",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("red")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN,
+                    colour + "_ornamented_chiseled_plastered_stone_red",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+        // Dawn Of Time ships a THIRD ornamented chiseled plastered stone too - no colour of its
+        // own (just plastered_stone + gold nuggets), a genuinely different motif again from both
+        // green's and red's. Confirmed with Blazelow directly: only the gold stripe near the top
+        // of the texture carries a colour in each of the sixteen generated blocks; the grey
+        // plaster and the Greek-key pattern below stay exactly as they drew them. No native
+        // colour to skip here - all sixteen are new.
+        for (String colour : PAINTED_DYES) {
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN,
+                    colour + "_ornamented_chiseled_plastered_stone_gold",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+        // Dawn Of Time's feathered serpent sculpture comes in green only - theirs, so green is
+        // skipped here. Their own class, shape and properties (read from their registry).
+        for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
+                "gray", "light_gray", "cyan", "purple", "blue", "brown", "red", "black"}) {
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_feathered_serpent_sculpture",
+                    new WaterloggedHorizontalBlock(
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            VoxelShapes.FEATHERED_SERPENT_SCULPTURE_SHAPES));
+        }
+        // Dawn Of Time's serpent sculpted column comes in green only - theirs, so green is
+        // skipped here. Their own class, shape and properties (read from their registry).
+        for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
+                "gray", "light_gray", "cyan", "purple", "blue", "brown", "red", "black"}) {
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_serpent_sculpted_column",
+                    new ConnectedVerticalSidedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS),
+                            VoxelShapes.SERPENT_SCULPTED_COLUMN_SHAPES));
+        }
+        // Dawn Of Time's chiseled plastered stone comes in red and green - and, like every other
+        // two-colour piece here, those two are genuinely different motifs (red a Greek-key
+        // column, green a medallion/cross), not one recoloured onto the other. An earlier version
+        // of this registration only ever offered red's shape (named with no suffix at all,
+        // `colour + "_chiseled_plastered_stone"`) - renamed to `_red` and green's own added
+        // alongside it, same `_<shape>` treatment as the friezes and the ornamented chiseled
+        // stone. Their own class and properties (a plain stone-brick block, read from their
+        // registry).
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("red")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_chiseled_plastered_stone_red",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("green")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_chiseled_plastered_stone_green",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+        // Dawn Of Time also ships a colourless chiseled plastered stone (no dye in its own
+        // recipe) and its own frieze cut from that same art - a third motif again, entirely
+        // neutral grey, no wash or fixed decoration to hold in place. White is left out
+        // (Blazelow's call - indistinguishable from the plain grey it starts as). The frieze
+        // shares the usual facing + shape blockstate, {@link CrenelationBlock} again.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("white")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_chiseled_plastered_stone_plain",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN,
+                    colour + "_chiseled_plastered_stone_frieze_plain",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
+        }
+        // Dawn Of Time's plastered stone - base, column, edge, plate, slab, stairs, window - in
+        // the twelve vanilla dye colours they didn't make (blue/green/red/yellow are theirs).
+        // Their own classes and properties where they have one (a plain stone-brick block, their
+        // own connecting column and window), this mod's own edge/plate reimplementation (already
+        // used by the masonry family), and vanilla's own stairs/slab off that colour's own base.
+        for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "lime", "pink",
+                "gray", "light_gray", "cyan", "purple", "brown", "black"}) {
+            Block base = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone",
+                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_column",
+                    new ConnectedVerticalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS),
+                            VoxelShapes.PLASTERED_STONE_COLUMN_SHAPES));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_edge",
+                    new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_plate",
+                    new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_slab",
+                    new SlabBlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_stairs",
+                    new StairBlock(base.defaultBlockState(),
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_window",
+                    new WaterloggedHorizontalAxisBlock(
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
+        }
+        // The plastered window, in quartz, every extra stone, every vanilla wood and charred
+        // spruce - Dawn Of Time's own class and shapes again, this mod's own materials. Named
+        // "plastered window", not "plastered stone window" - it spans wood too, unlike the
+        // dyed one above, which stays "stone" since it recolours the actual plastered stone
+        // block (owner request, 2026-09-23).
+        for (String stone : stones("quartz")) {
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, stone + "_plastered_window",
+                    new WaterloggedHorizontalAxisBlock(
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
+        }
+        for (String wood : WOODS) {
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, wood + "_plastered_window",
+                    new WaterloggedHorizontalAxisBlock(
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
+        }
+        register(ExtraAdditionsCategory.PRE_COLOMBIAN, "charred_spruce_plastered_window",
+                new WaterloggedHorizontalAxisBlock(
+                        BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                        VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
         for (String stone : stones("quartz")) {
             register(ExtraAdditionsCategory.FRENCH, stone + "_bricks_arrowslit", new StoneBricksArrowslitBlock(
                     stone(STONE_COLOURS.get(stone)), VoxelShapes.STONE_BRICKS_ARROWSLIT_SHAPES));
@@ -711,7 +1019,30 @@ public class DawnOfTimeExtras {
                 "orange", "magenta", "light_blue", "lime", "pink", "gray",
                 "light_gray", "cyan", "purple", "brown", "black"};
         for (String colour : paintedStoneGaps) {
-            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone", new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
+            Block paintedBase = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone", new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
+            // stairs, slab, plate and edge: their own classes and properties (stone bricks), as for the plastered stone.
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_stairs",
+                    new StairBlock(paintedBase.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_slab",
+                    new SlabBlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_plate",
+                    new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_edge",
+                    new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+        }
+
+        // Dawn Of Time's own red_painted_crenelation, in every other vanilla dye colour. Unlike
+        // the wave below, the glyph itself (a blue ring, a green leaf) never changes colour -
+        // checked directly in their own recipe JSON, a fixed green_dye + blue_dye around a
+        // painted_stone - so this is sixteen backgrounds, not sixteen times sixteen. Uses
+        // {@link #stone}, not {@link #solidStone}: like the stone crenelations, its model does
+        // not fill the block and must not cull the faces around it.
+        for (String colour : PAINTED_DYES) {
+            if (colour.equals("red")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_crenelation",
+                    new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
         }
 
         // Dawn Of Time ships exactly one combination of this natively - a red background with

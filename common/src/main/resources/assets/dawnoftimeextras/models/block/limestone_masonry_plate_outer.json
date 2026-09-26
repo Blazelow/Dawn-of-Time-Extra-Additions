@@ -1,8 +1,0 @@
-{
-  "parent": "dawnoftimeextras:block/general/plate_outer",
-  "textures": {
-    "side": "dawnoftimeextras:block/limestone_masonry",
-    "top": "dawnoftimeextras:block/limestone_masonry",
-    "frieze": "dawnoftimeextras:block/limestone_masonry"
-  }
-}

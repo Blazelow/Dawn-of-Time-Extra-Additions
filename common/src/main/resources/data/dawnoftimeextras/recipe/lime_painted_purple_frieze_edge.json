@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:lime_plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:purple_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:lime_painted_purple_frieze_edge",
+    "count": 6
+  }
+}

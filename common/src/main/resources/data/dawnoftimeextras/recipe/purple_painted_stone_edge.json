@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:purple_painted_stone_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:purple_painted_stone_edge",
+    "count": 6
+  }
+}

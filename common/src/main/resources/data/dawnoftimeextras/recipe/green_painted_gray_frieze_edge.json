@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IiI"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimebuilder:green_plastered_stone"
+    },
+    "i": {
+      "item": "minecraft:gray_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:green_painted_gray_frieze_edge",
+    "count": 6
+  }
+}
