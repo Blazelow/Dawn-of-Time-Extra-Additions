@@ -407,10 +407,10 @@ public class DawnOfTimeExtras {
         // own classes, shapes and properties (read from their registry, a copy of iron bars/door).
         // All three metals get all three pieces.
         for (String material : new String[]{"gold", "diamond", "netherite"}) {
-            register(ExtraAdditionsCategory.GERMAN, material + "_fancy_lantern", new LanternBlock(
+            register(ExtraAdditionsCategory.FRENCH, material + "_fancy_lantern", new LanternBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).noOcclusion().lightLevel(state -> 15),
                     VoxelShapes.IRON_FANCY_LANTERN_SHAPES));
-            register(ExtraAdditionsCategory.GERMAN, material + "_column", new IronColumnBlock(
+            register(ExtraAdditionsCategory.FRENCH, material + "_column", new IronColumnBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)));
             register(ExtraAdditionsCategory.GERMAN, material + "_portcullis", new PortcullisBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_DOOR)));

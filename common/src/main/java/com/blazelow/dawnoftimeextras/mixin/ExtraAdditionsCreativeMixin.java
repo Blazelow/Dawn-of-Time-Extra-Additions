@@ -4,6 +4,8 @@ import com.blazelow.dawnoftimeextras.DawnOfTimeExtras;
 import com.blazelow.dawnoftimeextras.ExtraAdditionsCategory;
 import com.blazelow.dawnoftimeextras.creative.ExtraAdditionsCategoryButton;
 import com.blazelow.dawnoftimeextras.creative.ExtraAdditionsGroupButton;
+import com.blazelow.dawnoftimeextras.creative.ExtraAdditionsSubTab;
+import com.blazelow.dawnoftimeextras.creative.ExtraAdditionsSubTabButton;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -34,6 +36,10 @@ public abstract class ExtraAdditionsCreativeMixin
 
     @Unique
     private List<ExtraAdditionsCategoryButton> dawnoftimeextras$buttons;
+    @Unique
+    private List<ExtraAdditionsSubTabButton> dawnoftimeextras$subTabButtons;
+    @Unique
+    private static int dawnoftimeextras$selectedSubTab = -1;
     @Unique
     private Button dawnoftimeextras$btnScrollUp;
     @Unique
@@ -71,6 +77,8 @@ public abstract class ExtraAdditionsCreativeMixin
                     this.dawnoftimeextras$buttons.get(dawnoftimeextras$selectedCategoryID % 4).setSelected(false);
                     categoryButton.setSelected(true);
                     dawnoftimeextras$selectedCategoryID = categoryButton.getCategoryID();
+                    dawnoftimeextras$selectedSubTab = -1;
+                    this.dawnoftimeextras$updateSubTabs();
                     this.dawnoftimeextras$updateItems();
                 }
             }, () -> dawnoftimeextras$page));
@@ -78,6 +86,20 @@ public abstract class ExtraAdditionsCreativeMixin
         for (ExtraAdditionsCategoryButton button : this.dawnoftimeextras$buttons) {
             this.addRenderableWidget(button);
         }
+
+        this.dawnoftimeextras$subTabButtons = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            final int subTabIndex = i;
+            ExtraAdditionsSubTabButton subTabButton = new ExtraAdditionsSubTabButton(
+                    this.leftPos + 156, this.topPos + 4, ExtraAdditionsSubTab.BUILDING, button -> {
+                dawnoftimeextras$selectedSubTab = dawnoftimeextras$selectedSubTab == subTabIndex ? -1 : subTabIndex;
+                this.dawnoftimeextras$updateSubTabs();
+                this.dawnoftimeextras$updateItems();
+            });
+            this.dawnoftimeextras$subTabButtons.add(subTabButton);
+            this.addRenderableWidget(subTabButton);
+        }
+        this.dawnoftimeextras$updateSubTabs();
 
         this.dawnoftimeextras$updateCategoryButtons();
         if (this.dawnoftimeextras$tabSelected) {
@@ -133,6 +155,11 @@ public abstract class ExtraAdditionsCreativeMixin
         this.dawnoftimeextras$btnScrollUp.visible = val;
         this.dawnoftimeextras$btnScrollDown.visible = val;
         this.dawnoftimeextras$buttons.forEach(button -> button.visible = val);
+        int slots = ExtraAdditionsSubTab.forCategory(
+                ExtraAdditionsCategory.values()[dawnoftimeextras$selectedCategoryID]).size();
+        for (int i = 0; i < this.dawnoftimeextras$subTabButtons.size(); i++) {
+            this.dawnoftimeextras$subTabButtons.get(i).visible = val && i < slots;
+        }
     }
 
     @Unique
@@ -163,11 +190,31 @@ public abstract class ExtraAdditionsCreativeMixin
     }
 
     @Unique
+    private void dawnoftimeextras$updateSubTabs() {
+        if (this.dawnoftimeextras$subTabButtons == null) {
+            return;
+        }
+        List<ExtraAdditionsSubTab> sets = ExtraAdditionsSubTab.forCategory(
+                ExtraAdditionsCategory.values()[dawnoftimeextras$selectedCategoryID]);
+        for (int i = 0; i < this.dawnoftimeextras$subTabButtons.size() && i < sets.size(); i++) {
+            ExtraAdditionsSubTabButton button = this.dawnoftimeextras$subTabButtons.get(i);
+            button.setSubTab(sets.get(i));
+            button.setX(this.leftPos + 156 - (sets.size() - 1 - i) * 14);
+            button.setSelected(i == dawnoftimeextras$selectedSubTab);
+        }
+    }
+
+    @Unique
     private void dawnoftimeextras$updateItems() {
         ExtraAdditionsCategory category = ExtraAdditionsCategory.values()[dawnoftimeextras$selectedCategoryID];
         this.menu.items.clear();
+        List<ExtraAdditionsSubTab> sets = ExtraAdditionsSubTab.forCategory(category);
+        ExtraAdditionsSubTab subTab = dawnoftimeextras$selectedSubTab >= 0 && dawnoftimeextras$selectedSubTab < sets.size()
+                ? sets.get(dawnoftimeextras$selectedSubTab) : null;
         for (Block block : DawnOfTimeExtras.CATEGORY_BLOCKS.get(category)) {
-            this.menu.items.add(new ItemStack(block));
+            if (subTab == null || subTab.contains(block)) {
+                this.menu.items.add(new ItemStack(block));
+            }
         }
         this.menu.scrollTo(0.0F);
     }
