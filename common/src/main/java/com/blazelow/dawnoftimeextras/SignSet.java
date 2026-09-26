@@ -28,23 +28,9 @@ import net.minecraft.world.level.material.MapColor;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * One sign, its wall form, and the matching hanging pair, for a single material.
- *
- * <p>Signs need more scaffolding than an ordinary block. A {@link WoodType} has to be registered
- * before the blocks are built, because vanilla builds a sign model layer and a texture material
- * for every registered wood type - that is what lets the renderer find
- * {@code textures/entity/signs/<name>.png} with nothing wired up by hand.
- *
- * <p>The block entities exist only to carry a type of our own. Vanilla's {@code SIGN} and
- * {@code HANGING_SIGN} types have closed valid-block lists, so a sign of ours attached to one is
- * thrown out as invalid the moment it is placed. The type has to reach
- * {@link BlockEntity}'s constructor too - overriding {@code getType()} is not enough, because the
- * constructor validates against the private field and only the error message reads the getter.
- */
 @SuppressWarnings({"unchecked", "rawtypes"})
 public final class SignSet {
-    /** Every set built, so the client can attach a renderer to each. */
+
     public static final List<SignSet> ALL = new ArrayList<>();
 
     public final Block sign;
@@ -84,9 +70,6 @@ public final class SignSet {
             }
         };
 
-        // Each block entity needs its own type, and the type needs the supplier - so the
-        // supplier reads it back out of a holder that is filled in immediately afterwards. The
-        // lambda only runs when a block entity is created, long after that.
         BlockEntityType<SetSignBlockEntity>[] signHolder = new BlockEntityType[1];
         signHolder[0] = BlockEntityType.Builder
                 .of((pos, state) -> new SetSignBlockEntity(signHolder[0], pos, state), sign, wallSign)
@@ -107,7 +90,6 @@ public final class SignSet {
         Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id(name + "_sign"), signEntity);
         Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id(name + "_hanging_sign"), hangingSignEntity);
 
-        // The wall forms have no item of their own; one item places both.
         Registry.register(BuiltInRegistries.ITEM, id(name + "_sign"),
                 new SignItem(new Item.Properties().stacksTo(16), sign, wallSign));
         Registry.register(BuiltInRegistries.ITEM, id(name + "_hanging_sign"),
@@ -115,7 +97,6 @@ public final class SignSet {
 
         ALL.add(this);
     }
-
 
     private static BlockBehaviour.Properties properties(MapColor colour) {
         return BlockBehaviour.Properties.of()
@@ -142,10 +123,6 @@ public final class SignSet {
         }
     }
 
-    /**
-     * Extends {@link SignBlockEntity}, not {@code HangingSignBlockEntity}: that one takes no
-     * block entity type, so it would pin vanilla's. The three things it adds are reproduced here.
-     */
     public static class SetHangingSignBlockEntity extends SignBlockEntity {
         public SetHangingSignBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
             super(type, pos, state);

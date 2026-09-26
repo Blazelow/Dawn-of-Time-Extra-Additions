@@ -26,17 +26,6 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-/**
- * A column that stands against a wall and grows by hand, matching Dawn Of Time's sided columns.
- *
- * <p>The block works out which piece it shows from what it is joined to: joined above it is the
- * foot, joined below it is the capital, joined at both ends a plain middle section. So a stack
- * carries a base and a capital automatically and you never place those parts yourself.
- *
- * <p>Right-clicking while holding another of the same column adds a section on top of the stack
- * (consuming it unless you are in creative); sneaking and right-clicking with an empty hand takes
- * the top section back off and drops it. Both match how Dawn Of Time's own columns behave.
- */
 public class SidedColumnBlock extends Block {
     public static final MapCodec<SidedColumnBlock> CODEC = simpleCodec(SidedColumnBlock::new);
 
@@ -44,7 +33,6 @@ public class SidedColumnBlock extends Block {
     public static final EnumProperty<VerticalConnection> VERTICAL_CONNECTION =
             EnumProperty.create("vertical_connection", VerticalConnection.class);
 
-    /** The column is half-depth: it sits against the wall behind it rather than filling the block. */
     private static final Map<Direction, VoxelShape> SHAPES = new EnumMap<>(Direction.class);
 
     static {
@@ -78,7 +66,7 @@ public class SidedColumnBlock extends Block {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        // face the player, so the column's mass sits against the wall beyond it
+
         BlockState state = this.defaultBlockState()
                 .setValue(FACING, context.getHorizontalDirection().getOpposite());
         return state.setValue(VERTICAL_CONNECTION, connectionAt(state, context.getLevel(), context.getClickedPos()));
@@ -98,7 +86,6 @@ public class SidedColumnBlock extends Block {
                                      joins(state, level.getBlockState(pos.below())));
     }
 
-    /** Only the same column facing the same way stacks, so two materials never merge. */
     private boolean joins(BlockState state, BlockState neighbour) {
         return neighbour.is(this) && neighbour.getValue(FACING) == state.getValue(FACING);
     }

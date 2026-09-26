@@ -15,23 +15,12 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-/**
- * A hanging noren flag that grows downwards: put another of the same colour below it and the
- * cloth carries on. The top block has the pole across it, the bottom one the hem and the notched
- * edge, and the ones between are plain cloth.
- *
- * <p>It is a thin, walk-through plane along one horizontal axis. Whether a block has a flag above
- * or below it is stored in {@link #ABOVE} and {@link #BELOW}, and the blockstate picks the piece
- * from those two. Flags also join sideways along the plane, {@link #NEG} and {@link #POS}, which
- * only decides whether the pole shows an end cap. A flag placed against another of the same colour
- * takes that flag's axis, so a row or a column never zigzags.
- */
 public class HangingNorenFlagBlock extends Block {
     public static final MapCodec<HangingNorenFlagBlock> CODEC = simpleCodec(HangingNorenFlagBlock::new);
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     public static final BooleanProperty ABOVE = BooleanProperty.create("above");
     public static final BooleanProperty BELOW = BooleanProperty.create("below");
-    /** A flag of the same colour and axis next to this one, towards the negative / positive end of its axis. */
+
     public static final BooleanProperty NEG = BooleanProperty.create("neg");
     public static final BooleanProperty POS = BooleanProperty.create("pos");
 
@@ -61,7 +50,7 @@ public class HangingNorenFlagBlock extends Block {
         BlockState above = context.getLevel().getBlockState(pos.above());
         BlockState below = context.getLevel().getBlockState(pos.below());
         Direction.Axis axis = context.getHorizontalDirection().getAxis();
-        // Next to one of its own kind it follows that one, so the column stays straight.
+
         if (above.is(this)) {
             axis = above.getValue(AXIS);
         } else if (below.is(this)) {
@@ -82,7 +71,6 @@ public class HangingNorenFlagBlock extends Block {
                 .setValue(NEG, joins(axis, context.getLevel().getBlockState(pos.relative(pos_.getOpposite()))));
     }
 
-    /** The end of the plane in the positive direction: a plane facing along z runs east-west, one facing along x north-south. */
     private static Direction positive(Direction.Axis axis) {
         return axis == Direction.Axis.Z ? Direction.EAST : Direction.SOUTH;
     }

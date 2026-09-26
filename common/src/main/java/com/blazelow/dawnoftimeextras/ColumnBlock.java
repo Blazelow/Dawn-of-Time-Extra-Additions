@@ -20,24 +20,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Predicate;
 
-/**
- * A free-standing column that grows by hand, matching Dawn Of Time's plastered stone column.
- *
- * <p>Simpler than {@link SidedColumnBlock}: it stands in the middle of its block rather than
- * against a wall, so it has no facing - only what it is joined to, which picks its piece. A lone
- * column gets base and capital in one, a stack gets a foot, plain shafts and a capital, none of
- * which are placed by hand.
- *
- * <p>Right-clicking while holding another adds a section on top (consumed unless in creative);
- * sneaking and right-clicking takes the top one back off, exactly as Dawn Of Time's does.
- */
 public class ColumnBlock extends Block {
     public static final MapCodec<ColumnBlock> CODEC = simpleCodec(ColumnBlock::new);
 
     public static final EnumProperty<VerticalConnection> VERTICAL_CONNECTION =
             EnumProperty.create("vertical_connection", VerticalConnection.class);
 
-    /** The shaft is slimmer than the base and capital, which flare out. */
     private static final VoxelShape SHAFT = Block.box(3, 0, 3, 13, 16, 13);
     private static final VoxelShape FLARED = Block.box(1, 0, 1, 15, 16, 15);
 

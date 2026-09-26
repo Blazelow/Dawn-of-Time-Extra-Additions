@@ -8,13 +8,6 @@ import net.minecraft.world.level.block.Block;
 
 import java.util.List;
 
-/**
- * The small set buttons at the top of the Extra Additions creative tab, drawn like Dawn Of Time's own (their
- * {@code subtab_<name>_on/off.png} icons and {@code tooltip.dawnoftimebuilder.subtab.<name>} names).
- * Pre-Columbian has the plastered, painted and puuc sets; every other page has building and furniture.
- * A block belongs to at most one set of its page. Pressing a set shows only its blocks; pressing it again
- * shows the whole page. Which set a block is in is decided from its registry name.
- */
 public enum ExtraAdditionsSubTab {
     BUILDING("building"),
     FURNITURE("furniture"),
@@ -22,7 +15,6 @@ public enum ExtraAdditionsSubTab {
     PAINTED("painted"),
     PUUC("puuc");
 
-    /** Name parts of the pieces Dawn Of Time itself files under furniture (lamps, flags, mats, seating, hearths). */
     private static final String[] FURNITURE_WORDS = {
             "lantern", "lamp", "screen", "flag", "futon", "cushion", "chair", "table", "fireplace", "irori",
             "candlestick", "chandelier", "teapot", "teacup", "pot", "sake"};
@@ -39,7 +31,7 @@ public enum ExtraAdditionsSubTab {
 
     private static boolean isFurniture(String path) {
         if (path.contains("fancy_lantern")) {
-            return false;   // the metal fancy lanterns are building pieces, not furniture
+            return false;
         }
         if (path.contains("tatami") && !path.contains("block")) {
             return true;

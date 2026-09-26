@@ -2,7 +2,6 @@ package com.blazelow.dawnoftimeextras;
 
 import net.minecraft.util.StringRepresentable;
 
-/** Which half of a double futon a block is, seen from the foot looking towards the head. */
 public enum FutonSide implements StringRepresentable {
     LEFT("left"),
     RIGHT("right");

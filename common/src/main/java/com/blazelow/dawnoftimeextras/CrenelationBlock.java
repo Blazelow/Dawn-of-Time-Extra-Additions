@@ -11,13 +11,6 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-/**
- * A battlement that turns corners, matching Dawn Of Time's crenelations.
- *
- * <p>Same arrangement as the balusters - see {@link CorneringBlock} - but a taller, solid
- * parapet: Dawn Of Time's model occupies z 8..16 and stands 14.657 high in the unrotated
- * {@code facing=south} variant, just short of a full block so it reads as a wall top.
- */
 public class CrenelationBlock extends CorneringBlock {
     public static final MapCodec<CrenelationBlock> CODEC = simpleCodec(CrenelationBlock::new);
 

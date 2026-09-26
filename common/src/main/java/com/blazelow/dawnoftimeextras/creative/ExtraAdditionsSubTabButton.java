@@ -6,10 +6,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 
-/**
- * A 12x12 set button, drawn like Dawn Of Time's own sub-tab button: the "on" icon when selected, darker on hover.
- * One of a fixed few slots: which set it stands for changes with the page (see {@link #setSubTab}).
- */
 public class ExtraAdditionsSubTabButton extends Button {
     private ExtraAdditionsSubTab subTab;
     private boolean selected = false;

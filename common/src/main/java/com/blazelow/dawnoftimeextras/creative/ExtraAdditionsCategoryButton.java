@@ -11,12 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Consumer;
 import java.util.function.IntSupplier;
 
-/**
- * Reproduction of Dawn Of Time's {@code CategoryButton} (decompiled): 32x28, extends {@link Button},
- * frame blitted from their {@code gui/creative_icons.png} at (x-1, y) size 31x28 with v = 0 selected /
- * 28 unselected, logo at (x + 6 or 9, y + 6) 16x16 from their {@code textures/item/logo_<name>.png}.
- * Category id = page * 4 + slot index; slots past the last category are inactive and draw nothing.
- */
 public class ExtraAdditionsCategoryButton extends Button {
     public static final ResourceLocation CREATIVE_ICONS =
             ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "textures/gui/creative_icons.png");

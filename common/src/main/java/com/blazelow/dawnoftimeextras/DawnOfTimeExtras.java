@@ -45,102 +45,33 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-/**
- * Blocks that fill gaps in Dawn Of Time's own sets, built from their art so they sit beside it.
- *
- * <p>Tatami: {@link #TATAMI_BLOCK} is a static accent tile and {@code tatami_block_extendable}
- * (see {@link TatamiBlockExtendableBlock}) connects seamlessly on all four sides in a room of
- * any shape. Earlier designs built on Dawn Of Time's own 1x2-footprint tatami_mat.png (a plain
- * {@code tatami}/{@code tatami_bordered} pair) and a thin, carpet-shaped extendable mat were
- * removed.
- *
- * <p>Balusters and sided columns: Dawn Of Time ships limestone versions of both. These add
- * quartz and stone, reusing their geometry and their behaviour.
- *
- * <p>Wood balusters: their baluster only comes in waxed oak, so every vanilla wood gets one.
- *
- * <p>Reinforced wrought iron fences: theirs reinforce the ironwork with limestone; these offer
- * stone and quartz instead, for both the black and the golden ironwork.
- *
- * <p>Signs: charred spruce and red painted timber frame, each a sign and a
- * hanging sign - see {@link SignSet}.
- *
- * <p>Futon: theirs is a normal single bed. This adds a 2x2 double that two players can use at
- * once - see {@link DoubleFutonBlock} for why that means two beds rather than one.
- */
 public class DawnOfTimeExtras {
     public static final String MOD_ID = "dawnoftimeextras";
 
     private static final List<Block> CREATIVE_ORDER = new ArrayList<>();
-    /**
-     * Every registered block, grouped by which Dawn Of Time cultural/design family it was
-     * derived from - see {@link ExtraAdditionsCategory}'s own javadoc for how that assignment
-     * is made. Built directly off every {@code register(category, name, block)} call, in
-     * registration order within each category - never inferred from a block's own id or
-     * material at runtime. Used both to build the Extra Additions creative tab's own full
-     * (unfiltered) item list and to narrow it to one category at a time in
-     * {@link ExtraAdditionsCreativeMixin}.
-     */
+
     public static final Map<ExtraAdditionsCategory, List<Block>> CATEGORY_BLOCKS = new LinkedHashMap<>();
     static {
         for (ExtraAdditionsCategory category : ExtraAdditionsCategory.values()) {
             CATEGORY_BLOCKS.put(category, new ArrayList<>());
         }
     }
-    /**
-     * The fountain blocks, whose models draw water on a tint index. Without a colour handler
-     * that water renders flat white, so the client picks these up and tints them.
-     */
+
     public static final List<Block> WATER_TINTED = new ArrayList<>();
-    /**
-     * The subset whose inventory icon shows water too. The faucet is left out on purpose: its
-     * item model carries a stream on the same tint index, and Dawn Of Time leaves that untinted
-     * so the icon is just the tap.
-     */
+
     public static final List<Block> WATER_TINTED_ICONS = new ArrayList<>();
-    /**
-     * The blocks Dawn Of Time draws on the cutout layer. Their art has holes in it - the fire
-     * in a hearth, the gaps in ironwork, the woven edge of a mat - and on the default solid
-     * layer those come out as opaque black rather than as holes. Which of ours belong here is
-     * decided by which of theirs each is a reskin of, so it is matched by name.
-     */
+
     public static final List<Block> CUTOUT = new ArrayList<>();
 
-    /** Exact names, or a suffix when every material or wood of a piece belongs. */
     private static final String[] CUTOUT_NAMES = {
             "tatami_block", "pale_green_tatami_block", "_fireplace",
             "_crenelation", "_little_flag", "_hanging_noren_flag", "_fancy_lantern", "_portcullis", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
             "_wave_template", "_round_template", "_spiral_template", "_painted_lattice", "_serpent_sculpted_column",
-            // The wood batch's genuinely glass-holed pieces - copied Dawn Of Time's own
-            // "render_type": "cutout" into their model JSON same as everything else here, but
-            // that field is a NeoForge extension Fabric never reads (see the comment in
-            // DawnOfTimeExtrasClient - it is exactly why Dawn Of Time's own
-            // charred_spruce_glass_pane/charred_spruce_window render solid on Fabric too, a
-            // gap in their own RenderLayers.java this addon cannot patch). The paper wall
-            // family is NOT here on purpose - checked directly, none of its own model files
-            // declare "render_type" at all, because its "paper" is fully opaque paint, not a
-            // real alpha hole the way glass is - it never needed cutout in the first place.
-            // "_window" does still catch "_paper_wall_window" as a side effect of the shared
-            // suffix (nothing ends in "_window" that needs to stay off this list), but that is
-            // harmless: cutout and solid render identically for a texture with no partial-alpha
-            // pixels to begin with.
+
             "_glass_pane", "_window", "_fancy_railing",
-            // Dawn Of Time's own red_paper_lantern is genuinely registered cutout on their own
-            // side too (confirmed directly in their decompiled RenderLayers.java,
-            // `BlockRenderLayerMap.INSTANCE.putBlock(RED_PAPER_LANTERN, ... .cutout())`) - its
-            // texture has real alpha=0 gaps inside the model's own visible area, not just
-            // unused atlas space, so this one genuinely needs the same fix rather than being a
-            // "solid would look identical anyway" case like the paper wall family above.
+
             "_paper_lantern", "_cushion"};
-    /**
-     * Extra lines under a block's name in the menu, keyed by block. Filled here, shown by the
-     * client.
-     *
-     * <p>Only for blocks that would otherwise say nothing. Anything extending a Dawn Of Time
-     * class writes its own lines already - their gargoyle and their chimney both do - and
-     * adding ours on top printed the whole description twice. The masonry is a plain vanilla
-     * {@link Block}, so its note has to come from here.
-     */
+
     public static final Map<Block, String[]> TOOLTIPS = new LinkedHashMap<>();
 
     private static final String[] CONNECTING_NOTE = {
@@ -151,23 +82,10 @@ public class DawnOfTimeExtras {
             "tooltip.dawnoftimeextras.column_label",
             "tooltip.dawnoftimeextras.column"};
 
-    // A static accent tile, deliberately not seamless/connecting on its own - no axis state
-    // needed, every side already looks the same, so there is nothing for a rotation to
-    // change. Renamed from TATAMI_FRAMED (registered id tatami_framed -> tatami_block) on
-    // request, 2026-09-14 - a pure rename, no behaviour change; its own visible textures were
-    // already retextured to match an isolated tatami_block_extendable in an earlier round,
-    // unrelated to this rename. Its former siblings TATAMI/TATAMI_BORDERED (and the whole
-    // small_tatami_mat_extendable thin mat) were removed.
     public static final Block TATAMI_BLOCK = new Block(tatami());
 
-    // A pale green colour variant of TATAMI_BLOCK - same static, non-connecting design, same
-    // properties, just a different texture.
     public static final Block PALE_GREEN_TATAMI_BLOCK = new Block(tatami());
 
-
-
-    /** The same carved column in Dawn Of Time's charred spruce timber frame colours, so it is
-     *  timber rather than stone: wood sounds, wood strength, and it burns. */
     public static final Block CHARRED_SPRUCE_SIDED_COLUMN = new SidedColumnBlock(
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_WHITE)
@@ -176,22 +94,14 @@ public class DawnOfTimeExtras {
                     .noOcclusion()
                     .ignitedByLava());
 
-    /** Dawn Of Time ships only the light grey futon; these are the other dye colours. */
-    /**
-     * The materials every piece that comes in more than quartz and stone is offered in. Adding
-     * one here is the whole job -
-     * every family below is registered off this list.
-     */
     private static final String[] EXTRA_STONES = {"deepslate", "tuff", "granite", "andesite", "diorite", "basalt", "calcite", "dripstone", "netherrack", "blackstone", "end_stone", "prismarine", "obsidian", "dark_prismarine", "sandstone", "purpur", "red_sandstone"};
 
-    /** The named stones, then every extra one. */
     private static String[] stones(String... base) {
         String[] all = Arrays.copyOf(base, base.length + EXTRA_STONES.length);
         System.arraycopy(EXTRA_STONES, 0, all, base.length, EXTRA_STONES.length);
         return all;
     }
 
-    /** The map colour each of our stones shows from above, and on a map. */
     private static final Map<String, MapColor> STONE_COLOURS = Map.ofEntries(
             Map.entry("quartz", MapColor.QUARTZ),
             Map.entry("limestone", MapColor.SAND),
@@ -218,13 +128,10 @@ public class DawnOfTimeExtras {
             "white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
             "cyan", "purple", "blue", "brown", "green", "red", "black"};
 
-    /** All sixteen, for the painted wave - unlike {@link #DYES} this includes light grey, since
-     *  there is no existing light grey wave to leave out in its place. */
     private static final String[] PAINTED_DYES = {
             "white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
             "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"};
 
-    /** Vanilla's own map colour for each dye, so the wave's colour reads the same on a map. */
     private static final Map<String, MapColor> DYE_MAP_COLOURS = Map.ofEntries(
             Map.entry("white", MapColor.SNOW),
             Map.entry("orange", MapColor.COLOR_ORANGE),
@@ -243,13 +150,9 @@ public class DawnOfTimeExtras {
             Map.entry("red", MapColor.COLOR_RED),
             Map.entry("black", MapColor.COLOR_BLACK));
 
-    /** Every vanilla wood in 1.21.1, each getting the baluster Dawn Of Time only gave waxed oak. */
     private static final String[] WOODS = {
             "oak", "spruce", "birch", "jungle", "acacia", "dark_oak",
             "mangrove", "cherry", "bamboo", "crimson", "warped"};
-
-
-
 
     public static final Block DOUBLE_FUTON = new DoubleFutonBlock(BlockBehaviour.Properties.of()
             .mapColor(MapColor.COLOR_LIGHT_GRAY)
@@ -265,8 +168,6 @@ public class DawnOfTimeExtras {
                 .sound(SoundType.WOOL);
     }
 
-
-    /** Nether woods do not burn and the odd ones out have their own footstep sounds. */
     private static BlockBehaviour.Properties futon() {
         return BlockBehaviour.Properties.of()
                 .mapColor(MapColor.WOOL)
@@ -304,16 +205,10 @@ public class DawnOfTimeExtras {
             "crimson", MapColor.CRIMSON_STEM,
             "warped", MapColor.WARPED_STEM);
 
-    /** A fire burning in the block lights the room, at a campfire's brightness. */
     private static BlockBehaviour.Properties hearth(BlockBehaviour.Properties properties) {
         return properties.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0);
     }
 
-    /**
-     * A solid stone cube. Distinct from {@link #stone} in that it keeps its occlusion: that one
-     * is for the carved pieces, whose models do not fill their block and so must not cull the
-     * faces around them.
-     */
     private static BlockBehaviour.Properties solidStone(MapColor colour) {
         return BlockBehaviour.Properties.of()
                 .mapColor(colour)
@@ -331,37 +226,16 @@ public class DawnOfTimeExtras {
                 .noOcclusion();
     }
 
-    /**
-     * Registers every block and item. Loader-neutral: the loader entry points call this at the
-     * right moment (Fabric's initialiser, NeoForge's RegisterEvent) and then register the tab
-     * from {@link #tabItems()} themselves, since a creative tab builder differs per loader.
-     */
     public static void init() {
         if (initialised) {
             return;
         }
         initialised = true;
         register(ExtraAdditionsCategory.JAPANESE, "tatami_block", TATAMI_BLOCK);
-        // The old `tatami`/`tatami_bordered` (a 1x2-footprint mat built from Dawn Of Time's
-        // own tatami_mat.png) and `small_tatami_mat_extendable` (a thin, carpet-shaped mat
-        // with real per-instance connecting geometry, built by extending Dawn Of Time's own
-        // small_tatami_mat) were removed entirely on request, 2026-09-14 - superseded by
-        // `tatami_block`/`tatami_block_extendable` below, which cover the same "connects
-        // seamlessly in a room" idea with a genuine full block instead of a thin carpet-style
-        // one.
-        //
-        // The thin mat always left anything placed on it floating a full block up - its own
-        // collision shape (Block.box(0,0,0,16,1,16), decompiled) was identical to vanilla's
-        // own CarpetBlock, and Minecraft always places a new block in the next full grid cell
-        // above a non-replaceable block regardless of how thin its actual shape is. Rather
-        // than keep re-patching the thin mat's own shape (trades away its own carpet-like
-        // walkability), `tatami_block_extendable` is a genuine full block instead - same
-        // connecting behaviour, `tatami()`'s own properties (matches this mod's other
-        // floor-tile pieces). Renamed from small_tatami_block_extendable on request,
-        // 2026-09-14 - a pure rename, no behaviour change.
+
         register(ExtraAdditionsCategory.JAPANESE, "tatami_block_extendable",
                 new TatamiBlockExtendableBlock(tatami()));
-        // Pale colour variants - same classes, same properties, only the texture differs.
+
         register(ExtraAdditionsCategory.JAPANESE, "pale_green_tatami_block", PALE_GREEN_TATAMI_BLOCK);
         register(ExtraAdditionsCategory.JAPANESE, "pale_green_tatami_block_extendable",
                 new TatamiBlockExtendableBlock(tatami()));
@@ -379,20 +253,14 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.JAPANESE, dye + "_double_futon", new DoubleFutonBlock(futon()));
         }
         for (String stone : stones("stone", "quartz", "limestone")) {
-            // Dawn Of Time's own sandstone crenelation is this whole piece's source art, so a
-            // "sandstone" one of ours would just be a copy of it - the exact
-            // block they already ship, registered a second time under our name.
+
             if (stone.equals("sandstone")) {
                 continue;
             }
             register(ExtraAdditionsCategory.PERSIAN, stone + "_crenelation",
                     new CrenelationBlock(stone(STONE_COLOURS.get(stone))));
         }
-        // Dawn Of Time's own stone brick arrowslit and machicolation, with their own collision
-        // shapes. Plain stone's are theirs already, so it is left out.
-        // Dawn Of Time's lattice windows: their own SidedWindowBlock with their own shapes and the
-        // properties they give it (a copy of glass). Stone brick ones for quartz and every extra
-        // stone, waxed oak ones for every vanilla wood and charred spruce.
+
         for (String stone : stones("quartz")) {
             register(ExtraAdditionsCategory.GERMAN, "lattice_" + stone + "_bricks_window", new SidedWindowBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
@@ -403,9 +271,7 @@ public class DawnOfTimeExtras {
         }
         register(ExtraAdditionsCategory.GERMAN, "lattice_charred_spruce_window", new SidedWindowBlock(
                 BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
-        // Dawn Of Time's iron fancy lantern, column and portcullis, recoloured to other metals: their
-        // own classes, shapes and properties (read from their registry, a copy of iron bars/door).
-        // All three metals get all three pieces.
+
         for (String material : new String[]{"gold", "diamond", "netherite"}) {
             register(ExtraAdditionsCategory.FRENCH, material + "_fancy_lantern", new LanternBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).noOcclusion().lightLevel(state -> 15),
@@ -415,22 +281,21 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.GERMAN, material + "_portcullis", new PortcullisBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_DOOR)));
         }
-        // A noren flag that hangs and extends downwards (this mod's own, see HangingNorenFlagBlock).
+
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}) {
             register(ExtraAdditionsCategory.JAPANESE, colour + "_hanging_noren_flag", new HangingNorenFlagBlock(
                     BlockBehaviour.Properties.of().mapColor(DyeColor.byName(colour, DyeColor.WHITE))
                             .strength(0.3F).sound(SoundType.WOOL).noOcclusion().noCollission()));
         }
-        // Dawn Of Time's noren flag comes in white only; these are the other fifteen dyes.
+
         for (String colour : new String[]{"orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
                 "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}) {
             register(ExtraAdditionsCategory.JAPANESE, colour + "_little_flag", new LittleFlagBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
                             .mapColor(DyeColor.byName(colour, DyeColor.WHITE)).noOcclusion()));
         }
-        // Dawn Of Time's wave and round template come in blue only - theirs, so blue is skipped
-        // here. Their own class and properties (a burnable stone lattice, read from their registry).
+
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "brown", "green", "red", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_wave_template",
@@ -438,7 +303,7 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_round_template",
                     new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
         }
-        // Dawn Of Time's painted round: theirs is red + blue only; every other background/round pairing here.
+
         for (String base : PAINTED_DYES) {
             for (String round : PAINTED_DYES) {
                 if (base.equals("red") && round.equals("blue")) {
@@ -448,7 +313,7 @@ public class DawnOfTimeExtras {
                         new Block(solidStone(DYE_MAP_COLOURS.get(base))));
             }
         }
-        // Dawn Of Time's painted spiral: theirs is red + white only; every other background/spiral pairing here.
+
         for (String base : PAINTED_DYES) {
             for (String spiral : PAINTED_DYES) {
                 if (base.equals("red") && spiral.equals("white")) {
@@ -458,7 +323,7 @@ public class DawnOfTimeExtras {
                         new Block(solidStone(DYE_MAP_COLOURS.get(base))));
             }
         }
-        // Dawn Of Time's white_spiral_template in every other colour - same class as the wave/round templates.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("white")) {
                 continue;
@@ -466,8 +331,7 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_spiral_template",
                     new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
         }
-        // Dawn Of Time's red_painted_stone_frieze_edge is theirs in red + blue only; every other background/diamond
-        // pairing here, on {@link EdgeBlock} like the painted stone edge.
+
         for (String base : PAINTED_DYES) {
             for (String glyph : PAINTED_DYES) {
                 if (base.equals("red") && glyph.equals("blue")) {
@@ -477,7 +341,7 @@ public class DawnOfTimeExtras {
                         new EdgeBlock(solidStone(DYE_MAP_COLOURS.get(base))));
             }
         }
-        // Dawn Of Time's painted puuc limestone (base, stairs, slab, plate, edge) is theirs in white and red only.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("white")) {
                 continue;
@@ -496,16 +360,14 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_edge",
                     new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
         }
-        // Painted versions of Dawn Of Time's decorated, tight lattice, crossed and wave puuc limestone, in all sixteen
-        // colours (theirs are tan only) - plain cubes, like the painted puuc limestone base.
+
         for (String colour : PAINTED_DYES) {
             for (String piece : new String[]{"decorated", "tight_lattice", "crossed", "wave"}) {
                 register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_" + piece,
                         new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
             }
         }
-        // Dawn Of Time's painted lattice is theirs in white and red only (blue has assets but is never
-        // registered) - same class and properties as the wave/round templates registered above.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("white")) {
                 continue;
@@ -516,25 +378,13 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_lattice",
                     new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
         }
-        // Dawn Of Time's ornamented plastered stone comes in red only - theirs, so red is skipped
-        // here. Their own class and properties (a plain stone-brick block, read from their registry).
+
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_ornamented_plastered_stone",
                     new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
         }
-        // Dawn Of Time's ornamented and sculpted plastered stone friezes each come in green and
-        // red only - and, unlike every other two-colour piece here, those two are not the same
-        // shape recoloured: decompiled directly, green's own model is a plain 3-box slab while
-        // red's is a 13-element carved pilaster relief (same story for sculpted - green a
-        // totem-like double box, red a flat box with a diamond accent). Real, different
-        // hand-modelled art, not a palette swap - Blazelow's own call was to keep both shapes,
-        // each carried into all sixteen colours independently, rather than picking one as
-        // canonical (see gen_assets.py's plastered_stone_friezes()). That means a same-coloured
-        // block can exist built on either shape, so the shape is named too (`_<shape>`) - the
-        // same fix the red_painted_blue_wave duplicate needed, just for a shape clash instead of
-        // a straight duplicate. {@link #stone}, not {@link #solidStone}: like the crenelations,
-        // this model does not fill the block and must not cull the faces around it.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("green")) {
                 continue;
@@ -553,15 +403,7 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_sculpted_plastered_stone_frieze_red",
                     new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
         }
-        // The small frieze's own shape IS shared between green and red (both use the exact box
-        // {@link EdgeBlock} already places - checked directly, no custom elements in either
-        // model, just a repointed texture), unlike its ornamented/sculpted siblings above - but
-        // the motif painted onto it is not: green's own is a thin zigzag line, red's a blocky
-        // Greek-key meander, two different patterns rather than a palette swap. Same call as
-        // above, kept both and carried each into all sixteen colours, so the same `_<shape>`
-        // naming applies here too even though the block shape itself never changes. solidStone,
-        // matching every other EdgeBlock registration in this file (plastered_stone_edge,
-        // the masonry/limestone edges) - EdgeBlock keeps full occlusion here, not noOcclusion.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("green")) {
                 continue;
@@ -576,11 +418,7 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_small_plastered_stone_frieze_red",
                     new EdgeBlock(solidStone(DYE_MAP_COLOURS.get(colour))));
         }
-        // The plain frieze (no "ornamented"/"sculpted"/"small") shares the friezes' usual
-        // facing + shape blockstate (straight/outer/inner, {@link CrenelationBlock} again,
-        // {@link #stone} for the same non-filling-model reason) - but green's motif (a circular
-        // medallion) and red's (an interlocking key pattern) are still two different pieces of
-        // art, same as every frieze above.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("green")) {
                 continue;
@@ -595,12 +433,7 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_frieze_red",
                     new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
         }
-        // Dawn Of Time's ornamented chiseled plastered stone comes in green and red only - and,
-        // like the friezes, those two are genuinely different motifs on the same plain shape (a
-        // cube_column with no custom elements in either model, checked directly), not one
-        // recoloured onto the other: green's is a thin band of small alternating glyphs, red's
-        // a thick vertical Greek-key column. Single blockstate variant (no facing/shape), so a
-        // plain {@link BlockDoT} - the same class ornamented_plastered_stone above uses.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("green")) {
                 continue;
@@ -617,19 +450,13 @@ public class DawnOfTimeExtras {
                     colour + "_ornamented_chiseled_plastered_stone_red",
                     new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
         }
-        // Dawn Of Time ships a THIRD ornamented chiseled plastered stone too - no colour of its
-        // own (just plastered_stone + gold nuggets), a genuinely different motif again from both
-        // green's and red's. Confirmed with Blazelow directly: only the gold stripe near the top
-        // of the texture carries a colour in each of the sixteen generated blocks; the grey
-        // plaster and the Greek-key pattern below stay exactly as they drew them. No native
-        // colour to skip here - all sixteen are new.
+
         for (String colour : PAINTED_DYES) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN,
                     colour + "_ornamented_chiseled_plastered_stone_gold",
                     new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
         }
-        // Dawn Of Time's feathered serpent sculpture comes in green only - theirs, so green is
-        // skipped here. Their own class, shape and properties (read from their registry).
+
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "blue", "brown", "red", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_feathered_serpent_sculpture",
@@ -637,22 +464,14 @@ public class DawnOfTimeExtras {
                             BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
                             VoxelShapes.FEATHERED_SERPENT_SCULPTURE_SHAPES));
         }
-        // Dawn Of Time's serpent sculpted column comes in green only - theirs, so green is
-        // skipped here. Their own class, shape and properties (read from their registry).
+
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "blue", "brown", "red", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_serpent_sculpted_column",
                     new ConnectedVerticalSidedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS),
                             VoxelShapes.SERPENT_SCULPTED_COLUMN_SHAPES));
         }
-        // Dawn Of Time's chiseled plastered stone comes in red and green - and, like every other
-        // two-colour piece here, those two are genuinely different motifs (red a Greek-key
-        // column, green a medallion/cross), not one recoloured onto the other. An earlier version
-        // of this registration only ever offered red's shape (named with no suffix at all,
-        // `colour + "_chiseled_plastered_stone"`) - renamed to `_red` and green's own added
-        // alongside it, same `_<shape>` treatment as the friezes and the ornamented chiseled
-        // stone. Their own class and properties (a plain stone-brick block, read from their
-        // registry).
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("red")) {
                 continue;
@@ -667,11 +486,7 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_chiseled_plastered_stone_green",
                     new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
         }
-        // Dawn Of Time also ships a colourless chiseled plastered stone (no dye in its own
-        // recipe) and its own frieze cut from that same art - a third motif again, entirely
-        // neutral grey, no wash or fixed decoration to hold in place. White is left out
-        // (Blazelow's call - indistinguishable from the plain grey it starts as). The frieze
-        // shares the usual facing + shape blockstate, {@link CrenelationBlock} again.
+
         for (String colour : PAINTED_DYES) {
             if (colour.equals("white")) {
                 continue;
@@ -682,11 +497,7 @@ public class DawnOfTimeExtras {
                     colour + "_chiseled_plastered_stone_frieze_plain",
                     new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
         }
-        // Dawn Of Time's plastered stone - base, column, edge, plate, slab, stairs, window - in
-        // the twelve vanilla dye colours they didn't make (blue/green/red/yellow are theirs).
-        // Their own classes and properties where they have one (a plain stone-brick block, their
-        // own connecting column and window), this mod's own edge/plate reimplementation (already
-        // used by the masonry family), and vanilla's own stairs/slab off that colour's own base.
+
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "brown", "black"}) {
             Block base = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone",
@@ -708,11 +519,7 @@ public class DawnOfTimeExtras {
                             BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
                             VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
         }
-        // The plastered window, in quartz, every extra stone, every vanilla wood and charred
-        // spruce - Dawn Of Time's own class and shapes again, this mod's own materials. Named
-        // "plastered window", not "plastered stone window" - it spans wood too, unlike the
-        // dyed one above, which stays "stone" since it recolours the actual plastered stone
-        // block (owner request, 2026-09-23).
+
         for (String stone : stones("quartz")) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, stone + "_plastered_window",
                     new WaterloggedHorizontalAxisBlock(
@@ -740,14 +547,11 @@ public class DawnOfTimeExtras {
                     new ColumnBlock(stone(STONE_COLOURS.get(stone))));
             TOOLTIPS.put(column, COLUMN_NOTE);
         }
-        // Masonry comes as a family - the block, then the five shapes Dawn Of Time cut
-        // from theirs. Stairs, slab and wall are vanilla's own classes; the plate and edge
-        // are theirs, and ours are in PlateBlock and EdgeBlock.
+
         for (String stone : stones("quartz", "limestone")) {
             MapColor colour = STONE_COLOURS.get(stone);
             Block masonry = register(ExtraAdditionsCategory.GERMAN, stone + "_bricks_masonry", new Block(solidStone(colour)));
-            // Only the cube says so. The shapes cut from it knit just the same, but Dawn Of
-            // Time notes it on the block alone and a line on every piece is noise.
+
             TOOLTIPS.put(masonry, CONNECTING_NOTE);
             register(ExtraAdditionsCategory.GERMAN, stone + "_bricks_masonry_stairs",
                     new StairBlock(masonry.defaultBlockState(), solidStone(colour)));
@@ -756,9 +560,7 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.GERMAN, stone + "_bricks_masonry_plate", new PlateBlock(solidStone(colour)));
             register(ExtraAdditionsCategory.GERMAN, stone + "_bricks_masonry_edge", new EdgeBlock(solidStone(colour)));
         }
-        // Polished limestone: neither vanilla nor Dawn Of Time has one. Same five shapes as their
-        // cobbled_limestone (French family), so it files under French. Two families: the plain
-        // one, and a "(Connecting)" one whose pieces join their neighbours through Fusion.
+
         {
             MapColor colour = STONE_COLOURS.get("limestone");
             Block polished = register(ExtraAdditionsCategory.FRENCH, "polished_limestone", new Block(solidStone(colour)));
@@ -779,22 +581,16 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.FRENCH, "polished_limestone_connecting_plate", new PlateBlock(solidStone(colour)));
             register(ExtraAdditionsCategory.FRENCH, "polished_limestone_connecting_edge", new EdgeBlock(solidStone(colour)));
         }
-        // Chimneys stack like the columns; gargoyles just face. Dawn Of Time already covers
-        // limestone for the gargoyle and has its own limestone chimney on a different design,
-        // so these fill what each of them is missing rather than repeating it.
+
         for (String stone : stones("quartz", "limestone")) {
             register(ExtraAdditionsCategory.GERMAN, stone + "_chimney", new ChimneyBlock(stone(STONE_COLOURS.get(stone))));
         }
-        // The hearth those chimneys draw for. Dawn Of Time build theirs in stone bricks and in
-        // limestone - two different designs of the same block - so each was missing from the
-        // other's family: quartz, stone and the extras get limestone's design below, and
-        // limestone gets this, the stone bricks one, here. No tooltip on either: their block
-        // writes its own, and ours would only repeat it.
+
         for (String stone : stones("quartz", "limestone")) {
             register(ExtraAdditionsCategory.GERMAN, stone + "_german_fireplace",
                     new FireplaceBlock(hearth(stone(STONE_COLOURS.get(stone)))));
         }
-        // Vanilla has no obsidian slab, stairs or wall; the other obsidian recipes need a real slab.
+
         register(ExtraAdditionsCategory.GERMAN, "obsidian_slab",
                 new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)));
         register(ExtraAdditionsCategory.GERMAN, "obsidian_stairs",
@@ -808,7 +604,7 @@ public class DawnOfTimeExtras {
         for (String stone : stones("stone", "quartz")) {
             register(ExtraAdditionsCategory.FRENCH, stone + "_gargoyle", new GargoyleBlock(stone(STONE_COLOURS.get(stone))));
         }
-        // The fountain: a sunken basin, a raised one, and the jet that feeds either.
+
         for (String basin : stones("quartz", "limestone")) {
             MapColor colour = STONE_COLOURS.get(basin);
             for (Block basinPiece : new Block[]{
@@ -824,53 +620,31 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.GERMAN, wood + "_baluster", new BalusterBlock(wood(wood)));
             register(ExtraAdditionsCategory.FRENCH, wood + "_sided_column", new SidedColumnBlock(wood(wood)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_irori_fireplace", new IroriFireplaceBlock(hearth(wood(wood))));
-            // Dawn Of Time's own timber frame is charred_spruce (plus red_painted); this mod's
-            // eleven fill out the rest of the vanilla woods, following that pair's simpler
-            // "japanese" design (plain block + a plain RotatedPillarBlock post) rather than
-            // waxed_oak's unrelated "german" one (corner/crossed/squared shapes, a connected
-            // vertical-post pillar), so the two families aren't interchangeable.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_timber_frame", new Block(wood(wood)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_timber_frame_pillar", new RotatedPillarBlock(wood(wood)));
-            // Glass pane, every wood including spruce - Dawn Of Time has no native
-            // spruce_glass_pane (charred_spruce is their only one), so nothing to skip here.
-            // Properties are Dawn Of Time's own exact choice, decompiled:
-            // `Properties.ofFullCopy(Blocks.GLASS)`.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_glass_pane", new GlassPaneBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
-            // Fancy railing, every wood - Dawn Of Time never shipped a native
-            // spruce_fancy_railing, so nothing to skip. Properties are Dawn Of Time's own
-            // exact choice again, decompiled: the same
-            // `Properties.ofFullCopy(Blocks.OAK_WOOD).mapColor(MapColor.COLOR_BLACK)
-            // .strength(2.0F, 6.0F).noOcclusion()` the legless chair uses.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_fancy_railing", new FancyRailingBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
-            // Railing, every wood - Dawn Of Time's own CharredSpruceRailingBlock, used as it is,
-            // with the same properties as their fancy railing.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_railing", new CharredSpruceRailingBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
-            // Window, every wood - Dawn Of Time's own is a bare vanilla TransparentBlock (the
-            // same class their glass block uses), decompiled and confirmed, so no wrapper
-            // class of this mod's own is needed here at all.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_window", new TransparentBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
-            // Shutters + tall shutters, every wood - same Dawn Of Time properties as the
-            // legless chair/fancy railing, decompiled from their own registration for both.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_shutters", new ShuttersBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_tall_shutters", new TallShuttersBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
-            // Paper wall family, every wood - Dawn Of Time's own five blocks have no material
-            // variants at all to skip. Properties are Dawn Of Time's own exact choice,
-            // decompiled: `Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)`, the
-            // same as the paper door - a fresh instance per block, since a Properties object
-            // is consumed by the block it is passed to. Plain paper_wall is their own
-            // BottomPaneBlock (it alone has a bottom-row model); squared/window/flowery/flat
-            // all share their own PillarPaneBlock, one shared class for all four confirmed
-            // directly in their registry rather than assumed from the four separate ids.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall", new PaperWallBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_squared", new PillarPaperWallBlock(
@@ -881,20 +655,10 @@ public class DawnOfTimeExtras {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_flat", new PillarPaperWallBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
-            // Sliding paper door - Dawn Of Time's *other* paper door, the material-independent
-            // one, distinct from the wood-framed paper_door registered below. Same
-            // PaperDoorBlock wrapper, same properties - Dawn Of Time uses the identical
-            // Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F) for both of its
-            // own paper doors. No wood skipped - this design has no native per-wood version
-            // to conflict with.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_sliding_paper_door", new PaperDoorBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
-            // Foundation column (the log-ended design, + its slab) - every wood, no exception:
-            // this design has no native spruce version to conflict with either. Same
-            // FoundationBlock as the plain design (Dawn Of Time uses the identical Java class
-            // for both of its own foundation shapes), plus FoundationSlabBlock for the slab -
-            // same properties again, decompiled from Dawn Of Time's own
-            // charred_spruce_foundation_slab registration.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_foundation_column", new FoundationBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
@@ -902,56 +666,25 @@ public class DawnOfTimeExtras {
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
         }
-        // Roof support, in every vanilla wood but spruce - Dawn Of Time already ships
-        // spruce_roof_support natively, so it is skipped here. A separate explicit list rather than
-        // filtering WOODS with an `if` at runtime, like the painted_stone gap colours above.
-        //
-        // Properties are Dawn Of Time's own exact choice for this block, decompiled and
-        // confirmed directly rather than guessed: `Properties.ofFullCopy(Blocks.STONE_BRICKS)
-        // .noOcclusion()`, for every one of their own four materials including the three wood
-        // ones - stone hardness and sound, not flammable, on every material, not just this
-        // mod's new woods. Not this file's own wood() helper, which would invent a softer,
-        // flammable version Dawn Of Time never actually built.
+
         String[] woodsExceptSpruce = {
                 "oak", "birch", "jungle", "acacia", "dark_oak",
                 "mangrove", "cherry", "bamboo", "crimson", "warped"};
         for (String wood : woodsExceptSpruce) {
             register(ExtraAdditionsCategory.JAPANESE, wood + "_roof_support", new RoofSupportBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion()));
-            // Paper door, same spruce exception, same reason. Properties are Dawn Of Time's
-            // own exact choice, decompiled: `Properties.ofFullCopy(Blocks.WHITE_WOOL)
-            // .strength(1.5F, 1.5F)` with BlockSetType.BAMBOO (see PaperDoorBlock.java) - not
-            // the frame wood's own set, matched exactly rather than assumed to follow the
-            // frame material.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_door", new PaperDoorBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
                             .strength(1.5F, 1.5F)));
-            // Foundation (the plain cube design) - spruce itself already has this natively;
-            // charred_spruce does not (only the column design below), registered separately
-            // just after this loop. Properties are Dawn Of Time's own exact choice for both
-            // of its own foundation designs, decompiled: `Properties.ofFullCopy(Blocks.OAK_WOOD)
-            // .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)`, flammable (fire 2/3) via
-            // FoundationBlock's own setBurnable call.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_foundation", new FoundationBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
-            // Boards (the parquet-style plank block) - spruce itself already has this
-            // natively, same reason roof support/legless chair/paper door/foundation all
-            // skip it. Base block is a BoardsBlock (RotatedPillarBlockDoT, axis-rotatable
-            // like a log) - Dawn Of Time's own spruce_boards class, not the plain BlockDoT
-            // their charred_spruce_boards uses instead (a different design on their own
-            // side, decompiled and confirmed). Properties decompiled directly:
-            // `Properties.ofFullCopy(Blocks.OAK_WOOD).strength(3.0F, 5.0F)`, no mapColor
-            // override - unlike the rest of this wood family, which forces COLOR_BLACK.
+
             Block boards = register(ExtraAdditionsCategory.JAPANESE, wood + "_boards", new BoardsBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).strength(3.0F, 5.0F)));
-            // Boards' own edge/slab/stairs/plate - Dawn Of Time's own exact choice for all
-            // four, decompiled: edge, slab and plate all get `Properties.ofFullCopy(
-            // Blocks.OAK_WOOD).mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)`, matching
-            // every other flammable wood piece in this mod; stairs gets a plain
-            // `Properties.ofFullCopy(Blocks.OAK_WOOD)` with no override at all. Plate reuses
-            // this mod's own existing PlateBlock (already used by the masonry family) rather
-            // than a new wrapper - it matches Dawn Of Time's own plate shape exactly.
+
             register(ExtraAdditionsCategory.JAPANESE, wood + "_boards_edge", new EdgeBlock(
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
@@ -967,13 +700,7 @@ public class DawnOfTimeExtras {
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_foundation", new FoundationBlock(
                 BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                         .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
-        // charred_spruce_boards itself is Dawn Of Time's own native block - but they never
-        // gave it an edge/slab/stairs/plate the way spruce_boards has all four (checked
-        // directly, confirmed a genuine gap, same shape as the paper door/foundation gaps
-        // just above - plate added separately after Blazelow flagged it was missed the first
-        // round). Its base block reference is looked up the same deferred way
-        // RoofSupportBlock's gray_roof_tiles_slab is, so load order between the two mods
-        // doesn't matter.
+
         Supplier<Block> charredSpruceBoards = () -> BuiltInRegistries.BLOCK.get(
                 ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "charred_spruce_boards"));
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_boards_edge", new EdgeBlock(
@@ -987,14 +714,11 @@ public class DawnOfTimeExtras {
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_boards_plate", new PlateBlock(
                 BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
                         .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
-        // charred_spruce has no native paper door at all (unlike roof support/legless
-        // chair/timber frame, which Dawn Of Time already ships for it) - a genuine gap,
-        // registered separately the same way charred_spruce_foundation is just above.
+
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_paper_door", new PaperDoorBlock(
                 BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
                         .strength(1.5F, 1.5F)));
-        // Dawn Of Time's own irori is spruce; ours add the rest of the woods and their charred
-        // spruce, which has no vanilla plank to take a colour from.
+
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_irori_fireplace", new IroriFireplaceBlock(
                 hearth(wood("spruce").mapColor(MapColor.TERRACOTTA_WHITE))));
         for (String metal : new String[]{"black", "golden"}) {
@@ -1009,18 +733,12 @@ public class DawnOfTimeExtras {
             }
         }
 
-        // Dawn Of Time's own painted_stone only exists in five colours (blue, green, red,
-        // white, yellow - the ones its own art was built from) - the other eleven get registered here so the wave recipe below can
-        // craft from a real painted_stone in every colour, the way Dawn Of Time's own
-        // red_painted_blue_wave recipe crafts from two painted_stone blocks rather than
-        // wool+terracotta. A separate explicit list rather than filtering PAINTED_DYES at
-        // runtime, so Dawn Of Time's own five colours are not registered a second time.
         String[] paintedStoneGaps = {
                 "orange", "magenta", "light_blue", "lime", "pink", "gray",
                 "light_gray", "cyan", "purple", "brown", "black"};
         for (String colour : paintedStoneGaps) {
             Block paintedBase = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone", new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
-            // stairs, slab, plate and edge: their own classes and properties (stone bricks), as for the plastered stone.
+
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_stairs",
                     new StairBlock(paintedBase.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_slab",
@@ -1031,12 +749,6 @@ public class DawnOfTimeExtras {
                     new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
         }
 
-        // Dawn Of Time's own red_painted_crenelation, in every other vanilla dye colour. Unlike
-        // the wave below, the glyph itself (a blue ring, a green leaf) never changes colour -
-        // checked directly in their own recipe JSON, a fixed green_dye + blue_dye around a
-        // painted_stone - so this is sixteen backgrounds, not sixteen times sixteen. Uses
-        // {@link #stone}, not {@link #solidStone}: like the stone crenelations, its model does
-        // not fill the block and must not cull the faces around it.
         for (String colour : PAINTED_DYES) {
             if (colour.equals("red")) {
                 continue;
@@ -1045,14 +757,6 @@ public class DawnOfTimeExtras {
                     new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
         }
 
-        // Dawn Of Time ships exactly one combination of this natively - a red background with
-        // a blue wave carved into it (dawnoftimebuilder:red_painted_blue_wave) - so that one
-        // is skipped here rather than duplicated under this mod's own namespace. This comment
-        // said as much before 2026-09-13 but the loop itself never actually skipped it -
-        // Blazelow found two "Red Painted Blue Wave" entries side by side in the creative
-        // menu, one from each mod, before this `continue` was added. Every other pairing of
-        // the sixteen dye colours, background and wave independently, fills out the rest of
-        // what their own art already made possible.
         for (String base : PAINTED_DYES) {
             for (String wave : PAINTED_DYES) {
                 if (base.equals("red") && wave.equals("blue")) {
@@ -1063,12 +767,6 @@ public class DawnOfTimeExtras {
             }
         }
 
-        // Paper lantern - Dawn Of Time's own red_paper_lantern, in every other vanilla dye
-        // colour. Properties decompiled directly: `Properties.ofFullCopy(Blocks.RED_WOOL)
-        // .noOcclusion().noCollission().lightLevel(state -> 12)` - copied from that exact
-        // colour's own wool block (not a fixed base like most other pieces in this mod use),
-        // looked up by name since vanilla has no colour-indexed array of wool blocks to pull
-        // from directly.
         for (String colour : PAINTED_DYES) {
             if (colour.equals("red")) {
                 continue;
@@ -1080,9 +778,6 @@ public class DawnOfTimeExtras {
                             .noOcclusion().noCollission().lightLevel(state -> 12)));
         }
 
-        // Cushions - Dawn Of Time's own white_cushion in every other vanilla dye colour. Properties
-        // are theirs (oak wood base, strength 2/6, no occlusion), with the map colour taken from
-        // that colour's own wool.
         for (String colour : PAINTED_DYES) {
             if (colour.equals("white")) {
                 continue;
@@ -1096,8 +791,7 @@ public class DawnOfTimeExtras {
 
         new SignSet("charred_spruce", BlockSetType.SPRUCE, MapColor.TERRACOTTA_WHITE);
         new SignSet("red_painted_timber_frame", BlockSetType.ACACIA, MapColor.COLOR_RED);
-        // The timber frame signs in every vanilla wood (literal names, one set each, so the asset
-        // checker can see them). Colour and sound set follow the wood.
+
         new SignSet("oak_timber_frame", BlockSetType.OAK, Blocks.OAK_PLANKS.defaultMapColor());
         new SignSet("spruce_timber_frame", BlockSetType.SPRUCE, Blocks.SPRUCE_PLANKS.defaultMapColor());
         new SignSet("birch_timber_frame", BlockSetType.BIRCH, Blocks.BIRCH_PLANKS.defaultMapColor());
@@ -1109,30 +803,20 @@ public class DawnOfTimeExtras {
         new SignSet("bamboo_timber_frame", BlockSetType.BAMBOO, Blocks.BAMBOO_PLANKS.defaultMapColor());
         new SignSet("crimson_timber_frame", BlockSetType.CRIMSON, Blocks.CRIMSON_PLANKS.defaultMapColor());
         new SignSet("warped_timber_frame", BlockSetType.WARPED, Blocks.WARPED_PLANKS.defaultMapColor());
-        // Both sign sets are built from Dawn Of Time's own "japanese" timber-frame art
-        // (charred_spruce, red_painted) - see ExtraAdditionsCategory's own javadoc. SignSet
-        // registers through its own local register() method rather than this file's, so it
-        // never reached CREATIVE_ORDER/CATEGORY_BLOCKS on its own; added here explicitly,
-        // right after both sets exist, the same items the old BUILDING_BLOCKS population below
-        // used to add by hand (sign + hanging sign only, matching vanilla convention of never
-        // showing the wall-mounted variant in creative).
+
         for (SignSet set : SignSet.ALL) {
             CATEGORY_BLOCKS.get(ExtraAdditionsCategory.JAPANESE).add(set.sign);
             CATEGORY_BLOCKS.get(ExtraAdditionsCategory.JAPANESE).add(set.hangingSign);
         }
 
-        // The Extra Additions creative tab itself is registered by each loader (a creative tab
-        // builder is loader-specific), from tabItems() and TAB_ICON below.
         TAB_ICON = Registry.register(BuiltInRegistries.ITEM,
                 ResourceLocation.fromNamespaceAndPath(MOD_ID, "creative_tab_icon"), new Item(new Item.Properties()));
     }
 
     private static boolean initialised = false;
 
-    /** The tab's icon: a texture of its own (64x64) shown as an item, never in any category. */
     public static Item TAB_ICON;
 
-    /** Every item across every category, in category order - what the tab, search and /give see. */
     public static List<Block> tabItems() {
         List<Block> allItems = new ArrayList<>();
         for (ExtraAdditionsCategory category : ExtraAdditionsCategory.values()) {
@@ -1141,11 +825,6 @@ public class DawnOfTimeExtras {
         return allItems;
     }
 
-    /**
-     * The one real Extra Additions tab, kept for {@code ExtraAdditionsCreativeMixin} to compare
-     * against in its own {@code selectTab} hook - the same way Dawn Of Time's own mixin compares
-     * against {@code DoTBCreativeModeTabsRegistry.INSTANCE.DOT_TAB}, decompiled.
-     */
     public static CreativeModeTab EXTRA_ADDITIONS_TAB;
 
     private static Block register(ExtraAdditionsCategory category, String name, Block block) {

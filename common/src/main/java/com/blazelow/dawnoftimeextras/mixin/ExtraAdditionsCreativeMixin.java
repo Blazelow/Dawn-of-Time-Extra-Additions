@@ -25,11 +25,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Same mechanism, positions and paging as Dawn Of Time's own (decompiled) CreativeInventoryMixin,
- * scoped to the Extra Additions tab: 4 category buttons per page, page-scroll arrows, mouse-wheel paging.
- * The tab's real backing item list is never touched, only the live grid, so search/JEI/give still see everything.
- */
 @Mixin(CreativeModeInventoryScreen.class)
 public abstract class ExtraAdditionsCreativeMixin
         extends AbstractContainerScreen<CreativeModeInventoryScreen.ItemPickerMenu> {

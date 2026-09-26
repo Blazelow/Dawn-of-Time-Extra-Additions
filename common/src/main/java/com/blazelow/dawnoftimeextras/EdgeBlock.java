@@ -16,13 +16,6 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-/**
- * A quarter block that turns corners, matching Dawn Of Time's edge - half a block deep like the
- * {@link PlateBlock} and half its height, so it reads as the lip along the top or foot of a wall.
- *
- * <p>The only thing it adds to {@link CorneringBlock} is {@code half}: which of the two courses
- * it sits in, picked from where the block was clicked, exactly as stairs pick theirs.
- */
 public class EdgeBlock extends CorneringBlock {
     public static final MapCodec<EdgeBlock> CODEC = simpleCodec(EdgeBlock::new);
 
@@ -64,7 +57,7 @@ public class EdgeBlock extends CorneringBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState state = super.getStateForPlacement(context);
         Direction face = context.getClickedFace();
-        // Clicked the underside, or the upper half of a side: it belongs in the top course.
+
         boolean top = face == Direction.DOWN
                 || (face != Direction.UP
                     && context.getClickLocation().y - context.getClickedPos().getY() > 0.5D);

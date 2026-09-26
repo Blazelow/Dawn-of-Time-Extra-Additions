@@ -4,7 +4,6 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-/** The spouts that feed a fountain - Dawn Of Time's water jet, in another stone. */
 public class WaterJetBlock extends org.dawnoftime.dawnoftime.block.templates.WaterJetBlock {
     public static final MapCodec<WaterJetBlock> CODEC = simpleCodec(WaterJetBlock::new);
 

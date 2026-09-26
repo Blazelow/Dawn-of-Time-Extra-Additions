@@ -7,10 +7,6 @@ import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
-/**
- * Reproduction of Dawn Of Time's {@code GroupButton} (decompiled): the 20x20 page-scroll arrows. Vanilla
- * button sprite drawn twice (as theirs does), then a 16x16 icon at (x+2, y+2) from {@code creative_icons.png}.
- */
 public class ExtraAdditionsGroupButton extends Button {
     private static final WidgetSprites BUTTON_SPRITES = new WidgetSprites(
             ResourceLocation.withDefaultNamespace("widget/button"),

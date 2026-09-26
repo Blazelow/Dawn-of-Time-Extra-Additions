@@ -21,16 +21,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Predicate;
 
-/**
- * A block that runs along one side of its block and turns corners like stairs.
- *
- * <p>Dawn Of Time builds several pieces this way - balusters, crenelations - all sharing the
- * same {@code facing} + {@code shape} pair and the same 20-variant blockstate. The corner rules
- * live in {@link StairShapes}; this holds the properties, the placement and the collision.
- *
- * <p>Subclasses say what counts as their own kind, so a run of balusters does not try to turn a
- * corner into a crenelation, and give the shape for a south-facing block plus its rotations.
- */
 public abstract class CorneringBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
@@ -42,13 +32,8 @@ public abstract class CorneringBlock extends Block {
                 .setValue(SHAPE, StairsShape.STRAIGHT));
     }
 
-    /**
-      * The block's mass on one side. Takes the state as well as the side because some of these
-      * change shape with a second property - the edge sits in an upper or a lower course.
-      */
     protected abstract VoxelShape sideShape(BlockState state, Direction side);
 
-    /** What this block corners with - normally its own type. */
     protected abstract Predicate<BlockState> kin();
 
     @Override
@@ -60,7 +45,7 @@ public abstract class CorneringBlock extends Block {
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Direction facing = state.getValue(FACING);
         VoxelShape shape = sideShape(state, facing);
-        // an inner corner runs along two sides, so collision has to cover both
+
         return switch (state.getValue(SHAPE)) {
             case INNER_LEFT -> Shapes.or(shape, sideShape(state, facing.getCounterClockWise()));
             case INNER_RIGHT -> Shapes.or(shape, sideShape(state, facing.getClockWise()));
@@ -68,12 +53,6 @@ public abstract class CorneringBlock extends Block {
         };
     }
 
-    /**
-     * Which way a freshly placed block faces: stairs' own convention, the mass on the far side
-     * of the block from the player. Dawn Of Time's balusters and crenelations both place this
-     * way too - placing with the near side inverted, as this used to, put the rail on the
-     * wrong side of the block compared to theirs.
-     */
     protected Direction facingFor(BlockPlaceContext context) {
         return context.getHorizontalDirection();
     }

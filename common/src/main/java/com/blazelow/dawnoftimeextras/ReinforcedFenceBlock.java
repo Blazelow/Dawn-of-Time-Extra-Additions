@@ -28,14 +28,6 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-/**
- * A reinforced wrought iron fence, matching Dawn Of Time's.
- *
- * <p>It does both things their version does at once: it turns corners like stairs do, and it
- * grows upwards by hand. So {@code facing} and {@code shape} pick the corner piece while
- * {@code vertical_connection} picks the tier - a stack shows a plinth at the bottom, plain bars
- * in the middle and a capped top, without any of those being placed by hand.
- */
 public class ReinforcedFenceBlock extends Block {
     public static final MapCodec<ReinforcedFenceBlock> CODEC = simpleCodec(ReinforcedFenceBlock::new);
 
@@ -44,7 +36,6 @@ public class ReinforcedFenceBlock extends Block {
     public static final EnumProperty<VerticalConnection> VERTICAL_CONNECTION =
             EnumProperty.create("vertical_connection", VerticalConnection.class);
 
-    /** The bars sit in a slab across the middle of the block, as Dawn Of Time's model does. */
     private static final Map<Direction, VoxelShape> SHAPES = new EnumMap<>(Direction.class);
 
     static {
@@ -78,7 +69,7 @@ public class ReinforcedFenceBlock extends Block {
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Direction facing = state.getValue(FACING);
         VoxelShape shape = SHAPES.get(facing);
-        // an inner corner carries fence along two sides, so collision has to cover both
+
         return switch (state.getValue(SHAPE)) {
             case INNER_LEFT -> Shapes.or(shape, SHAPES.get(facing.getCounterClockWise()));
             case INNER_RIGHT -> Shapes.or(shape, SHAPES.get(facing.getClockWise()));

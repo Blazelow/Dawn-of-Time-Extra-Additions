@@ -16,12 +16,8 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 import java.util.Map;
 
-/**
- * Client-side wiring on NeoForge: the same four jobs as the Fabric client class - sign
- * renderers, render layers, the fountain water colour and the extra tooltip lines.
- */
 public final class DawnOfTimeExtrasNeoForgeClient {
-    /** Vanilla's water colour, for the item icons - an item has no biome to ask. */
+
     private static final int STILL_WATER = 0x3F76E4;
 
     private DawnOfTimeExtrasNeoForgeClient() {
@@ -43,8 +39,7 @@ public final class DawnOfTimeExtrasNeoForgeClient {
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {
-        // Most models already carry "render_type" (a NeoForge extension), but the ones copied
-        // from a model without it need the layer set here, exactly as the Fabric client does.
+
         event.enqueueWork(() -> {
             for (Block block : DawnOfTimeExtras.WATER_TINTED) {
                 ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent());

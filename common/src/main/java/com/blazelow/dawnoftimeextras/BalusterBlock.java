@@ -11,14 +11,6 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-/**
- * A railing that turns corners, matching Dawn Of Time's balusters.
- *
- * <p>The corner rules and the blockstate live in {@link CorneringBlock}; this only supplies the
- * rail's shape and what it corners with. The rail sits on the side the block faces, which is how
- * Dawn Of Time's model is built - its geometry occupies z 8..16 in the unrotated
- * {@code facing=south} variant.
- */
 public class BalusterBlock extends CorneringBlock {
     public static final MapCodec<BalusterBlock> CODEC = simpleCodec(BalusterBlock::new);
 
@@ -31,7 +23,6 @@ public class BalusterBlock extends CorneringBlock {
         SHAPES.put(Direction.WEST, Block.box(0, 0, 0, 8, 16, 16));
     }
 
-    /** Any baluster corners with any other, so mixed-material railings still turn properly. */
     private static final Predicate<BlockState> KIN = state -> state.getBlock() instanceof BalusterBlock;
 
     public BalusterBlock(BlockBehaviour.Properties properties) {

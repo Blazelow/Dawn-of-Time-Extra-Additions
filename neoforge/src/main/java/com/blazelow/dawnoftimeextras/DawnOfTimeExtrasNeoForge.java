@@ -14,11 +14,6 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 
 import java.util.List;
 
-/**
- * NeoForge entry point. Registration itself is the shared {@link DawnOfTimeExtras#init()}; it
- * has to run while the registries are open, so it is called from the first RegisterEvent (the
- * block registry's), and the creative tab is registered from the tab registry's own event.
- */
 @Mod(DawnOfTimeExtras.MOD_ID)
 public class DawnOfTimeExtrasNeoForge {
     public DawnOfTimeExtrasNeoForge(IEventBus modBus) {
@@ -33,7 +28,7 @@ public class DawnOfTimeExtrasNeoForge {
             DawnOfTimeExtras.init();
         }
         if (event.getRegistryKey().equals(Registries.CREATIVE_MODE_TAB)) {
-            DawnOfTimeExtras.init();   // no-op if the block event already ran it
+            DawnOfTimeExtras.init();
             List<Block> allItems = DawnOfTimeExtras.tabItems();
             event.register(Registries.CREATIVE_MODE_TAB,
                     ResourceLocation.fromNamespaceAndPath(DawnOfTimeExtras.MOD_ID, "extra_additions"),
