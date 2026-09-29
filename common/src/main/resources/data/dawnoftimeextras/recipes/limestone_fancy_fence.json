@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ixi",
+    "xix"
+  ],
+  "key": {
+    "i": {
+      "item": "dawnoftimeextras:limestone_bricks"
+    },
+    "x": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:limestone_fancy_fence",
+    "count": 6
+  }
+}

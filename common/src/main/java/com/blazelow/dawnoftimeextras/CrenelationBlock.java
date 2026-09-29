@@ -1,6 +1,5 @@
 package com.blazelow.dawnoftimeextras;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -12,8 +11,6 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class CrenelationBlock extends CorneringBlock {
-    public static final MapCodec<CrenelationBlock> CODEC = simpleCodec(CrenelationBlock::new);
-
     private static final double HEIGHT = 14.657;
 
     private static final Map<Direction, VoxelShape> SHAPES = new EnumMap<>(Direction.class);
@@ -29,11 +26,6 @@ public class CrenelationBlock extends CorneringBlock {
 
     public CrenelationBlock(BlockBehaviour.Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override

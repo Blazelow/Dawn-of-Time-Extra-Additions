@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:calcite_coffer"
+    }
+  ],
+  "result": {
+    "item": "dawnoftimeextras:calcite_coffer_slab",
+    "count": 2
+  }
+}

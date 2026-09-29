@@ -1,6 +1,5 @@
 package com.blazelow.dawnoftimeextras;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -17,8 +16,6 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class EdgeBlock extends CorneringBlock {
-    public static final MapCodec<EdgeBlock> CODEC = simpleCodec(EdgeBlock::new);
-
     public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
 
     private static final Map<Direction, VoxelShape> BOTTOM = new EnumMap<>(Direction.class);
@@ -40,11 +37,6 @@ public class EdgeBlock extends CorneringBlock {
     public EdgeBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(HALF, Half.BOTTOM));
-    }
-
-    @Override
-    public MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override

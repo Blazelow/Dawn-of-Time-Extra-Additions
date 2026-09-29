@@ -24,8 +24,8 @@ public enum ExtraAdditionsSubTab {
     public final Component tooltip;
 
     ExtraAdditionsSubTab(String name) {
-        this.on = ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "textures/gui/subtab_" + name + "_on.png");
-        this.off = ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "textures/gui/subtab_" + name + "_off.png");
+        this.on = new ResourceLocation("dawnoftimebuilder", "textures/gui/subtab_" + name + "_on.png");
+        this.off = new ResourceLocation("dawnoftimebuilder", "textures/gui/subtab_" + name + "_off.png");
         this.tooltip = Component.translatable("tooltip.dawnoftimebuilder.subtab." + name);
     }
 

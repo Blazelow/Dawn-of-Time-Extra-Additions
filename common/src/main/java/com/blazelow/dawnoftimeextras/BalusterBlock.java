@@ -1,6 +1,5 @@
 package com.blazelow.dawnoftimeextras;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -12,8 +11,6 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class BalusterBlock extends CorneringBlock {
-    public static final MapCodec<BalusterBlock> CODEC = simpleCodec(BalusterBlock::new);
-
     private static final Map<Direction, VoxelShape> SHAPES = new EnumMap<>(Direction.class);
 
     static {
@@ -27,11 +24,6 @@ public class BalusterBlock extends CorneringBlock {
 
     public BalusterBlock(BlockBehaviour.Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override

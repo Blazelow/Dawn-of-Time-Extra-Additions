@@ -1,11 +1,7 @@
 package com.blazelow.dawnoftimeextras;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
@@ -33,6 +29,7 @@ public final class SignSet {
 
     public static final List<SignSet> ALL = new ArrayList<>();
 
+    public final WoodType woodType;
     public final Block sign;
     public final Block wallSign;
     public final Block hangingSign;
@@ -42,28 +39,28 @@ public final class SignSet {
     public final BlockEntityType<SetHangingSignBlockEntity> hangingSignEntity;
 
     public SignSet(String name, BlockSetType setType, MapColor colour) {
-        WoodType woodType = WoodType.register(
+        this.woodType = WoodType.register(
                 new WoodType(DawnOfTimeExtras.MOD_ID + ":" + name, setType));
 
-        this.sign = new StandingSignBlock(woodType, properties(colour)) {
+        this.sign = new StandingSignBlock(properties(colour), woodType) {
             @Override
             public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
                 return new SetSignBlockEntity(signEntity, pos, state);
             }
         };
-        this.wallSign = new WallSignBlock(woodType, properties(colour).dropsLike(this.sign)) {
+        this.wallSign = new WallSignBlock(properties(colour).dropsLike(this.sign), woodType) {
             @Override
             public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
                 return new SetSignBlockEntity(signEntity, pos, state);
             }
         };
-        this.hangingSign = new CeilingHangingSignBlock(woodType, properties(colour)) {
+        this.hangingSign = new CeilingHangingSignBlock(properties(colour), woodType) {
             @Override
             public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
                 return new SetHangingSignBlockEntity(hangingSignEntity, pos, state);
             }
         };
-        this.wallHangingSign = new WallHangingSignBlock(woodType, properties(colour).dropsLike(this.hangingSign)) {
+        this.wallHangingSign = new WallHangingSignBlock(properties(colour).dropsLike(this.hangingSign), woodType) {
             @Override
             public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
                 return new SetHangingSignBlockEntity(hangingSignEntity, pos, state);
@@ -87,12 +84,12 @@ public final class SignSet {
         register(name + "_wall_sign", wallSign);
         register(name + "_hanging_sign", hangingSign);
         register(name + "_wall_hanging_sign", wallHangingSign);
-        Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id(name + "_sign"), signEntity);
-        Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id(name + "_hanging_sign"), hangingSignEntity);
+        DawnOfTimeExtras.BLOCK_ENTITIES.put(id(name + "_sign"), signEntity);
+        DawnOfTimeExtras.BLOCK_ENTITIES.put(id(name + "_hanging_sign"), hangingSignEntity);
 
-        Registry.register(BuiltInRegistries.ITEM, id(name + "_sign"),
+        DawnOfTimeExtras.ITEMS.put(id(name + "_sign"),
                 new SignItem(new Item.Properties().stacksTo(16), sign, wallSign));
-        Registry.register(BuiltInRegistries.ITEM, id(name + "_hanging_sign"),
+        DawnOfTimeExtras.ITEMS.put(id(name + "_hanging_sign"),
                 new HangingSignItem(hangingSign, wallHangingSign, new Item.Properties().stacksTo(16)));
 
         ALL.add(this);
@@ -110,11 +107,11 @@ public final class SignSet {
     }
 
     private static void register(String name, Block block) {
-        Registry.register(BuiltInRegistries.BLOCK, id(name), block);
+        DawnOfTimeExtras.BLOCKS.put(id(name), block);
     }
 
     private static ResourceLocation id(String name) {
-        return ResourceLocation.fromNamespaceAndPath(DawnOfTimeExtras.MOD_ID, name);
+        return new ResourceLocation(DawnOfTimeExtras.MOD_ID, name);
     }
 
     public static class SetSignBlockEntity extends SignBlockEntity {
@@ -136,11 +133,6 @@ public final class SignSet {
         @Override
         public int getMaxTextLineWidth() {
             return 60;
-        }
-
-        @Override
-        public SoundEvent getSignInteractionFailedSoundEvent() {
-            return SoundEvents.WAXED_HANGING_SIGN_INTERACT_FAIL;
         }
     }
 }

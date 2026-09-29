@@ -1,6 +1,5 @@
 package com.blazelow.dawnoftimeextras;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -16,7 +15,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HangingNorenFlagBlock extends Block {
-    public static final MapCodec<HangingNorenFlagBlock> CODEC = simpleCodec(HangingNorenFlagBlock::new);
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     public static final BooleanProperty ABOVE = BooleanProperty.create("above");
     public static final BooleanProperty BELOW = BooleanProperty.create("below");
@@ -32,11 +30,6 @@ public class HangingNorenFlagBlock extends Block {
         registerDefaultState(stateDefinition.any()
                 .setValue(AXIS, Direction.Axis.Z).setValue(ABOVE, false).setValue(BELOW, false)
                 .setValue(NEG, false).setValue(POS, false));
-    }
-
-    @Override
-    protected MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override
@@ -76,7 +69,7 @@ public class HangingNorenFlagBlock extends Block {
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState,
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState,
                                      LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         Direction.Axis axis = state.getValue(AXIS);
         if (direction == Direction.UP) {
@@ -99,7 +92,7 @@ public class HangingNorenFlagBlock extends Block {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return state.getValue(AXIS) == Direction.Axis.X ? SHAPE_X : SHAPE_Z;
     }
 }

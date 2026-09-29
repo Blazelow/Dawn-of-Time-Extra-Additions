@@ -1,6 +1,5 @@
 package com.blazelow.dawnoftimeextras;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
@@ -11,15 +10,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class FireplaceBlock
         extends org.dawnoftime.dawnoftime.block.templates.ConnectedVerticalSidedPlanFireplaceBlock {
-    public static final MapCodec<FireplaceBlock> CODEC = simpleCodec(FireplaceBlock::new);
-
     public FireplaceBlock(BlockBehaviour.Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override

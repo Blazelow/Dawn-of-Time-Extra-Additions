@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public class DoubleFutonBlock extends BedBlock {
 
@@ -93,7 +93,7 @@ public class DoubleFutonBlock extends BedBlock {
     }
 
     @Override
-    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         if (!level.isClientSide) {
             for (BlockPos part : parts(state, pos)) {
                 if (part.equals(pos)) {
@@ -111,7 +111,7 @@ public class DoubleFutonBlock extends BedBlock {
                 popResource(level, pos, new ItemStack(this));
             }
         }
-        return super.playerWillDestroy(level, pos, state, player);
+        super.playerWillDestroy(level, pos, state, player);
     }
 
     private BlockPos[] parts(BlockState state, BlockPos pos) {

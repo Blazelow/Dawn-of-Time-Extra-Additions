@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:blackstone_roman_column"
+    }
+  ],
+  "result": {
+    "item": "dawnoftimeextras:blackstone_roman_sided_column",
+    "count": 2
+  }
+}

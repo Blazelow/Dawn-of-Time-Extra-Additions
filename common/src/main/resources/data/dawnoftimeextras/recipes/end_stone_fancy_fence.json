@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ixi",
+    "xix"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:end_stone_bricks"
+    },
+    "x": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:end_stone_fancy_fence",
+    "count": 6
+  }
+}

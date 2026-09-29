@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ixi",
+    "xix"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:jungle_planks"
+    },
+    "x": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:jungle_fancy_fence",
+    "count": 6
+  }
+}

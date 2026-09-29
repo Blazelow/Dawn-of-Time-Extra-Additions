@@ -7,12 +7,12 @@ base {
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-    options.release = 21
+    options.release = 17
 }
 
 repositories {
@@ -24,7 +24,6 @@ repositories {
     }
 }
 
-// The shared code and resources live in ../common and are compiled straight into this jar.
 sourceSets {
     main {
         java.srcDir '../common/src/main/java'
@@ -50,10 +49,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
-    // Dawn Of Time itself, to compile against rather than transcribe. Loom remaps it from
-    // intermediary into our mappings, so their blocks can simply be extended. Fetched from
-    // Modrinth's maven by version id. compileOnly: it is a hard dependency at runtime and must not be bundled.
     modCompileOnly "maven.modrinth:dawn-of-time:${dot_fabric_version}"
+    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
 }
 
 processResources {

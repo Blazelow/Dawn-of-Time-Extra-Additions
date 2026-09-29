@@ -13,7 +13,7 @@ import java.util.function.IntSupplier;
 
 public class ExtraAdditionsCategoryButton extends Button {
     public static final ResourceLocation CREATIVE_ICONS =
-            ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "textures/gui/creative_icons.png");
+            new ResourceLocation("dawnoftimebuilder", "textures/gui/creative_icons.png");
 
     private static final ResourceLocation[] BUTTON_ICONS = fillButtonIcons();
     private static final Component[] BUTTON_TOOLTIPS = fillButtonTooltips();
@@ -69,7 +69,7 @@ public class ExtraAdditionsCategoryButton extends Button {
         ExtraAdditionsCategory[] values = ExtraAdditionsCategory.values();
         ResourceLocation[] table = new ResourceLocation[values.length];
         for (int i = 0; i < values.length; i++) {
-            table[i] = ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder",
+            table[i] = new ResourceLocation("dawnoftimebuilder",
                     "textures/item/logo_" + values[i].dotName + ".png");
         }
         return table;

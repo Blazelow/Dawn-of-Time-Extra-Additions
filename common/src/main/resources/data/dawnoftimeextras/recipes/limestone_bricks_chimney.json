@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "UU",
+    "II"
+  ],
+  "key": {
+    "U": {
+      "item": "dawnoftimeextras:limestone_bricks_slab"
+    },
+    "I": {
+      "item": "dawnoftimeextras:limestone_bricks"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:limestone_bricks_chimney",
+    "count": 1
+  }
+}

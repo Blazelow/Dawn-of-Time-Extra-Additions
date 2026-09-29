@@ -40,7 +40,7 @@ public class DawnOfTimeExtrasClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tint) -> STILL_WATER,
                 DawnOfTimeExtras.WATER_TINTED_ICONS.toArray(new Block[0]));
 
-        ItemTooltipCallback.EVENT.register((stack, context, type, lines) -> {
+        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             for (Map.Entry<Block, String[]> note : DawnOfTimeExtras.TOOLTIPS.entrySet()) {
                 if (stack.is(note.getKey().asItem())) {
                     for (String key : note.getValue()) {

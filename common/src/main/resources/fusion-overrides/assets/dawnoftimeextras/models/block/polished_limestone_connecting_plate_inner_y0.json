@@ -346,7 +346,8 @@
       ]
     },
     "flat": {
-      "type": "fusion:true"
+      "type": "fusion:and",
+      "predicates": []
     }
   }
 }

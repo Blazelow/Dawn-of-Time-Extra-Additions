@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XX",
+    "X ",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:cherry_sided_column",
+    "count": 5
+  }
+}

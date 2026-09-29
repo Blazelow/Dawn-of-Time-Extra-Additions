@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "IxI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:limestone_bricks"
+    },
+    "x": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:limestone_big_flower_pot",
+    "count": 2
+  }
+}

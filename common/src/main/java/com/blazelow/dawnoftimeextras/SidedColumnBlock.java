@@ -1,8 +1,8 @@
 package com.blazelow.dawnoftimeextras;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -27,8 +27,6 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class SidedColumnBlock extends Block {
-    public static final MapCodec<SidedColumnBlock> CODEC = simpleCodec(SidedColumnBlock::new);
-
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<VerticalConnection> VERTICAL_CONNECTION =
             EnumProperty.create("vertical_connection", VerticalConnection.class);
@@ -47,11 +45,6 @@ public class SidedColumnBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(VERTICAL_CONNECTION, VerticalConnection.NONE));
-    }
-
-    @Override
-    public MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override
@@ -95,8 +88,8 @@ public class SidedColumnBlock extends Block {
     }
 
     @Override
-    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
-                                            Player player, BlockHitResult hit) {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos,
+                                 Player player, InteractionHand hand, BlockHitResult hit) {
         if (player.isSecondaryUseActive()) {
             return ColumnGrowth.shrink(level, pos, player,
                     state.getValue(VERTICAL_CONNECTION) != VerticalConnection.NONE, kin(state));

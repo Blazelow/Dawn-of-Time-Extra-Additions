@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:deepslate_coffer"
+    }
+  ],
+  "result": {
+    "item": "dawnoftimeextras:deepslate_coffer_slab",
+    "count": 2
+  }
+}

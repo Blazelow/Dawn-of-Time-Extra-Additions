@@ -124,7 +124,7 @@ public abstract class ExtraAdditionsCreativeMixin
     }
 
     @Inject(method = "mouseScrolled", at = @At("HEAD"), cancellable = true)
-    private void dawnoftimeextras$mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY,
+    private void dawnoftimeextras$mouseScrolled(double mouseX, double mouseY, double delta,
                                                  CallbackInfoReturnable<Boolean> cir) {
         if (!this.dawnoftimeextras$tabSelected) {
             return;
@@ -133,7 +133,7 @@ public abstract class ExtraAdditionsCreativeMixin
         int startY = this.topPos + 10;
         int endY = startY + 112 + 3;
         if (mouseX >= startX && mouseX < this.leftPos && mouseY >= startY && mouseY < endY) {
-            if (scrollY > 0.0) {
+            if (delta > 0.0) {
                 this.dawnoftimeextras$scrollUp();
             } else {
                 this.dawnoftimeextras$scrollDown();

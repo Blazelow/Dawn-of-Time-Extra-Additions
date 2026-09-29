@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:calcite"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:calcite_coffer",
+    "count": 8
+  }
+}

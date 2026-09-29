@@ -1,6 +1,5 @@
 package com.blazelow.dawnoftimeextras;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -9,12 +8,16 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import org.dawnoftime.dawnoftime.block.roman.BirchCouchBlock;
+import org.dawnoftime.dawnoftime.block.roman.BirchFootstoolBlock;
+import org.dawnoftime.dawnoftime.block.roman.SandstoneColumnBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.TransparentBlock;
+import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -34,9 +37,6 @@ import org.dawnoftime.dawnoftime.block.templates.WaterloggedBlock;
 import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalAxisBlock;
 import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalBlock;
 import org.dawnoftime.dawnoftime.block.templates.ConnectedVerticalSidedBlock;
-import org.dawnoftime.dawnoftime.block.roman.SandstoneColumnBlock;
-import org.dawnoftime.dawnoftime.block.roman.BirchCouchBlock;
-import org.dawnoftime.dawnoftime.block.roman.BirchFootstoolBlock;
 import net.minecraft.world.item.DyeColor;
 import org.dawnoftime.dawnoftime.block.french.StoneBricksMachicolationBlock;
 import org.dawnoftime.dawnoftime.util.VoxelShapes;
@@ -99,7 +99,7 @@ public class DawnOfTimeExtras {
                     .noOcclusion()
                     .ignitedByLava());
 
-    private static final String[] EXTRA_STONES = {"deepslate", "tuff", "granite", "andesite", "diorite", "basalt", "calcite", "dripstone", "netherrack", "blackstone", "end_stone", "prismarine", "obsidian", "dark_prismarine", "sandstone", "purpur", "red_sandstone"};
+    private static final String[] EXTRA_STONES = {"deepslate", "granite", "andesite", "diorite", "basalt", "calcite", "dripstone", "netherrack", "blackstone", "end_stone", "prismarine", "obsidian", "dark_prismarine", "sandstone", "purpur", "red_sandstone"};
 
     private static String[] stones(String... base) {
         String[] all = Arrays.copyOf(base, base.length + EXTRA_STONES.length);
@@ -112,7 +112,6 @@ public class DawnOfTimeExtras {
             Map.entry("limestone", MapColor.SAND),
             Map.entry("stone", MapColor.STONE),
             Map.entry("deepslate", MapColor.DEEPSLATE),
-            Map.entry("tuff", MapColor.TERRACOTTA_GRAY),
             Map.entry("granite", MapColor.DIRT),
             Map.entry("andesite", MapColor.STONE),
             Map.entry("diorite", MapColor.QUARTZ),
@@ -244,14 +243,6 @@ public class DawnOfTimeExtras {
         register(ExtraAdditionsCategory.JAPANESE, "pale_green_tatami_block", PALE_GREEN_TATAMI_BLOCK);
         register(ExtraAdditionsCategory.JAPANESE, "pale_green_tatami_block_extendable",
                 new TatamiBlockExtendableBlock(tatami()));
-        for (String stone : stones("quartz", "stone")) {
-            register(ExtraAdditionsCategory.FRENCH, stone + "_baluster", new BalusterBlock(stone(STONE_COLOURS.get(stone))));
-        }
-        for (String stone : stones("quartz", "stone")) {
-            register(ExtraAdditionsCategory.FRENCH, stone + "_sided_column",
-                    new SidedColumnBlock(stone(STONE_COLOURS.get(stone))));
-        }
-        register(ExtraAdditionsCategory.FRENCH, "charred_spruce_sided_column", CHARRED_SPRUCE_SIDED_COLUMN);
         for (String stone : stones("quartz", "stone", "limestone")) {
             if (stone.equals("sandstone")) {
                 continue;
@@ -297,12 +288,20 @@ public class DawnOfTimeExtras {
         }
         for (String fence : new String[]{"gold_wrought_iron_fence", "diamond_wrought_iron_fence"}) {
             register(ExtraAdditionsCategory.GERMAN, fence,
-                    new IronFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)));
+                    new IronFenceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
         }
         for (String fence : new String[]{"black_gold_wrought_iron_fence", "black_diamond_wrought_iron_fence"}) {
             register(ExtraAdditionsCategory.FRENCH, fence,
-                    new IronFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)));
+                    new IronFenceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
         }
+        for (String stone : stones("quartz", "stone")) {
+            register(ExtraAdditionsCategory.FRENCH, stone + "_baluster", new BalusterBlock(stone(STONE_COLOURS.get(stone))));
+        }
+        for (String stone : stones("quartz", "stone")) {
+            register(ExtraAdditionsCategory.FRENCH, stone + "_sided_column",
+                    new SidedColumnBlock(stone(STONE_COLOURS.get(stone))));
+        }
+        register(ExtraAdditionsCategory.FRENCH, "charred_spruce_sided_column", CHARRED_SPRUCE_SIDED_COLUMN);
         register(ExtraAdditionsCategory.JAPANESE, "light_gray_double_futon", DOUBLE_FUTON);
         for (String dye : DYES) {
             register(ExtraAdditionsCategory.JAPANESE, dye + "_futon", new FutonBlock(futon()));
@@ -319,23 +318,23 @@ public class DawnOfTimeExtras {
 
         for (String stone : stones("quartz")) {
             register(ExtraAdditionsCategory.GERMAN, "lattice_" + stone + "_bricks_window", new SidedWindowBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
+                    BlockBehaviour.Properties.copy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
         }
         for (String wood : WOODS) {
             register(ExtraAdditionsCategory.GERMAN, "lattice_" + wood + "_window", new SidedWindowBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
+                    BlockBehaviour.Properties.copy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
         }
         register(ExtraAdditionsCategory.GERMAN, "lattice_charred_spruce_window", new SidedWindowBlock(
-                BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
+                BlockBehaviour.Properties.copy(Blocks.GLASS), VoxelShapes.SIDED_WINDOW_SHAPES));
 
         for (String material : new String[]{"gold", "diamond", "netherite"}) {
             register(ExtraAdditionsCategory.FRENCH, material + "_fancy_lantern", new LanternBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).noOcclusion().lightLevel(state -> 15),
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BARS).noOcclusion().lightLevel(state -> 15),
                     VoxelShapes.IRON_FANCY_LANTERN_SHAPES));
             register(ExtraAdditionsCategory.FRENCH, material + "_column", new IronColumnBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)));
+                    BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
             register(ExtraAdditionsCategory.GERMAN, material + "_portcullis", new PortcullisBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_DOOR)));
+                    BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)));
         }
 
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
@@ -348,16 +347,16 @@ public class DawnOfTimeExtras {
         for (String colour : new String[]{"orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
                 "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"}) {
             register(ExtraAdditionsCategory.JAPANESE, colour + "_little_flag", new LittleFlagBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)
                             .mapColor(DyeColor.byName(colour, DyeColor.WHITE)).noOcclusion()));
         }
 
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "brown", "green", "red", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_wave_template",
-                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+                    new LatticeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()).setBurnable());
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_round_template",
-                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+                    new LatticeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()).setBurnable());
         }
 
         for (String base : PAINTED_DYES) {
@@ -385,7 +384,7 @@ public class DawnOfTimeExtras {
                 continue;
             }
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_spiral_template",
-                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+                    new LatticeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()).setBurnable());
         }
 
         for (String base : PAINTED_DYES) {
@@ -408,13 +407,13 @@ public class DawnOfTimeExtras {
             Block puucBase = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone",
                     new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_stairs",
-                    new StairBlock(puucBase.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new StairBlock(puucBase.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_slab",
-                    new SlabBlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new SlabBlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_plate",
-                    new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new PlateBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_puuc_limestone_edge",
-                    new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new EdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
 
         for (String colour : PAINTED_DYES) {
@@ -432,13 +431,13 @@ public class DawnOfTimeExtras {
                 continue;
             }
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_lattice",
-                    new LatticeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()).setBurnable());
+                    new LatticeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()).setBurnable());
         }
 
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_ornamented_plastered_stone",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
 
         for (String colour : PAINTED_DYES) {
@@ -496,7 +495,7 @@ public class DawnOfTimeExtras {
             }
             register(ExtraAdditionsCategory.PRE_COLOMBIAN,
                     colour + "_ornamented_chiseled_plastered_stone_green",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
         for (String colour : PAINTED_DYES) {
             if (colour.equals("red")) {
@@ -504,27 +503,27 @@ public class DawnOfTimeExtras {
             }
             register(ExtraAdditionsCategory.PRE_COLOMBIAN,
                     colour + "_ornamented_chiseled_plastered_stone_red",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
 
         for (String colour : PAINTED_DYES) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN,
                     colour + "_ornamented_chiseled_plastered_stone_gold",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
 
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "blue", "brown", "red", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_feathered_serpent_sculpture",
                     new WaterloggedHorizontalBlock(
-                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).noOcclusion(),
                             VoxelShapes.FEATHERED_SERPENT_SCULPTURE_SHAPES));
         }
 
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "blue", "brown", "red", "black"}) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_serpent_sculpted_column",
-                    new ConnectedVerticalSidedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS),
+                    new ConnectedVerticalSidedBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS),
                             VoxelShapes.SERPENT_SCULPTED_COLUMN_SHAPES));
         }
 
@@ -533,14 +532,14 @@ public class DawnOfTimeExtras {
                 continue;
             }
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_chiseled_plastered_stone_red",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
         for (String colour : PAINTED_DYES) {
             if (colour.equals("green")) {
                 continue;
             }
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_chiseled_plastered_stone_green",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
 
         for (String colour : PAINTED_DYES) {
@@ -548,7 +547,7 @@ public class DawnOfTimeExtras {
                 continue;
             }
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_chiseled_plastered_stone_plain",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN,
                     colour + "_chiseled_plastered_stone_frieze_plain",
                     new CrenelationBlock(stone(DYE_MAP_COLOURS.get(colour))));
@@ -557,40 +556,40 @@ public class DawnOfTimeExtras {
         for (String colour : new String[]{"white", "orange", "magenta", "light_blue", "lime", "pink",
                 "gray", "light_gray", "cyan", "purple", "brown", "black"}) {
             Block base = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone",
-                    new BlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new BlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_column",
-                    new ConnectedVerticalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS),
+                    new ConnectedVerticalBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS),
                             VoxelShapes.PLASTERED_STONE_COLUMN_SHAPES));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_edge",
-                    new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new EdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_plate",
-                    new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new PlateBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_slab",
-                    new SlabBlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new SlabBlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_stairs",
                     new StairBlock(base.defaultBlockState(),
-                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_plastered_stone_window",
                     new WaterloggedHorizontalAxisBlock(
-                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).noOcclusion(),
                             VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
         }
 
         for (String stone : stones("quartz")) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, stone + "_plastered_window",
                     new WaterloggedHorizontalAxisBlock(
-                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).noOcclusion(),
                             VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
         }
         for (String wood : WOODS) {
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, wood + "_plastered_window",
                     new WaterloggedHorizontalAxisBlock(
-                            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                            BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).noOcclusion(),
                             VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
         }
         register(ExtraAdditionsCategory.PRE_COLOMBIAN, "charred_spruce_plastered_window",
                 new WaterloggedHorizontalAxisBlock(
-                        BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
+                        BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).noOcclusion(),
                         VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
         for (String stone : stones("quartz", "limestone")) {
             register(ExtraAdditionsCategory.FRENCH, stone + "_bricks_arrowslit", new StoneBricksArrowslitBlock(
@@ -650,6 +649,11 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.FRENCH, "limestone_bricks_edge", new EdgeBlock(solidStone(colour)));
         }
 
+        for (String stone : stones("quartz", "limestone")) {
+            register(ExtraAdditionsCategory.GERMAN, stone + "_chimney", new ChimneyBlock(stone(STONE_COLOURS.get(stone))));
+        }
+        register(ExtraAdditionsCategory.GERMAN, "limestone_bricks_chimney",
+                new ChimneyBlock(stone(STONE_COLOURS.get("limestone"))));
         {
             MapColor colour = STONE_COLOURS.get("limestone");
             Block brickMasonry = register(ExtraAdditionsCategory.GERMAN, "limestone_brick_masonry",
@@ -664,21 +668,16 @@ public class DawnOfTimeExtras {
         }
 
         for (String stone : stones("quartz", "limestone")) {
-            register(ExtraAdditionsCategory.GERMAN, stone + "_chimney", new ChimneyBlock(stone(STONE_COLOURS.get(stone))));
-        }
-        register(ExtraAdditionsCategory.GERMAN, "limestone_bricks_chimney",
-                new ChimneyBlock(stone(STONE_COLOURS.get("limestone"))));
-
-        for (String stone : stones("quartz", "limestone")) {
             register(ExtraAdditionsCategory.GERMAN, stone + "_german_fireplace",
                     new FireplaceBlock(hearth(stone(STONE_COLOURS.get(stone)))));
         }
+
         register(ExtraAdditionsCategory.GERMAN, "obsidian_slab",
-                new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)));
+                new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
         register(ExtraAdditionsCategory.GERMAN, "obsidian_stairs",
-                new StairBlock(Blocks.OBSIDIAN.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)));
+                new StairBlock(Blocks.OBSIDIAN.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
         register(ExtraAdditionsCategory.GERMAN, "obsidian_wall",
-                new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).forceSolidOn()));
+                new WallBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).forceSolidOn()));
         for (String stone : stones("quartz", "stone")) {
             register(ExtraAdditionsCategory.FRENCH, stone + "_french_fireplace",
                     new FireplaceBlock(hearth(stone(STONE_COLOURS.get(stone)))));
@@ -688,6 +687,9 @@ public class DawnOfTimeExtras {
         }
 
         for (String basin : stones("quartz", "limestone")) {
+            if (basin.equals("sandstone")) {
+                continue;
+            }
             MapColor colour = STONE_COLOURS.get(basin);
             for (Block basinPiece : new Block[]{
                     register(ExtraAdditionsCategory.GERMAN, basin + "_pool", new PoolBlock(stone(colour))),
@@ -705,49 +707,51 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.FRENCH, wood + "_sided_column", new SidedColumnBlock(wood(wood)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_irori_fireplace", new IroriFireplaceBlock(hearth(wood(wood))));
 
-            register(ExtraAdditionsCategory.JAPANESE, wood + "_timber_frame", new Block(wood(wood)));
-            register(ExtraAdditionsCategory.JAPANESE, wood + "_timber_frame_pillar", new RotatedPillarBlock(wood(wood)));
+            if (!wood.equals("spruce")) {
+                register(ExtraAdditionsCategory.JAPANESE, wood + "_timber_frame", new Block(wood(wood)));
+                register(ExtraAdditionsCategory.JAPANESE, wood + "_timber_frame_pillar", new RotatedPillarBlock(wood(wood)));
+            }
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_glass_pane", new GlassPaneBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
+                    BlockBehaviour.Properties.copy(Blocks.GLASS)));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_fancy_railing", new FancyRailingBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_railing", new CharredSpruceRailingBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
 
-            register(ExtraAdditionsCategory.JAPANESE, wood + "_window", new TransparentBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
+            register(ExtraAdditionsCategory.JAPANESE, wood + "_window", new GlassBlock(
+                    BlockBehaviour.Properties.copy(Blocks.GLASS)));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_shutters", new ShuttersBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_tall_shutters", new TallShuttersBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F).noOcclusion()));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall", new PaperWallBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_squared", new PillarPaperWallBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_window", new PillarPaperWallBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
-            register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_flowery", new PillarPaperWallBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
+            register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_flowery", new VerticalPillarPaperWallBlock(
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_flat", new PillarPaperWallBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_sliding_paper_door", new PaperDoorBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_foundation_column", new FoundationBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_foundation_column_slab", new FoundationSlabBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
         }
 
@@ -756,51 +760,37 @@ public class DawnOfTimeExtras {
                 "mangrove", "cherry", "bamboo", "crimson", "warped"};
         for (String wood : woodsExceptSpruce) {
             register(ExtraAdditionsCategory.JAPANESE, wood + "_roof_support", new RoofSupportBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion()));
+                    BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).noOcclusion()));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_door", new PaperDoorBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                    BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)
                             .strength(1.5F, 1.5F)));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_foundation", new FoundationBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
 
             Block boards = register(ExtraAdditionsCategory.JAPANESE, wood + "_boards", new BoardsBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).strength(3.0F, 5.0F)));
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3.0F, 5.0F)));
 
             register(ExtraAdditionsCategory.JAPANESE, wood + "_boards_edge", new EdgeBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_boards_slab", new BoardsSlabBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_boards_stairs", new BoardsStairsBlock(() -> boards,
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_boards_plate", new PlateBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
         }
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_foundation", new FoundationBlock(
-                BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
-                        .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
-
-        Supplier<Block> charredSpruceBoards = () -> BuiltInRegistries.BLOCK.get(
-                ResourceLocation.fromNamespaceAndPath("dawnoftimebuilder", "charred_spruce_boards"));
-        register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_boards_edge", new EdgeBlock(
-                BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
-                        .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
-        register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_boards_slab", new BoardsSlabBlock(
-                BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
-                        .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
-        register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_boards_stairs", new BoardsStairsBlock(charredSpruceBoards,
-                BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
-        register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_boards_plate", new PlateBlock(
-                BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                         .mapColor(MapColor.COLOR_BLACK).strength(2.0F, 6.0F)));
 
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_paper_door", new PaperDoorBlock(
-                BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)
                         .strength(1.5F, 1.5F)));
 
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_irori_fireplace", new IroriFireplaceBlock(
@@ -831,13 +821,13 @@ public class DawnOfTimeExtras {
             Block paintedBase = register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone", new Block(solidStone(DYE_MAP_COLOURS.get(colour))));
 
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_stairs",
-                    new StairBlock(paintedBase.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new StairBlock(paintedBase.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_slab",
-                    new SlabBlockDoT(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new SlabBlockDoT(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_plate",
-                    new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new PlateBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
             register(ExtraAdditionsCategory.PRE_COLOMBIAN, colour + "_painted_stone_edge",
-                    new EdgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+                    new EdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
         }
 
         for (String colour : PAINTED_DYES) {
@@ -863,9 +853,9 @@ public class DawnOfTimeExtras {
                 continue;
             }
             Block wool = BuiltInRegistries.BLOCK.get(
-                    ResourceLocation.fromNamespaceAndPath("minecraft", colour + "_wool"));
+                    new ResourceLocation("minecraft", colour + "_wool"));
             register(ExtraAdditionsCategory.JAPANESE, colour + "_paper_lantern", new PaperLanternColourBlock(
-                    BlockBehaviour.Properties.ofFullCopy(wool)
+                    BlockBehaviour.Properties.copy(wool)
                             .noOcclusion().noCollission().lightLevel(state -> 12)));
         }
 
@@ -874,9 +864,9 @@ public class DawnOfTimeExtras {
                 continue;
             }
             Block wool = BuiltInRegistries.BLOCK.get(
-                    ResourceLocation.fromNamespaceAndPath("minecraft", colour + "_wool"));
+                    new ResourceLocation("minecraft", colour + "_wool"));
             register(ExtraAdditionsCategory.JAPANESE, colour + "_cushion", new CushionBlock(
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)
                             .mapColor(wool.defaultMapColor()).strength(2.0F, 6.0F).noOcclusion()));
         }
 
@@ -900,9 +890,15 @@ public class DawnOfTimeExtras {
             CATEGORY_BLOCKS.get(ExtraAdditionsCategory.JAPANESE).add(set.hangingSign);
         }
 
-        TAB_ICON = Registry.register(BuiltInRegistries.ITEM,
-                ResourceLocation.fromNamespaceAndPath(MOD_ID, "creative_tab_icon"), new Item(new Item.Properties()));
+        TAB_ICON = new Item(new Item.Properties());
+        ITEMS.put(new ResourceLocation(MOD_ID, "creative_tab_icon"), TAB_ICON);
     }
+
+    public static final Map<ResourceLocation, Block> BLOCKS = new LinkedHashMap<>();
+
+    public static final Map<ResourceLocation, Item> ITEMS = new LinkedHashMap<>();
+
+    public static final Map<ResourceLocation, BlockEntityType<?>> BLOCK_ENTITIES = new LinkedHashMap<>();
 
     private static boolean initialised = false;
 
@@ -919,9 +915,9 @@ public class DawnOfTimeExtras {
     public static CreativeModeTab EXTRA_ADDITIONS_TAB;
 
     private static Block register(ExtraAdditionsCategory category, String name, Block block) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
-        Registry.register(BuiltInRegistries.BLOCK, id, block);
-        Registry.register(BuiltInRegistries.ITEM, id, new BlockItem(block, new Item.Properties()));
+        ResourceLocation id = new ResourceLocation(MOD_ID, name);
+        BLOCKS.put(id, block);
+        ITEMS.put(id, new BlockItem(block, new Item.Properties()));
         CREATIVE_ORDER.add(block);
         CATEGORY_BLOCKS.get(category).add(block);
         for (String cutout : CUTOUT_NAMES) {

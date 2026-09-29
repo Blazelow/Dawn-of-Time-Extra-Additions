@@ -1,8 +1,8 @@
 package com.blazelow.dawnoftimeextras;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -21,8 +21,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.function.Predicate;
 
 public class ColumnBlock extends Block {
-    public static final MapCodec<ColumnBlock> CODEC = simpleCodec(ColumnBlock::new);
-
     public static final EnumProperty<VerticalConnection> VERTICAL_CONNECTION =
             EnumProperty.create("vertical_connection", VerticalConnection.class);
 
@@ -35,11 +33,6 @@ public class ColumnBlock extends Block {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(VERTICAL_CONNECTION, VerticalConnection.NONE));
-    }
-
-    @Override
-    public MapCodec<? extends Block> codec() {
-        return CODEC;
     }
 
     @Override
@@ -73,8 +66,8 @@ public class ColumnBlock extends Block {
     }
 
     @Override
-    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
-                                            Player player, BlockHitResult hit) {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos,
+                                 Player player, InteractionHand hand, BlockHitResult hit) {
         if (player.isSecondaryUseActive()) {
             return ColumnGrowth.shrink(level, pos, player,
                     state.getValue(VERTICAL_CONNECTION) != VerticalConnection.NONE, kin);

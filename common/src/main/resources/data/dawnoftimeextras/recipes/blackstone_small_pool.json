@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:blackstone_pool"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:blackstone_small_pool",
+    "count": 6
+  }
+}

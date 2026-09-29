@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:calcite"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:calcite_baluster",
+    "count": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "c c",
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "dawnoftimebuilder:spruce_timber_frame"
+    },
+    "c": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:spruce_timber_frame_hanging_sign",
+    "count": 6
+  }
+}

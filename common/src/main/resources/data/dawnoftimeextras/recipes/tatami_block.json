@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "dawnoftimebuilder:small_tatami_mat"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:tatami_block",
+    "count": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:dark_prismarine"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:dark_prismarine_coffer",
+    "count": 8
+  }
+}

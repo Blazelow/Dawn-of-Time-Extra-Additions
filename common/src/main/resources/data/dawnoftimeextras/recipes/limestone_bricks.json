@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II",
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:polished_limestone"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:limestone_bricks",
+    "count": 4
+  }
+}

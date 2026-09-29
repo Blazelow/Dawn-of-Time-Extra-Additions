@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:diorite_coffer"
+    }
+  ],
+  "result": {
+    "item": "dawnoftimeextras:diorite_coffer_slab",
+    "count": 2
+  }
+}
