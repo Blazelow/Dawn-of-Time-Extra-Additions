@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:andesite_roman_column"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:andesite_roman_sided_column",
+    "count": 2
+  }
+}

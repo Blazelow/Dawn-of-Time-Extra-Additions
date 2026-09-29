@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "dawnoftimeextras:block/acacia_couch"
+    },
+    "facing=west": {
+      "model": "dawnoftimeextras:block/acacia_couch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "dawnoftimeextras:block/acacia_couch",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "dawnoftimeextras:block/acacia_couch",
+      "y": 90
+    }
+  }
+}

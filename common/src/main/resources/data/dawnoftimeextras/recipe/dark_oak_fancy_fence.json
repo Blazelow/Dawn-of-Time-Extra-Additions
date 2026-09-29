@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ixi",
+    "xix"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "x": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:dark_oak_fancy_fence",
+    "count": 6
+  }
+}

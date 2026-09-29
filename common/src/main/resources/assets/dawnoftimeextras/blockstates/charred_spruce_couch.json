@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "dawnoftimeextras:block/charred_spruce_couch"
+    },
+    "facing=west": {
+      "model": "dawnoftimeextras:block/charred_spruce_couch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "dawnoftimeextras:block/charred_spruce_couch",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "dawnoftimeextras:block/charred_spruce_couch",
+      "y": 90
+    }
+  }
+}

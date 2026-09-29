@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:diorite_roman_column"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:diorite_roman_sided_column",
+    "count": 2
+  }
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "dawnoftimebuilder:block/general/small_plate_outer",
+	"textures": {
+		"top": "dawnoftimeextras:block/limestone_bricks",
+		"frieze": "dawnoftimeextras:block/limestone_bricks"
+	}
+}

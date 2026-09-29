@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:dark_prismarine_roman_column"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:dark_prismarine_roman_sided_column",
+    "count": 2
+  }
+}

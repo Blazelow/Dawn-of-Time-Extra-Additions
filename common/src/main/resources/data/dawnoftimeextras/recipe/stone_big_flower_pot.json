@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "IxI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stone"
+    },
+    "x": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:stone_big_flower_pot",
+    "count": 2
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:limestone_brick_masonry"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:limestone_brick_masonry_wall",
+    "count": 6
+  }
+}

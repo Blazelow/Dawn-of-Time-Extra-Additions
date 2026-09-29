@@ -29,9 +29,14 @@ import org.dawnoftime.dawnoftime.block.templates.LatticeBlock;
 import org.dawnoftime.dawnoftime.block.templates.BlockDoT;
 import org.dawnoftime.dawnoftime.block.templates.ConnectedVerticalBlock;
 import org.dawnoftime.dawnoftime.block.templates.SlabBlockDoT;
+import org.dawnoftime.dawnoftime.block.general.IronFenceBlock;
+import org.dawnoftime.dawnoftime.block.templates.WaterloggedBlock;
 import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalAxisBlock;
 import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalBlock;
 import org.dawnoftime.dawnoftime.block.templates.ConnectedVerticalSidedBlock;
+import org.dawnoftime.dawnoftime.block.roman.SandstoneColumnBlock;
+import org.dawnoftime.dawnoftime.block.roman.BirchCouchBlock;
+import org.dawnoftime.dawnoftime.block.roman.BirchFootstoolBlock;
 import net.minecraft.world.item.DyeColor;
 import org.dawnoftime.dawnoftime.block.french.StoneBricksMachicolationBlock;
 import org.dawnoftime.dawnoftime.util.VoxelShapes;
@@ -247,6 +252,57 @@ public class DawnOfTimeExtras {
                     new SidedColumnBlock(stone(STONE_COLOURS.get(stone))));
         }
         register(ExtraAdditionsCategory.FRENCH, "charred_spruce_sided_column", CHARRED_SPRUCE_SIDED_COLUMN);
+        for (String stone : stones("quartz", "stone", "limestone")) {
+            if (stone.equals("sandstone")) {
+                continue;
+            }
+            MapColor colour = STONE_COLOURS.get(stone);
+            register(ExtraAdditionsCategory.ROMAN, stone + "_roman_column",
+                    new SandstoneColumnBlock(stone(colour)));
+            register(ExtraAdditionsCategory.ROMAN, stone + "_roman_sided_column",
+                    new ConnectedVerticalSidedBlock(stone(colour), VoxelShapes.SANDSTONE_SIDED_COLUMN_SHAPES));
+        }
+        for (String wood : WOODS) {
+            if (wood.equals("birch")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.ROMAN, wood + "_fancy_fence",
+                    new org.dawnoftime.dawnoftime.block.templates.PlateBlock(wood(wood), VoxelShapes.THIN_PLATE_SHAPES));
+        }
+        register(ExtraAdditionsCategory.ROMAN, "charred_spruce_fancy_fence",
+                new org.dawnoftime.dawnoftime.block.templates.PlateBlock(
+                        wood("charred_spruce").mapColor(MapColor.TERRACOTTA_WHITE), VoxelShapes.THIN_PLATE_SHAPES));
+        for (String wood : WOODS) {
+            if (wood.equals("birch")) {
+                continue;
+            }
+            register(ExtraAdditionsCategory.ROMAN, wood + "_couch",
+                    new BirchCouchBlock(wood(wood), 13.0F, VoxelShapes.ROMAN_COUCH_SHAPES));
+            register(ExtraAdditionsCategory.ROMAN, wood + "_footstool",
+                    new BirchFootstoolBlock(wood(wood), 9.0F));
+        }
+        register(ExtraAdditionsCategory.ROMAN, "charred_spruce_couch",
+                new BirchCouchBlock(wood("charred_spruce").mapColor(MapColor.TERRACOTTA_WHITE),
+                        13.0F, VoxelShapes.ROMAN_COUCH_SHAPES));
+        register(ExtraAdditionsCategory.ROMAN, "charred_spruce_footstool",
+                new BirchFootstoolBlock(wood("charred_spruce").mapColor(MapColor.TERRACOTTA_WHITE), 9.0F));
+        for (String stone : stones("quartz", "stone", "limestone")) {
+            MapColor colour = STONE_COLOURS.get(stone);
+            register(ExtraAdditionsCategory.ROMAN, stone + "_fancy_fence",
+                    new org.dawnoftime.dawnoftime.block.templates.PlateBlock(stone(colour), VoxelShapes.THIN_PLATE_SHAPES));
+            register(ExtraAdditionsCategory.ROMAN, stone + "_coffer", new BlockDoT(solidStone(colour)));
+            register(ExtraAdditionsCategory.ROMAN, stone + "_coffer_slab", new SlabBlockDoT(solidStone(colour)));
+            register(ExtraAdditionsCategory.ROMAN, stone + "_big_flower_pot",
+                    new WaterloggedBlock(solidStone(colour), VoxelShapes.MARBLE_BIG_FLOWER_POT_SHAPES));
+        }
+        for (String fence : new String[]{"gold_wrought_iron_fence", "diamond_wrought_iron_fence"}) {
+            register(ExtraAdditionsCategory.GERMAN, fence,
+                    new IronFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)));
+        }
+        for (String fence : new String[]{"black_gold_wrought_iron_fence", "black_diamond_wrought_iron_fence"}) {
+            register(ExtraAdditionsCategory.FRENCH, fence,
+                    new IronFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)));
+        }
         register(ExtraAdditionsCategory.JAPANESE, "light_gray_double_futon", DOUBLE_FUTON);
         for (String dye : DYES) {
             register(ExtraAdditionsCategory.JAPANESE, dye + "_futon", new FutonBlock(futon()));
@@ -536,7 +592,7 @@ public class DawnOfTimeExtras {
                 new WaterloggedHorizontalAxisBlock(
                         BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS).noOcclusion(),
                         VoxelShapes.PLASTERED_STONE_WINDOW_SHAPES));
-        for (String stone : stones("quartz")) {
+        for (String stone : stones("quartz", "limestone")) {
             register(ExtraAdditionsCategory.FRENCH, stone + "_bricks_arrowslit", new StoneBricksArrowslitBlock(
                     stone(STONE_COLOURS.get(stone)), VoxelShapes.STONE_BRICKS_ARROWSLIT_SHAPES));
             register(ExtraAdditionsCategory.FRENCH, stone + "_bricks_machicolation", new StoneBricksMachicolationBlock(
@@ -582,15 +638,41 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.FRENCH, "polished_limestone_connecting_edge", new EdgeBlock(solidStone(colour)));
         }
 
+        {
+            MapColor colour = STONE_COLOURS.get("limestone");
+            Block limestoneBricks = register(ExtraAdditionsCategory.FRENCH, "limestone_bricks",
+                    new Block(solidStone(colour)));
+            register(ExtraAdditionsCategory.FRENCH, "limestone_bricks_slab", new SlabBlock(solidStone(colour)));
+            register(ExtraAdditionsCategory.FRENCH, "limestone_bricks_stairs",
+                    new StairBlock(limestoneBricks.defaultBlockState(), solidStone(colour)));
+            register(ExtraAdditionsCategory.FRENCH, "limestone_bricks_wall", new WallBlock(solidStone(colour)));
+            register(ExtraAdditionsCategory.FRENCH, "limestone_bricks_plate", new PlateBlock(solidStone(colour)));
+            register(ExtraAdditionsCategory.FRENCH, "limestone_bricks_edge", new EdgeBlock(solidStone(colour)));
+        }
+
+        {
+            MapColor colour = STONE_COLOURS.get("limestone");
+            Block brickMasonry = register(ExtraAdditionsCategory.GERMAN, "limestone_brick_masonry",
+                    new Block(solidStone(colour)));
+            TOOLTIPS.put(brickMasonry, CONNECTING_NOTE);
+            register(ExtraAdditionsCategory.GERMAN, "limestone_brick_masonry_stairs",
+                    new StairBlock(brickMasonry.defaultBlockState(), solidStone(colour)));
+            register(ExtraAdditionsCategory.GERMAN, "limestone_brick_masonry_slab", new SlabBlock(solidStone(colour)));
+            register(ExtraAdditionsCategory.GERMAN, "limestone_brick_masonry_wall", new WallBlock(solidStone(colour)));
+            register(ExtraAdditionsCategory.GERMAN, "limestone_brick_masonry_plate", new PlateBlock(solidStone(colour)));
+            register(ExtraAdditionsCategory.GERMAN, "limestone_brick_masonry_edge", new EdgeBlock(solidStone(colour)));
+        }
+
         for (String stone : stones("quartz", "limestone")) {
             register(ExtraAdditionsCategory.GERMAN, stone + "_chimney", new ChimneyBlock(stone(STONE_COLOURS.get(stone))));
         }
+        register(ExtraAdditionsCategory.GERMAN, "limestone_bricks_chimney",
+                new ChimneyBlock(stone(STONE_COLOURS.get("limestone"))));
 
         for (String stone : stones("quartz", "limestone")) {
             register(ExtraAdditionsCategory.GERMAN, stone + "_german_fireplace",
                     new FireplaceBlock(hearth(stone(STONE_COLOURS.get(stone)))));
         }
-
         register(ExtraAdditionsCategory.GERMAN, "obsidian_slab",
                 new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)));
         register(ExtraAdditionsCategory.GERMAN, "obsidian_stairs",
@@ -614,7 +696,9 @@ public class DawnOfTimeExtras {
                 WATER_TINTED.add(basinPiece);
                 WATER_TINTED_ICONS.add(basinPiece);
             }
-            WATER_TINTED.add(register(ExtraAdditionsCategory.GERMAN, basin + "_faucet", new FaucetBlock(stone(colour))));
+            Block faucet = register(ExtraAdditionsCategory.GERMAN, basin + "_faucet", new FaucetBlock(stone(colour)));
+            WATER_TINTED.add(faucet);
+            WATER_TINTED_ICONS.add(faucet);
         }
         for (String wood : WOODS) {
             register(ExtraAdditionsCategory.GERMAN, wood + "_baluster", new BalusterBlock(wood(wood)));
@@ -721,7 +805,7 @@ public class DawnOfTimeExtras {
 
         register(ExtraAdditionsCategory.JAPANESE, "charred_spruce_irori_fireplace", new IroriFireplaceBlock(
                 hearth(wood("spruce").mapColor(MapColor.TERRACOTTA_WHITE))));
-        for (String metal : new String[]{"black", "golden"}) {
+        for (String metal : new String[]{"black", "golden", "diamond"}) {
             for (String stone : stones("stone", "quartz")) {
                 register(ExtraAdditionsCategory.FRENCH, stone + "_reinforced_" + metal + "_wrought_iron_fence",
                         new ReinforcedFenceBlock(BlockBehaviour.Properties.of()
@@ -731,6 +815,13 @@ public class DawnOfTimeExtras {
                                 .sound(SoundType.METAL)
                                 .noOcclusion()));
             }
+            register(ExtraAdditionsCategory.FRENCH, "limestone_brick_reinforced_" + metal + "_wrought_iron_fence",
+                    new ReinforcedFenceBlock(BlockBehaviour.Properties.of()
+                            .mapColor(STONE_COLOURS.get("limestone"))
+                            .strength(2.0F, 6.0F)
+                            .requiresCorrectToolForDrops()
+                            .sound(SoundType.METAL)
+                            .noOcclusion()));
         }
 
         String[] paintedStoneGaps = {

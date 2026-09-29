@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:granite_coffer"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:granite_coffer_slab",
+    "count": 2
+  }
+}

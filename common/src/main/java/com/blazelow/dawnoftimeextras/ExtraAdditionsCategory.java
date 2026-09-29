@@ -10,7 +10,9 @@ public enum ExtraAdditionsCategory {
 
     PERSIAN("persian"),
 
-    PRE_COLOMBIAN("pre_columbian");
+    PRE_COLOMBIAN("pre_columbian"),
+
+    ROMAN("roman");
 
     public final String dotName;
 

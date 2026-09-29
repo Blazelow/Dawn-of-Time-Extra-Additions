@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I I",
+    "IxI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:netherrack"
+    },
+    "x": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherrack_big_flower_pot",
+    "count": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimeextras:dripstone_coffer"
+    }
+  ],
+  "result": {
+    "id": "dawnoftimeextras:dripstone_coffer_slab",
+    "count": 2
+  }
+}
