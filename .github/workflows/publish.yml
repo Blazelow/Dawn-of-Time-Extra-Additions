@@ -1,5 +1,7 @@
 name: Publish
 
+run-name: "Dawn of Time: Extra Additions ${{ github.ref_name }}"
+
 on:
   push:
     tags:
@@ -22,16 +24,21 @@ jobs:
       - name: Build
         run: ./gradlew build
 
+      - name: Read version
+        run: echo "MOD_VERSION=$(grep '^mod_version=' gradle.properties | cut -d= -f2)" >> "$GITHUB_ENV"
+
       - name: Publish Fabric
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           curseforge-id: ${{ vars.CURSEFORGE_PROJECT_ID }}
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           files: fabric/build/libs/*.jar
+          name: DoT-Extra-Additions-fabric-1.21.1-${{ env.MOD_VERSION }}.jar
           changelog-file: CHANGELOG.md
           version-type: release
           loaders: fabric
           game-versions: 1.21.1
+          java: 21
           dependencies: |
             dawn-of-time(required)
             dawn-of-time-beyond-vanilla(required)
@@ -44,10 +51,12 @@ jobs:
           curseforge-id: ${{ vars.CURSEFORGE_PROJECT_ID }}
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           files: neoforge/build/libs/*.jar
+          name: DoT-Extra-Additions-neoforge-1.21.1-${{ env.MOD_VERSION }}.jar
           changelog-file: CHANGELOG.md
           version-type: release
           loaders: neoforge
           game-versions: 1.21.1
+          java: 21
           dependencies: |
             dawn-of-time(required)
             dawn-of-time-beyond-vanilla(required)
