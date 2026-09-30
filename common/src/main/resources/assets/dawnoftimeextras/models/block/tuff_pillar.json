@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "dawnoftimeextras:block/tuff_pillar_top",
+    "side": "dawnoftimeextras:block/tuff_pillar"
+  }
+}

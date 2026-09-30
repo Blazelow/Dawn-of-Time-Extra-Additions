@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "IxI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:cut_sandstone"
+    },
+    "x": {
+      "item": "minecraft:light_gray_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:light_gray_roman_fresco_black",
+    "count": 9
+  }
+}

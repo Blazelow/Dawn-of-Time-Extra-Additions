@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -29,7 +30,7 @@ public class DawnOfTimeExtrasNeoForge {
         }
         if (event.getRegistryKey().equals(Registries.CREATIVE_MODE_TAB)) {
             DawnOfTimeExtras.init();
-            List<Block> allItems = DawnOfTimeExtras.tabItems();
+            List<ItemLike> allItems = DawnOfTimeExtras.tabItems();
             event.register(Registries.CREATIVE_MODE_TAB,
                     ResourceLocation.fromNamespaceAndPath(DawnOfTimeExtras.MOD_ID, "extra_additions"),
                     () -> {

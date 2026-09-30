@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "dawnoftimeextras:block/smooth_magenta_terracotta",
+        "top": "dawnoftimeextras:block/smooth_magenta_terracotta",
+        "side": "dawnoftimeextras:block/smooth_magenta_terracotta"
+    }
+}

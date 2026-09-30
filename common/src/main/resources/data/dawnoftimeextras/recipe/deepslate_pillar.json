@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:deepslate_bricks"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:deepslate_pillar",
+    "count": 2
+  }
+}

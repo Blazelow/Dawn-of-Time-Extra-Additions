@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:sandstone"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:sandstone_pillar",
+    "count": 2
+  }
+}

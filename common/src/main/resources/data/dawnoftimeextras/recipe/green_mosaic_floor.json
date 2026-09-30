@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iui",
+    "ooo",
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "item": "minecraft:smooth_sandstone"
+    },
+    "i": {
+      "item": "minecraft:black_dye"
+    },
+    "u": {
+      "item": "minecraft:green_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:green_mosaic_floor",
+    "count": 6
+  }
+}

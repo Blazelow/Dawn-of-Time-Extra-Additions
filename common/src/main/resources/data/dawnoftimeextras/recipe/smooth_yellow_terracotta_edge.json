@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "II"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:smooth_yellow_terracotta_slab"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:smooth_yellow_terracotta_edge",
+    "count": 6
+  }
+}

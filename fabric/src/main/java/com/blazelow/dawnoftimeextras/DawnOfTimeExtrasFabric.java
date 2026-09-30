@@ -9,13 +9,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 public class DawnOfTimeExtrasFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         DawnOfTimeExtras.init();
-        List<Block> allItems = DawnOfTimeExtras.tabItems();
+        List<ItemLike> allItems = DawnOfTimeExtras.tabItems();
 
         DawnOfTimeExtras.EXTRA_ADDITIONS_TAB = Registry.register(
                 BuiltInRegistries.CREATIVE_MODE_TAB,

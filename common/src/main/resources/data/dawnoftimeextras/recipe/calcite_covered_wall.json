@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "IiI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:calcite"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:ochre_roof_tiles"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:calcite_covered_wall",
+    "count": 8
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:smooth_light_blue_terracotta"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:smooth_light_blue_terracotta_wall",
+    "count": 9
+  }
+}

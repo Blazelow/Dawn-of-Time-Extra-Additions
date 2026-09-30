@@ -1,40 +1,73 @@
 {
     "multipart": [
         {   "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_post" }},
-        {   "when": { "north": true },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side" }
-        },
-        {   "when": { "east": true },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side", "y": 90 }
-        },
-        {   "when": { "south": true },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side", "y": 180 }
-        },
-        {   "when": { "west": true },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side", "y": 270 }
-        },
-        {   "when": { "north": false },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside" }
-        },
-        {   "when": { "east": false },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside", "y": 90 }
-        },
-        {   "when": { "south": false },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside", "y": 180 }
-        },
-        {   "when": { "west": false },
-            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside", "y": 270 }
-        },
-        {
-            "when": {"OR": [
-                { "north": true, "east": true },
-                { "east": true, "south": true },
-                { "south": true, "west": true },
-                { "west": true, "north": true }
-            ]},
-            "apply": [
-                { "model": "dawnoftimeextras:block/bamboo_paper_wall_pillar"}
-            ]
-        }
+
+        {   "when": { "north": true, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side" }},
+        {   "when": { "east": true, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side", "y": 90 }},
+        {   "when": { "south": true, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side", "y": 180 }},
+        {   "when": { "west": true, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side", "y": 270 }},
+        {   "when": { "north": false, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside" }},
+        {   "when": { "east": false, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside", "y": 90 }},
+        {   "when": { "south": false, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside", "y": 180 }},
+        {   "when": { "west": false, "vertical_connection": "none" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside", "y": 270 }},
+
+        {   "when": { "north": true, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_bottom" }},
+        {   "when": { "east": true, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_bottom", "y": 90 }},
+        {   "when": { "south": true, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_bottom", "y": 180 }},
+        {   "when": { "west": true, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_bottom", "y": 270 }},
+        {   "when": { "north": false, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_bottom" }},
+        {   "when": { "east": false, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_bottom", "y": 90 }},
+        {   "when": { "south": false, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_bottom", "y": 180 }},
+        {   "when": { "west": false, "vertical_connection": "above" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_bottom", "y": 270 }},
+
+        {   "when": { "north": true, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_middle" }},
+        {   "when": { "east": true, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_middle", "y": 90 }},
+        {   "when": { "south": true, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_middle", "y": 180 }},
+        {   "when": { "west": true, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_middle", "y": 270 }},
+        {   "when": { "north": false, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_middle" }},
+        {   "when": { "east": false, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_middle", "y": 90 }},
+        {   "when": { "south": false, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_middle", "y": 180 }},
+        {   "when": { "west": false, "vertical_connection": "both" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_middle", "y": 270 }},
+
+        {   "when": { "north": true, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_top" }},
+        {   "when": { "east": true, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_top", "y": 90 }},
+        {   "when": { "south": true, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_top", "y": 180 }},
+        {   "when": { "west": true, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_side_top", "y": 270 }},
+        {   "when": { "north": false, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_top" }},
+        {   "when": { "east": false, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_top", "y": 90 }},
+        {   "when": { "south": false, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_top", "y": 180 }},
+        {   "when": { "west": false, "vertical_connection": "under" },
+            "apply": { "model": "dawnoftimeextras:block/bamboo_paper_wall_flowery_noside_top", "y": 270 }}
     ]
 }

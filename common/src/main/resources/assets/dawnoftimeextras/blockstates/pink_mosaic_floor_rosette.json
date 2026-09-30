@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "dawnoftimeextras:block/pink_mosaic_floor_rosette_1"
+      },
+      {
+        "model": "dawnoftimeextras:block/pink_mosaic_floor_rosette_2"
+      },
+      {
+        "model": "dawnoftimeextras:block/pink_mosaic_floor_rosette_3"
+      },
+      {
+        "model": "dawnoftimeextras:block/pink_mosaic_floor_rosette_4"
+      }
+    ]
+  }
+}

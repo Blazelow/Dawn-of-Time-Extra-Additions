@@ -1,0 +1,7 @@
+{
+	"parent": "dawnoftimebuilder:block/general/small_plate_outer",
+	"textures": {
+		"top": "dawnoftimeextras:block/smooth_orange_terracotta",
+		"frieze": "dawnoftimeextras:block/smooth_orange_terracotta"
+	}
+}

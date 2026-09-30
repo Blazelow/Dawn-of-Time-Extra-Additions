@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "iI",
+    "Ii"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:terracotta"
+    },
+    "i": {
+      "item": "minecraft:lime_dye"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:smooth_lime_terracotta",
+    "count": 8
+  }
+}

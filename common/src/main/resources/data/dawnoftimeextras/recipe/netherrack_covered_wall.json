@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "IiI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:netherrack"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:ochre_roof_tiles"
+    }
+  },
+  "result": {
+    "id": "dawnoftimeextras:netherrack_covered_wall",
+    "count": 8
+  }
+}

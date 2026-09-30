@@ -13,6 +13,7 @@ import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import org.spongepowered.asm.mixin.Mixin;
@@ -209,6 +210,11 @@ public abstract class ExtraAdditionsCreativeMixin
         for (Block block : DawnOfTimeExtras.CATEGORY_BLOCKS.get(category)) {
             if (subTab == null || subTab.contains(block)) {
                 this.menu.items.add(new ItemStack(block));
+            }
+        }
+        if (subTab == null) {
+            for (Item item : DawnOfTimeExtras.CATEGORY_ITEMS.get(category)) {
+                this.menu.items.add(new ItemStack(item));
             }
         }
         this.menu.scrollTo(0.0F);
