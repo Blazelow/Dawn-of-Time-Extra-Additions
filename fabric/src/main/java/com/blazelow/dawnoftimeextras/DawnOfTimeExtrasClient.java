@@ -10,13 +10,31 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class DawnOfTimeExtrasClient implements ClientModInitializer {
 
     private static final int STILL_WATER = 0x3F76E4;
+
+    private static Set<ResourceLocation> waterBlockIds;
+
+    private static Set<ResourceLocation> waterBlocks() {
+        if (waterBlockIds == null) {
+            waterBlockIds = new HashSet<>();
+            for (Block block : DawnOfTimeExtras.WATER_TINTED) {
+                waterBlockIds.add(BuiltInRegistries.BLOCK.getKey(block));
+            }
+        }
+        return waterBlockIds;
+    }
 
     @Override
     public void onInitializeClient() {
@@ -26,12 +44,23 @@ public class DawnOfTimeExtrasClient implements ClientModInitializer {
         }
 
         for (Block block : DawnOfTimeExtras.WATER_TINTED) {
-            BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.translucent());
+            BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.cutout());
         }
 
         for (Block block : DawnOfTimeExtras.CUTOUT) {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderType.cutout());
         }
+
+        ModelLoadingPlugin.register(pluginContext -> pluginContext.modifyModelAfterBake().register((model, context) -> {
+            ModelResourceLocation id = context.topLevelId();
+            if (model == null || id == null || id.variant().equals("inventory")) {
+                return model;
+            }
+            if (waterBlocks().contains(id.id())) {
+                return new WaterQuadModel(model);
+            }
+            return model;
+        }));
 
         ColorProviderRegistry.BLOCK.register(
                 (state, view, pos, tint) -> view == null || pos == null

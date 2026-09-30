@@ -41,9 +41,6 @@ public final class DawnOfTimeExtrasNeoForgeClient {
     private static void onClientSetup(FMLClientSetupEvent event) {
 
         event.enqueueWork(() -> {
-            for (Block block : DawnOfTimeExtras.WATER_TINTED) {
-                ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent());
-            }
             for (Block block : DawnOfTimeExtras.CUTOUT) {
                 ItemBlockRenderTypes.setRenderLayer(block, RenderType.cutout());
             }

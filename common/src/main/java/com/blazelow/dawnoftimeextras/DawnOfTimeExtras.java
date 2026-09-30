@@ -78,6 +78,7 @@ public class DawnOfTimeExtras {
             "tatami_block", "pale_green_tatami_block", "_fireplace",
             "_crenelation", "_little_flag", "_hanging_noren_flag", "_fancy_lantern", "_portcullis", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
             "_wave_template", "_round_template", "_spiral_template", "_painted_lattice", "_serpent_sculpted_column",
+            "_fancy_fence", "_wrought_iron_baluster", "_painted_stone", "_painted_stone_slab",
 
             "_glass_pane", "_window", "_fancy_railing",
 
