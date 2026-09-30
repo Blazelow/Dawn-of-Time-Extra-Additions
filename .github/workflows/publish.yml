@@ -41,6 +41,7 @@ jobs:
           java: 17
           dependencies: |
             dawn-of-time(required)
+            dawn-of-time-beyond-vanilla(required)
             fabric-api(required)
             fusion-connected-textures(optional)
             indium(optional)
@@ -59,4 +60,5 @@ jobs:
           java: 17
           dependencies: |
             dawn-of-time(required)
+            dawn-of-time-beyond-vanilla(required)
             fusion-connected-textures(optional)

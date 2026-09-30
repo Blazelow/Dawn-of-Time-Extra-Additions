@@ -32,7 +32,8 @@
     "minecraft": "1.20.1",
     "java": ">=17",
     "fabric-api": "*",
-    "dawnoftimebuilder": ">=1.5.53"
+    "dawnoftimebuilder": ">=1.5.53",
+    "dotbv": ">=0.1.1"
   },
   "recommends": {
     "indium": "*"

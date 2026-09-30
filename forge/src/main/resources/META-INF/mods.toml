@@ -35,6 +35,13 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
+modId = "dotbv"
+mandatory = true
+versionRange = "[0.1.1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
 modId = "fusion"
 mandatory = false
 versionRange = "[1.0.0,)"
