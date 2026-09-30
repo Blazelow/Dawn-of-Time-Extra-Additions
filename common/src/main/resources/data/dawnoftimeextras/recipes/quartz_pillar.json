@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:quartz_block"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:quartz_pillar",
+    "count": 2
+  }
+}

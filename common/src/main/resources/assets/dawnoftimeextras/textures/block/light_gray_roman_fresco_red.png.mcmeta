@@ -1,0 +1,10 @@
+{
+  "ctm": {
+    "ctm_version": 1,
+    "type": "ctm",
+    "layer": "SOLID",
+    "textures": [
+      "dawnoftimeextras:block/light_gray_roman_fresco_red-ctm"
+    ]
+  }
+}

@@ -7,6 +7,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.dawnoftime.dawnoftime.block.roman.BirchCouchBlock;
@@ -32,7 +33,9 @@ import org.dawnoftime.dawnoftime.block.templates.LatticeBlock;
 import org.dawnoftime.dawnoftime.block.templates.BlockDoT;
 import org.dawnoftime.dawnoftime.block.templates.ConnectedVerticalBlock;
 import org.dawnoftime.dawnoftime.block.templates.SlabBlockDoT;
+import org.dawnoftime.dawnoftime.block.french.ReinforcedIronFenceBlock;
 import org.dawnoftime.dawnoftime.block.general.IronFenceBlock;
+import org.dawnoftime.dawnoftime.block.templates.CappedWallBlock;
 import org.dawnoftime.dawnoftime.block.templates.WaterloggedBlock;
 import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalAxisBlock;
 import org.dawnoftime.dawnoftime.block.templates.WaterloggedHorizontalBlock;
@@ -56,9 +59,12 @@ public class DawnOfTimeExtras {
     private static final List<Block> CREATIVE_ORDER = new ArrayList<>();
 
     public static final Map<ExtraAdditionsCategory, List<Block>> CATEGORY_BLOCKS = new LinkedHashMap<>();
+
+    public static final Map<ExtraAdditionsCategory, List<Item>> CATEGORY_ITEMS = new LinkedHashMap<>();
     static {
         for (ExtraAdditionsCategory category : ExtraAdditionsCategory.values()) {
             CATEGORY_BLOCKS.put(category, new ArrayList<>());
+            CATEGORY_ITEMS.put(category, new ArrayList<>());
         }
     }
 
@@ -72,6 +78,7 @@ public class DawnOfTimeExtras {
             "tatami_block", "pale_green_tatami_block", "_fireplace",
             "_crenelation", "_little_flag", "_hanging_noren_flag", "_fancy_lantern", "_portcullis", "_bricks_arrowslit", "_bricks_machicolation", "_wrought_iron_fence", "_irori_fireplace",
             "_wave_template", "_round_template", "_spiral_template", "_painted_lattice", "_serpent_sculpted_column",
+            "_fancy_fence", "_wrought_iron_baluster", "_painted_stone", "_painted_stone_slab",
 
             "_glass_pane", "_window", "_fancy_railing",
 
@@ -283,6 +290,11 @@ public class DawnOfTimeExtras {
                     new org.dawnoftime.dawnoftime.block.templates.PlateBlock(stone(colour), VoxelShapes.THIN_PLATE_SHAPES));
             register(ExtraAdditionsCategory.ROMAN, stone + "_coffer", new BlockDoT(solidStone(colour)));
             register(ExtraAdditionsCategory.ROMAN, stone + "_coffer_slab", new SlabBlockDoT(solidStone(colour)));
+            if (!stone.equals("sandstone")) {
+                register(ExtraAdditionsCategory.ROMAN, stone + "_covered_wall",
+                        new CappedWallBlock(solidStone(colour).forceSolidOn()));
+            }
+            register(ExtraAdditionsCategory.ROMAN, stone + "_pillar", new BlockDoT(solidStone(colour)));
             register(ExtraAdditionsCategory.ROMAN, stone + "_big_flower_pot",
                     new WaterloggedBlock(solidStone(colour), VoxelShapes.MARBLE_BIG_FLOWER_POT_SHAPES));
         }
@@ -294,6 +306,51 @@ public class DawnOfTimeExtras {
             register(ExtraAdditionsCategory.FRENCH, fence,
                     new IronFenceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
         }
+        String[] frescoColours = {"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
+                "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"};
+        for (String design : new String[]{"red", "black"}) {
+            for (String colour : frescoColours) {
+                Block fresco = register(ExtraAdditionsCategory.ROMAN, colour + "_roman_fresco_" + design,
+                        new BlockDoT(solidStone(MapColor.SAND)));
+                TOOLTIPS.put(fresco, CONNECTING_NOTE);
+            }
+        }
+        for (String colour : frescoColours) {
+            for (String mosaic : new String[]{"_mosaic_floor", "_mosaic_floor_delicate", "_mosaic_floor_rosette"}) {
+                Block floor = register(ExtraAdditionsCategory.ROMAN, colour + mosaic,
+                        new BlockDoT(solidStone(MapColor.SAND)));
+                if (!mosaic.endsWith("rosette")) {
+                    TOOLTIPS.put(floor, CONNECTING_NOTE);
+                }
+            }
+        }
+        for (String colour : new String[]{"magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray",
+                "purple", "brown", "green", "red"}) {
+            registerItem(ExtraAdditionsCategory.ROMAN, "clay_tile_" + colour);
+        }
+        for (String colour : new String[]{"orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray",
+                "light_gray", "cyan", "purple", "blue", "brown", "green", "red"}) {
+            MapColor smoothColour = DYE_MAP_COLOURS.get(colour);
+            Block smooth = register(ExtraAdditionsCategory.ROMAN, "smooth_" + colour + "_terracotta",
+                    new Block(solidStone(smoothColour)));
+            register(ExtraAdditionsCategory.ROMAN, "smooth_" + colour + "_terracotta_slab",
+                    new SlabBlock(solidStone(smoothColour)));
+            register(ExtraAdditionsCategory.ROMAN, "smooth_" + colour + "_terracotta_stairs",
+                    new StairBlock(smooth.defaultBlockState(), solidStone(smoothColour)));
+            register(ExtraAdditionsCategory.ROMAN, "smooth_" + colour + "_terracotta_wall",
+                    new WallBlock(solidStone(smoothColour)));
+            register(ExtraAdditionsCategory.ROMAN, "smooth_" + colour + "_terracotta_plate",
+                    new PlateBlock(solidStone(smoothColour)));
+            register(ExtraAdditionsCategory.ROMAN, "smooth_" + colour + "_terracotta_edge",
+                    new EdgeBlock(solidStone(smoothColour)));
+        }
+        for (String metal : new String[]{"gold", "diamond"}) {
+            register(ExtraAdditionsCategory.FRENCH, metal + "_wrought_iron_baluster",
+                    new org.dawnoftime.dawnoftime.block.templates.PlateBlock(
+                            BlockBehaviour.Properties.copy(Blocks.IRON_BARS), VoxelShapes.THIN_PLATE_SHAPES));
+        }
+        register(ExtraAdditionsCategory.FRENCH, "reinforced_diamond_wrought_iron_fence",
+                new ReinforcedIronFenceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
         for (String stone : stones("quartz", "stone")) {
             register(ExtraAdditionsCategory.FRENCH, stone + "_baluster", new BalusterBlock(stone(STONE_COLOURS.get(stone))));
         }
@@ -739,8 +796,9 @@ public class DawnOfTimeExtras {
                     BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_window", new PillarPaperWallBlock(
                     BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
-            register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_flowery", new VerticalPillarPaperWallBlock(
+            Block flowery = register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_flowery", new VerticalPillarPaperWallBlock(
                     BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
+            TOOLTIPS.put(flowery, new String[]{"tooltip.dawnoftimeextras.paper_wall_flowery"});
             register(ExtraAdditionsCategory.JAPANESE, wood + "_paper_wall_flat", new PillarPaperWallBlock(
                     BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(1.5F, 1.5F)));
 
@@ -798,7 +856,7 @@ public class DawnOfTimeExtras {
         for (String metal : new String[]{"black", "golden", "diamond"}) {
             for (String stone : stones("stone", "quartz")) {
                 register(ExtraAdditionsCategory.FRENCH, stone + "_reinforced_" + metal + "_wrought_iron_fence",
-                        new ReinforcedFenceBlock(BlockBehaviour.Properties.of()
+                        new ReinforcedIronFenceBlock(BlockBehaviour.Properties.of()
                                 .mapColor(STONE_COLOURS.get(stone))
                                 .strength(2.0F, 6.0F)
                                 .requiresCorrectToolForDrops()
@@ -806,7 +864,7 @@ public class DawnOfTimeExtras {
                                 .noOcclusion()));
             }
             register(ExtraAdditionsCategory.FRENCH, "limestone_brick_reinforced_" + metal + "_wrought_iron_fence",
-                    new ReinforcedFenceBlock(BlockBehaviour.Properties.of()
+                    new ReinforcedIronFenceBlock(BlockBehaviour.Properties.of()
                             .mapColor(STONE_COLOURS.get("limestone"))
                             .strength(2.0F, 6.0F)
                             .requiresCorrectToolForDrops()
@@ -904,15 +962,23 @@ public class DawnOfTimeExtras {
 
     public static Item TAB_ICON;
 
-    public static List<Block> tabItems() {
-        List<Block> allItems = new ArrayList<>();
+    public static List<ItemLike> tabItems() {
+        List<ItemLike> allItems = new ArrayList<>();
         for (ExtraAdditionsCategory category : ExtraAdditionsCategory.values()) {
             allItems.addAll(CATEGORY_BLOCKS.get(category));
+            allItems.addAll(CATEGORY_ITEMS.get(category));
         }
         return allItems;
     }
 
     public static CreativeModeTab EXTRA_ADDITIONS_TAB;
+
+    private static Item registerItem(ExtraAdditionsCategory category, String name) {
+        Item item = new Item(new Item.Properties());
+        ITEMS.put(new ResourceLocation(MOD_ID, name), item);
+        CATEGORY_ITEMS.get(category).add(item);
+        return item;
+    }
 
     private static Block register(ExtraAdditionsCategory category, String name, Block block) {
         ResourceLocation id = new ResourceLocation(MOD_ID, name);

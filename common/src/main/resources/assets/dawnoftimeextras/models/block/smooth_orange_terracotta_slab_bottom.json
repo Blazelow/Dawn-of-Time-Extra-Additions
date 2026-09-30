@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab",
+    "textures": {
+        "bottom": "dawnoftimeextras:block/smooth_orange_terracotta",
+        "top": "dawnoftimeextras:block/smooth_orange_terracotta",
+        "side": "dawnoftimeextras:block/smooth_orange_terracotta"
+    }
+}

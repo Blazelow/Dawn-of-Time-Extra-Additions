@@ -1,0 +1,14 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "dawnoftimeextras:block/red_roman_fresco_red_top",
+    "side": "dawnoftimeextras:block/red_roman_fresco_red"
+  },
+  "loader": "fusion:model",
+  "type": "connecting",
+  "connections": [
+    {
+      "type": "is_same_block"
+    }
+  ]
+}

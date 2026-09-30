@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "dawnoftimeextras:block/lime_roman_fresco_black_top",
+    "side": "dawnoftimeextras:block/lime_roman_fresco_black"
+  }
+}

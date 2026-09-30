@@ -7,6 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class DawnOfTimeExtrasFabric implements ModInitializer {
         DawnOfTimeExtras.BLOCKS.forEach((id, block) -> Registry.register(BuiltInRegistries.BLOCK, id, block));
         DawnOfTimeExtras.ITEMS.forEach((id, item) -> Registry.register(BuiltInRegistries.ITEM, id, item));
         DawnOfTimeExtras.BLOCK_ENTITIES.forEach((id, type) -> Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, type));
-        List<Block> allItems = DawnOfTimeExtras.tabItems();
+        List<ItemLike> allItems = DawnOfTimeExtras.tabItems();
 
         DawnOfTimeExtras.EXTRA_ADDITIONS_TAB = Registry.register(
                 BuiltInRegistries.CREATIVE_MODE_TAB,

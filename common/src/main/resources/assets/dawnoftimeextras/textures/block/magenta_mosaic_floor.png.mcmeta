@@ -1,0 +1,20 @@
+{
+  "ctm": {
+    "ctm_version": 1,
+    "type": "ctm",
+    "layer": "SOLID",
+    "textures": [
+      "dawnoftimeextras:block/magenta_mosaic_floor-ctm"
+    ],
+    "extra": {
+      "connect_to": [
+        {
+          "block": "dawnoftimeextras:magenta_mosaic_floor"
+        },
+        {
+          "block": "dawnoftimeextras:magenta_mosaic_floor_delicate"
+        }
+      ]
+    }
+  }
+}

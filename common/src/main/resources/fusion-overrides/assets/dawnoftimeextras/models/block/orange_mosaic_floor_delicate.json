@@ -1,0 +1,17 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "dawnoftimeextras:block/orange_mosaic_floor_delicate"
+  },
+  "loader": "fusion:model",
+  "type": "connecting",
+  "connections": [
+    {
+      "type": "is_same_block"
+    },
+    {
+      "type": "match_block",
+      "block": "dawnoftimeextras:orange_mosaic_floor"
+    }
+  ]
+}

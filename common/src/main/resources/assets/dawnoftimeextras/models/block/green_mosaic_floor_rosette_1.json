@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "dawnoftimeextras:block/green_mosaic_floor_rosette_1"
+  }
+}

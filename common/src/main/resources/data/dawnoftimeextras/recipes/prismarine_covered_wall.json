@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "IiI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:prismarine_bricks"
+    },
+    "i": {
+      "item": "dawnoftimebuilder:ochre_roof_tiles"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:prismarine_covered_wall",
+    "count": 8
+  }
+}

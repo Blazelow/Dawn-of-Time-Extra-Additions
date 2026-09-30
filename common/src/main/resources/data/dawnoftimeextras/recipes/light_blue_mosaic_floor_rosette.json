@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "u i",
+    "ooo",
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "item": "minecraft:smooth_sandstone"
+    },
+    "i": {
+      "item": "minecraft:black_dye"
+    },
+    "u": {
+      "item": "minecraft:light_blue_dye"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:light_blue_mosaic_floor_rosette",
+    "count": 6
+  }
+}

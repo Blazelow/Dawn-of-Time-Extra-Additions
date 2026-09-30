@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:smooth_yellow_terracotta"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:smooth_yellow_terracotta_wall",
+    "count": 9
+  }
+}

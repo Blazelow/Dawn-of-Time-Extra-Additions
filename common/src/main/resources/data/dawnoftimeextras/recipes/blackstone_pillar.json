@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:blackstone"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:blackstone_pillar",
+    "count": 2
+  }
+}

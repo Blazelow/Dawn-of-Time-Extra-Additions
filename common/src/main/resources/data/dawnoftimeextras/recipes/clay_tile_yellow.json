@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "dawnoftimebuilder:clay_tile"
+    },
+    {
+      "item": "minecraft:yellow_dye"
+    }
+  ],
+  "result": {
+    "item": "dawnoftimeextras:clay_tile_yellow",
+    "count": 8
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:basalt"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:basalt_pillar",
+    "count": 2
+  }
+}

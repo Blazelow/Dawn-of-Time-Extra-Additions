@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:black_gold_wrought_iron_fence"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:gold_wrought_iron_baluster",
+    "count": 6
+  }
+}

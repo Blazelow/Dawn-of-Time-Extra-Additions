@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "I  ",
+    "II ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "dawnoftimeextras:smooth_purple_terracotta"
+    }
+  },
+  "result": {
+    "item": "dawnoftimeextras:smooth_purple_terracotta_stairs",
+    "count": 6
+  }
+}
