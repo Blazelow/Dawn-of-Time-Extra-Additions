@@ -1,0 +1,53 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build
+        run: ./gradlew build
+
+      - name: Publish Fabric
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: ${{ vars.CURSEFORGE_PROJECT_ID }}
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          files: fabric/build/libs/*.jar
+          changelog-file: CHANGELOG.md
+          version-type: release
+          loaders: fabric
+          game-versions: 1.20.1
+          dependencies: |
+            dawn-of-time(required)
+            fabric-api(required)
+            fusion-connected-textures(optional)
+            indium(optional)
+
+      - name: Publish Forge
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: ${{ vars.CURSEFORGE_PROJECT_ID }}
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          files: forge/build/libs/*.jar
+          changelog-file: CHANGELOG.md
+          version-type: release
+          loaders: forge
+          game-versions: 1.20.1
+          dependencies: |
+            dawn-of-time(required)
+            fusion-connected-textures(optional)
