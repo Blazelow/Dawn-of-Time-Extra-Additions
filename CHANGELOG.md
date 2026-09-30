@@ -4,6 +4,8 @@
 
 - Extra Additions is now available for 1.20.1, on Forge and Fabric
 
+&nbsp;
+
 **🏛️ Roman:**
 
 - Added a Roman category to the creative tab
@@ -12,21 +14,29 @@
 - Roman Frescos, Mosaic Floors and Smooth Terracotta in all dye colours
 - 11 new Clay Tile colours: magenta, light blue, yellow, lime, pink, gray, light gray, purple, brown, green and red
 
+&nbsp;
+
 **⚜️ French:**
 
 - Limestone Bricks: wall, stairs, slab, plate, edge, arrowslit and machicolation
 - Reinforced fences in diamond, including Limestone Brick and Dawn of Time's own footing
 - Black Wrought Iron Fence and Baluster in gold and diamond
 
+&nbsp;
+
 **🏰 German:**
 
 - Limestone Bricks Chimney and Limestone Brick Masonry
 - Wrought Iron Fence in gold and diamond
 
+&nbsp;
+
 **⛩️ Japanese:**
 
 - Timber Frames, their Pillars and Signs are now recoloured from Dawn of Time's spruce timber frame (from 1.20.1) instead of the charred spruce one
 - Flowery Paper Walls connect vertically with themselves, like Dawn of Time's 1.20.1 version
+
+&nbsp;
 
 **🛠️ Fixes:**
 
